@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apartamenty Kaczorowskiego · Budynek 1 · Jaz-Bud Białystok</title>
+<meta name="description" content="Mieszkania 1–4 pokojowe przy ul. Kaczorowskiego 1 w centrum Białegostoku. Interaktywna wizualizacja 3D, rzuty pięter, ceny i dostępność lokali.">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex">
+<link rel="icon" href="https://www.jaz-bud.pl/images/2023/logo-jazbud-lift-2.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15171b; --ink-2:#3a3f47; --muted:#6c727c; --faint:#9aa0a8;
+  --line:#e6e3dd; --line-2:#efece7; --paper:#f6f4f0; --card:#ffffff;
+  --brand:#d2322d; --brand-ink:#a8211d; --brand-soft:#fbeceb;
+  --ok:#1f9d6b; --res:#d48a1c; --sold:#b8362e;
+  --ok-soft:#e5f4ed; --res-soft:#fbf0de; --sold-soft:#f8e6e4;
+  --radius:22px; --radius-s:14px; --shadow:0 10px 30px rgba(20,23,27,.08),0 2px 6px rgba(20,23,27,.05);
+  --shadow-l:0 30px 80px rgba(20,23,27,.18),0 6px 18px rgba(20,23,27,.08);
+  --font:"Manrope",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1360px;margin:0 auto;padding:0 28px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- concept strip ---------- */
+.concept{background:var(--ink);color:#d9dce1;font-size:12.5px;text-align:center;padding:7px 16px;font-weight:600}
+.concept a{color:#fff}
+
+/* ---------- Top bar ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:28px;height:76px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex:none}
+.logo img{height:44px;width:auto}
+.logo .sep{width:1px;height:30px;background:var(--line)}
+.logo .proj{font-size:11px;letter-spacing:.22em;text-transform:uppercase;line-height:1.25;color:var(--ink-2);font-weight:600}
+.logo .proj b{display:block;font-size:13px;letter-spacing:.14em;color:var(--ink)}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:600;font-size:14px;color:var(--ink-2);padding:9px 12px;white-space:nowrap;border-radius:999px;transition:background .2s,color .2s}
+.nav a:hover{background:var(--paper);color:var(--ink)}
+.top-actions{display:flex;align-items:center;gap:10px;flex:none}
+.fav-btn{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;font-weight:700;font-size:14px}
+.fav-btn svg{width:18px;height:18px}
+.fav-btn.has svg{color:var(--brand);fill:var(--brand)}
+.tel{font-weight:700;text-decoration:none;font-size:14px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;font-weight:700;font-size:14px;text-decoration:none;transition:transform .15s,background .2s,box-shadow .2s;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(210,50,45,.25)}
+.btn-brand:hover{background:var(--brand-ink)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:#cfcac2}
+.btn svg{width:18px;height:18px}
+.burger{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;width:42px;height:42px;align-items:center;justify-content:center}
+
+/* ---------- Intro ---------- */
+.intro{padding:34px 0 22px}
+.crumbs{font-size:13px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--ink)}
+.intro-row{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:10px;flex-wrap:wrap}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,4.6vw,62px);line-height:1.02;letter-spacing:-.02em;margin:0}
+h1 em{font-style:italic;color:var(--brand)}
+.intro p.lead{margin:12px 0 0;color:var(--ink-2);font-size:17px;max-width:640px}
+.kpis{display:flex;gap:10px;flex-wrap:wrap}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 16px;min-width:126px}
+.kpi small{display:block;font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+.kpi b{font-size:18px;letter-spacing:-.01em}
+.kpi.ok b{color:var(--ok)}
+
+/* ---------- Viewer ---------- */
+.viewer-wrap{padding:6px 0 10px}
+.viewer{position:relative;height:min(80vh,780px);min-height:520px;border-radius:var(--radius);overflow:hidden;background:#dfe7ee;box-shadow:var(--shadow);isolation:isolate;user-select:none;-webkit-user-select:none}
+.viewer:fullscreen{border-radius:0;height:100vh}
+.stage{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.stage.on{opacity:1;pointer-events:auto}
+
+/* estate (aerial) */
+.estate{background:#1b1e22}
+.estate svg.aer{position:absolute;inset:0;width:100%;height:100%}
+.estate .bpoly{cursor:pointer;transition:fill .25s, stroke .25s}
+.estate .bpoly.b1{fill:rgba(31,157,107,.22);stroke:rgba(255,255,255,.95);stroke-width:3}
+.estate .bpoly.b1:hover,.estate .bpoly.b1.hl{fill:rgba(31,157,107,.42)}
+.estate .bpoly.b2{fill:rgba(255,255,255,.08);stroke:rgba(255,255,255,.55);stroke-width:2;stroke-dasharray:10 8;cursor:default}
+.estate.overlay-off .bpoly{fill:transparent;stroke:transparent}
+.estate .blabel{position:absolute;transform:translate(-50%,-100%);background:#fff;border-radius:16px;padding:10px 14px 11px;box-shadow:var(--shadow);min-width:150px;cursor:pointer;transition:transform .2s}
+.estate .blabel:hover{transform:translate(-50%,-100%) translateY(-3px)}
+.estate .blabel::after{content:"";position:absolute;left:50%;bottom:-34px;width:2px;height:34px;background:#fff;transform:translateX(-50%)}
+.estate .blabel::before{content:"";position:absolute;left:50%;bottom:-40px;width:10px;height:10px;border-radius:50%;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.estate .blabel b{display:block;font-size:15px}
+.estate .blabel .cnt{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2);font-weight:600;margin-top:2px}
+.estate .blabel .cnt i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.estate .blabel.muted{opacity:.92;cursor:default}
+.estate .blabel.muted .cnt i{background:var(--faint)}
+.estate .blabel .go{font-size:12px;color:var(--brand);font-weight:700;margin-top:4px;display:block}
+.pin{position:absolute;transform:translate(-50%,-100%);width:46px;height:56px;border:0;background:none;padding:0}
+.pin span{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--shadow);transition:transform .2s}
+.pin::after{content:"";position:absolute;left:50%;bottom:0;border:8px solid transparent;border-top-color:#fff;border-bottom:0;transform:translateX(-50%)}
+.pin:hover span{transform:scale(1.08)}
+.pin svg{width:22px;height:22px}
+.pin em{position:absolute;left:50%;top:-30px;transform:translateX(-50%);background:var(--ink);color:#fff;font-style:normal;font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .2s}
+.pin:hover em{opacity:1}
+
+/* 3D */
+.s3d{background:linear-gradient(180deg,#c9dcec 0%,#e3ecf2 46%,#efece6 100%)}
+.s3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
+.wheel-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(21,23,27,.38);color:#fff;font-weight:700;font-size:18px;text-align:center;padding:30px;pointer-events:none;opacity:0;transition:opacity .25s;z-index:4}
+.wheel-hint.on{opacity:1}
+.s3d canvas.drag{cursor:grabbing}
+.s3d canvas.hover{cursor:pointer}
+.labels3d{position:absolute;inset:0;pointer-events:none}
+.l3{position:absolute;transform:translate(-50%,-50%);font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--ink);background:rgba(255,255,255,.88);border-radius:999px;padding:3px 9px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.l3.unit{font-size:10.5px;padding:2px 6px;letter-spacing:0;background:rgba(255,255,255,.92)}
+.l3.unit.D{color:var(--ok)}.l3.unit.R{color:var(--res)}.l3.unit.S{color:var(--sold)}
+.loading3d{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ink-2)}
+
+/* plan */
+.splan{background:#fbfaf8}
+.plan-box{position:absolute;top:78px;bottom:74px;left:96px;right:64px;display:flex;align-items:center;justify-content:center}
+.plan-inner{position:relative;height:100%;aspect-ratio:1/1;max-width:100%}
+.plan-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.plan-inner svg{position:absolute;inset:0;width:100%;height:100%}
+.upoly{stroke-width:1.6;cursor:pointer;transition:fill-opacity .2s,stroke-width .2s}
+.upoly.D{fill:var(--ok);stroke:var(--ok)}.upoly.R{fill:var(--res);stroke:var(--res)}.upoly.S{fill:var(--sold);stroke:var(--sold)}
+.upoly{fill-opacity:.32}
+.upoly:hover,.upoly.hl{fill-opacity:.62;stroke-width:3}
+.upoly.dim{fill:#9aa0a8;stroke:#9aa0a8;fill-opacity:.12}
+.splan.overlay-off .upoly{fill-opacity:0;stroke-opacity:0}
+.splan.overlay-off .upoly:hover{fill-opacity:.25;stroke-opacity:1}
+.utext{font-size:10px;font-weight:800;fill:var(--ink);pointer-events:none;text-anchor:middle;dominant-baseline:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
+.plan-empty{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:40px}
+.plan-empty.on{display:flex}
+.plan-title{position:absolute;left:24px;bottom:24px;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;color:var(--ink-2);z-index:3}
+.plan-title b{display:block;font-size:18px;color:var(--ink)}
+
+/* floors rail */
+.floors{position:absolute;left:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;background:rgba(255,255,255,.94);padding:8px;border-radius:18px;box-shadow:var(--shadow);z-index:6}
+.floors .fl-title{font-size:10px;font-weight:800;letter-spacing:.12em;color:var(--muted);text-align:center;padding:2px 0 4px}
+.floors button{width:44px;height:34px;border-radius:10px;border:0;background:transparent;font-weight:700;font-size:13px;position:relative}
+.floors button:hover{background:var(--paper)}
+.floors button.on{background:var(--ink);color:#fff}
+.floors button i{position:absolute;right:4px;top:4px;width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.floors button i.none{background:#d4d0c9}
+.floors .all{font-size:11px}
+
+/* overlay UI */
+.v-tabs{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:4px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:5px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.08);z-index:8;max-width:calc(100% - 140px);overflow-x:auto;scrollbar-width:none}
+.v-tabs::-webkit-scrollbar{display:none}
+.v-tabs button{display:flex;align-items:center;gap:8px;border:0;background:#fff;border-radius:999px;padding:10px 18px;font-weight:600;font-size:14.5px;white-space:nowrap;transition:background .2s,color .2s}
+.v-tabs button svg{width:18px;height:18px}
+.v-tabs button.on{background:var(--ink);color:#fff;font-weight:700}
+.v-tabs .t-short{display:none}
+.pf-toggle{display:none}
+.panel .sel{min-width:62px}
+.compass{position:absolute;top:18px;right:18px;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);border:0;box-shadow:var(--shadow);z-index:8;display:flex;align-items:center;justify-content:center}
+.compass .needle{position:absolute;inset:6px;transition:transform .3s}
+.compass .needle::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);border:5px solid transparent;border-bottom:9px solid var(--brand);border-top:0}
+.compass b{font-size:17px;font-weight:800}
+.legend{position:absolute;left:18px;bottom:18px;display:flex;gap:6px;z-index:8;flex-wrap:wrap}
+.legend button{display:flex;align-items:center;gap:8px;border:0;background:rgba(255,255,255,.94);border-radius:999px;padding:8px 13px;font-weight:700;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.07);transition:opacity .2s}
+.legend button i{width:10px;height:10px;border-radius:50%}
+.legend button.off{opacity:.45;text-decoration:line-through}
+.legend .D i{background:var(--ok)}.legend .R i{background:var(--res)}.legend .S i{background:var(--sold)}
+.legend span.c{color:var(--muted);font-weight:600}
+.toolbar{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:6px;align-items:center;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.08);z-index:8}
+.toolbar button{width:46px;height:46px;border-radius:50%;border:0;background:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.toolbar button:hover{background:var(--paper)}
+.toolbar button.on{background:var(--ink);color:#fff}
+.toolbar button svg{width:21px;height:21px}
+.toolbar .rot{display:flex;align-items:center;background:#fff;border-radius:999px;height:46px;padding:0 4px}
+.toolbar .rot button{width:38px;height:38px}
+.toolbar .rot span{font-weight:700;font-size:14px;padding:0 4px}
+.toolbar .only3d{display:contents}
+.viewer:not(.m-3d) .toolbar .only3d{display:none}
+.hint{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);background:rgba(21,23,27,.82);color:#fff;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;z-index:7;pointer-events:none;transition:opacity .5s;white-space:nowrap}
+.hint.hide{opacity:0}
+
+/* side panel */
+.panel-toggle{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:9;width:44px;height:92px;border:0;border-radius:16px 0 0 16px;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;transition:right .35s ease}
+.panel-toggle svg{width:22px;height:22px;transition:transform .35s}
+.viewer.panel-open .panel-toggle{right:380px}
+.viewer.panel-open .panel-toggle svg{transform:rotate(180deg)}
+.panel{position:absolute;top:0;right:0;bottom:0;width:380px;background:#fff;z-index:9;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;box-shadow:-10px 0 30px rgba(0,0,0,.08)}
+.viewer.panel-open .panel{transform:none}
+.panel-head{padding:16px 16px 12px;border-bottom:1px solid var(--line-2)}
+.panel .filters{gap:9px}
+.panel .chip{padding:6px 11px;font-size:12.5px}
+.panel .flabel{min-width:58px;font-size:10.5px}
+.panel .rng input,.panel .sel{padding:6px 9px;font-size:13px}
+.panel .rng input{width:72px}
+.panel-head h3{margin:0 0 10px;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+.panel-head h3 small{font-size:13px;color:var(--muted);font-weight:600}
+.panel-list{flex:1;overflow:auto;padding:8px 10px 18px}
+.pitem{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;padding:10px;border-radius:14px;cursor:pointer;border:1px solid transparent}
+.pitem:hover,.pitem.hl{background:var(--paper);border-color:var(--line)}
+.pitem .thumb{width:62px;height:54px;border-radius:10px;background:#f1efeb center/contain no-repeat;border:1px solid var(--line-2)}
+.pitem b{font-size:14.5px;display:flex;align-items:center;gap:7px}
+.pitem small{display:block;color:var(--muted);font-size:12.5px}
+.pitem .pr{text-align:right;font-weight:800;font-size:14px}
+.pitem .pr small{font-weight:600}
+.pitem.S{opacity:.55}
+
+/* filters (shared) */
+.filters{display:flex;flex-direction:column;gap:12px}
+.frow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.flabel{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:64px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;font-weight:700;font-size:13px;transition:all .15s}
+.chip:hover{border-color:#cbc6be}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.st{display:flex;align-items:center;gap:7px}
+.chip.st i{width:9px;height:9px;border-radius:50%}
+.chip.st.D i{background:var(--ok)}.chip.st.R i{background:var(--res)}.chip.st.S i{background:var(--sold)}
+.chip.st.on.D{background:var(--ok-soft);color:#0f6e49;border-color:#b9e2cf}
+.chip.st.on.R{background:var(--res-soft);color:#8a5608;border-color:#efd3a6}
+.chip.st.on.S{background:var(--sold-soft);color:#8f251f;border-color:#ecc0bb}
+.rng{display:flex;align-items:center;gap:6px}
+.rng input,.sel{border:1px solid var(--line);border-radius:12px;padding:8px 10px;font:inherit;font-size:13.5px;font-weight:600;width:86px;background:#fff}
+.sel{width:auto;padding-right:28px;appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2315171b' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 10px center no-repeat}
+.rng span{color:var(--faint)}
+.link-reset{border:0;background:none;color:var(--brand);font-weight:700;font-size:13px;padding:4px}
+
+/* tooltip */
+.tip{position:fixed;z-index:80;pointer-events:none;background:#fff;border-radius:18px;box-shadow:var(--shadow-l);padding:12px;display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center;min-width:300px;opacity:0;transform:translateY(6px) scale(.98);transition:opacity .15s,transform .15s}
+.tip.on{opacity:1;transform:none}
+.tip .tp-img{width:118px;height:100px;border-radius:12px;background:#f3f1ed center/contain no-repeat;border:1px solid var(--line-2)}
+.tip h4{margin:0;font-size:18px;display:flex;align-items:center;gap:8px}
+.tip .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot.D{background:var(--ok)}.dot.R{background:var(--res)}.dot.S{background:var(--sold)}
+.tip p{margin:4px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.tip p b{color:var(--ink)}
+.tip .tp-st{font-size:12px;font-weight:800;letter-spacing:.02em}
+.tip .tp-st.D{color:var(--ok)}.tip .tp-st.R{color:var(--res)}.tip .tp-st.S{color:var(--sold)}
+.tip .tp-price{margin-top:6px;font-weight:800;font-size:15px;color:var(--ink)}
+.tip .tp-hint{font-size:11.5px;color:var(--faint);margin-top:2px}
+
+/* ---------- Sections ---------- */
+section.block{padding:84px 0 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:26px;flex-wrap:wrap}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--brand)}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.2vw,44px);line-height:1.08;letter-spacing:-.015em;margin:8px 0 0}
+.sec-head p{margin:0;color:var(--ink-2);max-width:520px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 1px 0 rgba(0,0,0,.02)}
+
+/* search + table */
+.search{padding:20px 22px}
+.search .filters{flex-direction:row;flex-wrap:wrap;gap:16px 28px;align-items:center}
+.res-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 10px;gap:12px;flex-wrap:wrap}
+.res-bar b{font-size:15px}
+.res-bar .right{display:flex;gap:10px;align-items:center}
+.tbl-wrap{overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:#fff}
+table.units{width:100%;border-collapse:collapse;font-size:14.5px}
+table.units thead th{background:var(--ink);color:#fff;text-align:left;font-weight:700;padding:16px 18px;font-size:13.5px;white-space:nowrap;cursor:pointer;user-select:none}
+table.units thead th:first-child{padding-left:26px}
+table.units thead th .ar{opacity:.4;margin-left:4px;font-size:11px}
+table.units thead th.sorted .ar{opacity:1}
+table.units td{padding:15px 18px;border-top:1px solid var(--line-2);white-space:nowrap}
+table.units td:first-child{padding-left:26px;font-weight:800}
+table.units tbody tr{cursor:pointer;transition:background .15s}
+table.units tbody tr:nth-child(even){background:#faf9f7}
+table.units tbody tr:hover{background:#f2f0ec}
+table.units tbody tr.S td{color:#a7abb1}
+table.units tbody tr.S td:first-child{color:#a7abb1}
+.badge{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13px}
+.badge i{width:8px;height:8px;border-radius:50%}
+.badge.D{color:var(--ok)}.badge.D i{background:var(--ok)}
+.badge.R{color:var(--res)}.badge.R i{background:var(--res)}
+.badge.S{color:#9b9fa6}.badge.S i{background:#c4c7cc}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-weight:800;font-size:12px}
+.pill.D{background:var(--ok-soft);color:#0f6e49}.pill.R{background:var(--res-soft);color:#8a5608}.pill.S{background:var(--sold-soft);color:#8f251f}
+.tactions{display:flex;gap:6px;justify-content:flex-end}
+.icon-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink-2);transition:all .15s}
+.icon-btn:hover{border-color:#cbc6be;color:var(--ink)}
+.icon-btn svg{width:17px;height:17px}
+.icon-btn.fav.on{color:var(--brand)}
+.icon-btn.fav.on svg{fill:var(--brand)}
+.more{display:flex;justify-content:center;padding:22px}
+.empty{padding:50px;text-align:center;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.about .txt{padding:34px 36px}
+.about .txt p{font-size:16.5px;color:var(--ink-2);margin:0 0 14px}
+.feats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.feat{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--paper)}
+.feat svg{width:26px;height:26px;flex:none;color:var(--brand)}
+.feat b{display:block;font-size:14.5px}
+.feat small{color:var(--muted);font-size:13px}
+.about .photo{border-radius:var(--radius);overflow:hidden;position:relative;min-height:420px;background:#22262b}
+.about .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about .photo .cap{position:absolute;left:18px;bottom:18px;right:18px;color:#fff;font-weight:600;font-size:13px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.fact small{display:block;color:var(--muted);font-weight:600;font-size:12.5px}
+.fact b{display:block;font-size:22px;margin-top:4px;letter-spacing:-.01em}
+.fact span{font-size:13px;color:var(--ink-2)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:12px}
+.gallery button{border:0;padding:0;border-radius:18px;overflow:hidden;position:relative;background:#22262b}
+.gallery button img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery button:hover img{transform:scale(1.04)}
+.gallery .g0{grid-column:span 3;grid-row:span 2}
+.gallery .g1,.gallery .g2{grid-column:span 3}
+.gallery .g3,.gallery .g4,.gallery .g5{grid-column:span 2;grid-row:span 1}
+.gallery .g6,.gallery .g7,.gallery .g8{grid-column:span 2}
+
+/* garage */
+.garage{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gcard{padding:22px}
+.gcard small{color:var(--muted);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.gcard b{display:block;font-size:24px;margin:6px 0 2px}
+.gcard span{color:var(--ink-2);font-size:14px}
+.levels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.levels button{border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:16px;text-align:left}
+.levels button img{width:100%;aspect-ratio:16/10;object-fit:contain;background:#f6f5f2;border-radius:12px}
+.levels button b{display:block;margin-top:10px}
+
+/* location + contact */
+.loc{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
+.loc iframe{width:100%;height:100%;min-height:420px;border:0;border-radius:var(--radius);background:#e9e6e0}
+.loc .side{padding:26px}
+.loc .side p{color:var(--ink-2);margin:6px 0 18px}
+.docs{display:flex;flex-direction:column;gap:10px}
+.doc{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;border:1px solid var(--line);text-decoration:none;transition:border-color .2s}
+.doc:hover{border-color:#cbc6be}
+.doc svg{width:26px;height:26px;color:var(--brand);flex:none}
+.doc b{display:block;font-size:14px}
+.doc small{color:var(--muted)}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;overflow:hidden;background:var(--ink);color:#fff;border-radius:var(--radius)}
+.contact .info{padding:44px}
+.contact .info h2{color:#fff}
+.contact .info p{color:#c9cdd3}
+.contact .row{display:flex;gap:14px;align-items:flex-start;margin-top:18px}
+.contact .row svg{width:22px;height:22px;color:#fff;flex:none;margin-top:2px;opacity:.85}
+.contact .row b{display:block}
+.contact .row a{color:#fff}
+.contact .row span{color:#c9cdd3;font-size:14px}
+.contact form{background:#fff;color:var(--ink);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.contact form h3{grid-column:1/-1;margin:0 0 4px;font-size:20px}
+.contact form label{display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.contact form .full{grid-column:1/-1}
+.contact input,.contact textarea,.contact select{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:14.5px;background:var(--paper)}
+.contact textarea{min-height:110px;resize:vertical}
+.contact .consent{flex-direction:row !important;align-items:flex-start;font-weight:500 !important;color:var(--muted) !important;gap:10px !important}
+.contact .consent input{margin-top:3px}
+.contact form small{grid-column:1/-1;color:var(--muted)}
+
+footer{margin-top:84px;border-top:1px solid var(--line);background:#fff}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;padding-top:30px;padding-bottom:34px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+footer img{height:36px;width:auto;margin-bottom:10px}
+footer a{color:var(--ink-2)}
+
+/* sticky CTA */
+.cta-float{position:fixed;right:22px;bottom:22px;z-index:45;border-radius:18px 18px 0 18px;padding:16px 24px;font-size:16px;transition:opacity .25s,transform .25s}
+.cta-float.hide{opacity:0;transform:translateY(20px);pointer-events:none}
+
+/* ---------- Drawer (unit card) ---------- */
+.modal{position:fixed;inset:0;z-index:90;display:none}
+.modal.on{display:block}
+.modal .scrim{position:absolute;inset:0;background:rgba(15,17,20,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity .25s}
+.modal.show .scrim{opacity:1}
+.drawer{position:absolute;inset:24px;max-width:1280px;margin:0 auto;background:#fff;border-radius:26px;box-shadow:var(--shadow-l);display:grid;grid-template-columns:1.25fr 1fr;overflow:hidden;transform:translateY(24px);opacity:0;transition:transform .3s ease,opacity .3s}
+.modal.show .drawer{transform:none;opacity:1}
+.d-media{position:relative;background:#f4f2ee;display:flex;flex-direction:column}
+.d-tabs{position:absolute;top:16px;left:16px;right:16px;display:flex;gap:6px;z-index:3;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:5px;border-radius:999px;width:max-content;max-width:calc(100% - 32px);overflow:auto}
+.d-tabs button{border:0;background:#fff;border-radius:999px;padding:9px 16px;font-weight:700;font-size:13.5px;display:flex;gap:7px;align-items:center;white-space:nowrap}
+.d-tabs button svg{width:17px;height:17px}
+.d-tabs button.on{background:var(--ink);color:#fff}
+.d-view{position:absolute;inset:76px 24px 24px;display:none;align-items:center;justify-content:center}
+.d-view.on{display:flex}
+.d-view img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.d-floor{position:relative;height:100%;aspect-ratio:1/1;max-width:100%}
+.d-floor img{position:absolute;inset:0;width:100%;height:100%}
+.d-floor svg{position:absolute;inset:0;width:100%;height:100%}
+.d-floor polygon{fill:#c9c5bf;fill-opacity:.25;stroke:none}
+.d-floor polygon.me{fill:var(--brand);fill-opacity:.55;stroke:var(--brand);stroke-width:2.5}
+.d-info{overflow:auto;padding:26px 28px 28px;display:flex;flex-direction:column;gap:14px}
+.d-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.d-top .nav2{display:flex;gap:6px}
+.d-close{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center}
+.d-close svg{width:20px;height:20px}
+.d-title{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.d-title h3{margin:0;font-size:28px;letter-spacing:-.01em;font-weight:500}
+.d-title h3 b{font-weight:800}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tile{background:var(--paper);border-radius:14px;padding:11px 12px;text-align:center}
+.tile small{display:block;font-size:12px;color:var(--muted);font-weight:600}
+.tile b{font-size:17px}
+.tiles.two{grid-template-columns:1fr 1fr}
+.tiles.two .tile b{font-size:21px}
+.tile.price{background:var(--ink);color:#fff}
+.tile.price small{color:#b8bdc4}
+.box{border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.box h5{margin:0;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.box p{margin:8px 0 0;font-size:13.5px;color:var(--ink-2)}
+.box .tog{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12.5px}
+.chart{margin-top:10px;position:relative}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart .grid line{stroke:#ece9e4;stroke-width:1}
+.chart .ax{font-size:11px;fill:var(--muted)}
+.chart .ln{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.chart .pt{fill:#fff;stroke:var(--ink);stroke-width:2}
+.chart .pt.last{fill:var(--brand);stroke:var(--brand)}
+.chart .hit{fill:transparent;cursor:crosshair}
+.chart .ctip{position:absolute;background:var(--ink);color:#fff;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;pointer-events:none;transform:translate(-50%,-120%);white-space:nowrap;opacity:0;transition:opacity .12s}
+.chart .ctip.on{opacity:1}
+table.hist{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;display:none}
+table.hist.on{display:table}
+table.hist td,table.hist th{padding:7px 4px;border-top:1px solid var(--line-2);text-align:left}
+table.hist th{color:var(--muted);font-weight:700;font-size:12px}
+.d-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.d-actions .btn{width:100%}
+.d-note{font-size:12.5px;color:var(--muted)}
+.similar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.similar button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;text-align:left}
+.similar button:hover{border-color:#cbc6be}
+.similar img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#f6f5f2;border-radius:10px;mix-blend-mode:multiply}
+.similar b{display:block;font-size:13.5px;margin-top:6px}
+.similar small{color:var(--muted);font-size:12px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:95;background:rgba(10,11,13,.94);display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:84vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.lb button:hover{background:rgba(255,255,255,.22)}
+.lb button svg{width:24px;height:24px}
+.lb .x{top:22px;right:22px}.lb .p{left:22px;top:50%}.lb .n{right:22px;top:50%}
+.lb .cnt{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-weight:700;font-size:14px;opacity:.8}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;z-index:99;opacity:0;transition:all .25s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1320px){
+  .nav{display:none}
+  .burger{display:inline-flex;margin-left:auto}
+  .nav.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;background:#fff;padding:12px 20px 18px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+}
+@media (max-width:1180px){
+  .about,.loc,.contact{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .drawer{grid-template-columns:1fr;overflow:auto;inset:12px}
+  .d-media{min-height:62vh}
+}
+@media (max-width:820px){
+  .wrap{padding:0 16px}
+  .topbar .wrap{height:64px;gap:12px}
+  .logo img{height:34px}
+  .logo .sep,.logo .proj,.tel{display:none}
+  .top-actions .btn{display:none}
+  .viewer{height:76vh;min-height:520px;border-radius:18px}
+  .v-tabs{top:12px;max-width:calc(100% - 90px);left:12px;transform:none}
+  .v-tabs button{padding:9px 13px;font-size:13.5px}
+  .v-tabs .t-long{display:none}
+  .v-tabs .t-short{display:inline}
+  .pf-toggle{display:inline-flex}
+  .panel .filters{display:none}
+  .panel.show-f .filters{display:flex}
+  .compass{top:12px;right:12px;width:46px;height:46px}
+  .legend{left:12px;bottom:76px;gap:4px}
+  .legend button{padding:6px 9px;font-size:11.5px;gap:6px}
+  .legend span.c{display:none}
+  .toolbar{bottom:12px}
+  .toolbar button{width:42px;height:42px}
+  .floors{left:10px;padding:6px;gap:3px;top:auto;bottom:130px;transform:none;max-height:calc(100% - 210px);overflow:auto}
+  .floors button{width:38px;height:28px;font-size:12px}
+  .plan-box{left:62px;right:10px;top:70px;bottom:140px}
+  .panel{width:100%;top:auto;height:72%;border-radius:22px 22px 0 0;transform:translateY(100%)}
+  .viewer.panel-open .panel{transform:none}
+  .panel-toggle{top:auto;bottom:12px;right:12px;transform:none;width:48px;height:48px;border-radius:50%}
+  .viewer.panel-open .panel-toggle{right:12px;bottom:calc(72% + 10px)}
+  .panel-toggle svg{transform:rotate(90deg)}
+  .viewer.panel-open .panel-toggle svg{transform:rotate(-90deg)}
+  .hint{display:none}
+  .plan-title{left:auto;right:12px;top:66px;bottom:auto;padding:8px 12px;font-size:12px}
+  .plan-title b{font-size:15px}
+  .toolbar{left:12px;transform:none}
+  .tip{min-width:0;grid-template-columns:86px 1fr;left:12px !important;right:12px;bottom:12px;top:auto !important;position:fixed}
+  .tip .tp-img{width:86px;height:74px}
+  table.units thead{display:none}
+  table.units,table.units tbody,table.units tr,table.units td{display:block;width:100%}
+  table.units tr{display:grid !important;grid-template-columns:1fr 1fr;padding:14px 16px;border-top:1px solid var(--line-2)}
+  table.units td{border:0;padding:3px 0 !important;white-space:normal}
+  table.units td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-weight:600}
+  table.units td.tact{grid-column:1/-1}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
+  .gallery button{grid-column:span 1 !important;grid-row:span 1 !important}
+  .gallery .g0{grid-column:span 2 !important;grid-row:span 2 !important}
+  .garage,.levels{grid-template-columns:1fr}
+  .feats{grid-template-columns:1fr}
+  .contact .info,.contact form{padding:26px}
+  .contact form{grid-template-columns:1fr}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .similar{grid-template-columns:repeat(2,1fr)}
+  .d-actions{grid-template-columns:1fr}
+  .cta-float{right:12px;bottom:12px;padding:13px 18px;font-size:14px}
+  .intro{padding-top:20px}
+  .kpi{min-width:0;flex:1 1 40%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-estate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l5-3v15"/><path d="M10 21V4l9 4v13"/><path d="M13 10h3M13 14h3M13 18h3M7 12h1M7 16h1"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 20.5 7.5v9L12 21.2 3.5 16.5v-9z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9.2"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 10h7v11M10 14h4M14 3v11h7"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.2-9.4C1.7 7.8 3.9 4.5 7.3 4.5c2 0 3.4 1.1 4.7 2.8 1.3-1.7 2.7-2.8 4.7-2.8 3.4 0 5.6 3.3 4.5 6.6-1.7 4.8-9.2 9.4-9.2 9.4z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 6.9 6.9l1.5-2.3L21 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-rotl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-rotr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eyeoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.1A9.7 9.7 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-2.7 3.6M6.5 6.6C3.7 8.4 2 12 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6M3 3l18 18M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-walk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M12 7.5v6M9 10h6M10.5 21l1.5-7.5 1.5 7.5"/><path d="M5 18.5c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></symbol>
+    <symbol id="i-elev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M7.5 9l1.5-2 1.5 2M13.5 15l1.5 2 1.5-2"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="13.5" r="1"/><circle cx="16.5" cy="13.5" r="1"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16 9.5 9h6l2.5 7M9.5 9 12 16h3M14 6h2.5"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-4 6-6.5 10-8"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M12 3v18M4 12h16"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  </defs>
+</svg>
+
+<div class="concept">Koncepcja nowej odsłony podstrony inwestycji · strona nieoficjalna · aktualna oferta: <a href="https://www.jaz-bud.pl/bialystok/ul-kaczorowskiego-budynek-1.html" target="_blank" rel="noopener">jaz-bud.pl</a></div>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Jaz-Bud – strona główna">
+      <img src="https://www.jaz-bud.pl/images/2023/logo-jazbud-lift-2.svg" alt="Jaz-Bud" width="140" height="61">
+      <span class="sep"></span>
+      <span class="proj">Apartamenty<b>Kaczorowskiego</b></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#wizualizacja">Wizualizacja</a>
+      <a href="#mieszkania">Mieszkania</a>
+      <a href="#inwestycja">O inwestycji</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#garaz">Garaż i komórki</a>
+      <a href="#lokalizacja">Lokalizacja</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="top-actions">
+      <button class="fav-btn" id="favBtn" title="Ulubione mieszkania"><svg><use href="#i-heart"/></svg><span id="favCount">0</span></button>
+      <a class="tel" href="tel:+48856514949">85 651 49 49</a>
+      <a class="btn btn-brand" href="#kontakt">Zapytaj o ofertę</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><svg width="22" height="22"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap intro">
+    <div class="crumbs"><a href="#">Jaz-Bud</a><span>/</span><a href="#">Białystok</a><span>/</span><span>ul. Kaczorowskiego 1 · budynek 1</span></div>
+    <div class="intro-row">
+      <div>
+        <h1>Apartamenty <em>Kaczorowskiego</em></h1>
+        <p class="lead">Budynek 1 w centrum Białegostoku, przy ul. Prezydenta Ryszarda Kaczorowskiego. Wybierz mieszkanie bezpośrednio na wizualizacji, a dostępność sprawdzisz od razu.</p>
+      </div>
+      <div class="kpis" id="kpis"></div>
+    </div>
+  </div>
+
+  <!-- ===================== VIEWER ===================== -->
+  <section class="wrap viewer-wrap" id="wizualizacja">
+    <div class="viewer m-estate" id="viewer">
+      <!-- estate -->
+      <div class="stage estate on" id="stEstate" data-view="estate">
+        <svg class="aer" id="aer" viewBox="0 0 1920 1129" preserveAspectRatio="xMidYMid slice">
+          <image href="https://www.jaz-bud.pl/images/kaczorowskiego-1/galeria/2026-ga/kaczorowskiego-galeria-8.jpg" width="1920" height="1129" preserveAspectRatio="xMidYMid slice"/>
+          <polygon class="bpoly b2" points="348,282 694,302 817,350 1064,413 1085,420 1088,975 870,1069 109,620 80,456 276,402 297,337"/>
+          <polygon class="bpoly b1" id="b1poly" points="451,293 470,174 845,140 845,90 1140,88 1450,124 1714,127 1698,487 1450,640 1128,805 1110,440 1085,420 1064,413 817,350 694,302"/>
+        </svg>
+        <div id="estateLabels"></div>
+      </div>
+      <!-- 3D -->
+      <div class="stage s3d" id="st3d" data-view="3d">
+        <canvas id="c3d"></canvas>
+        <div class="labels3d" id="labels3d"></div>
+        <div class="loading3d" id="loading3d">Ładowanie modelu 3D…</div>
+        <div class="wheel-hint" id="wheelHint">Przytrzymaj Ctrl (⌘) i przewiń, aby przybliżyć – albo użyj przycisków + / −</div>
+      </div>
+      <!-- plan -->
+      <div class="stage splan" id="stPlan" data-view="plan">
+        <div class="plan-box"><div class="plan-inner" id="planInner"><img id="planImg" alt="Rzut piętra"><svg id="planSvg" viewBox="0 0 800 800"></svg></div></div>
+        <div class="plan-empty" id="planEmpty"></div>
+        <div class="plan-title" id="planTitle"></div>
+      </div>
+
+      <nav class="v-tabs" id="vtabs">
+        <button data-v="estate" class="on"><svg><use href="#i-estate"/></svg><span>Osiedle</span></button>
+        <button data-v="3d"><svg><use href="#i-cube"/></svg><span class="t-long">Budynek 1 · 3D</span><span class="t-short">3D</span></button>
+        <button data-v="plan"><svg><use href="#i-plan"/></svg><span class="t-long">Rzuty pięter</span><span class="t-short">Rzuty</span></button>
+      </nav>
+      <button class="compass" id="compass" title="Północ"><span class="needle" id="needle"></span><b>N</b></button>
+      <div class="floors" id="floors" hidden></div>
+      <div class="legend" id="legend"></div>
+      <div class="toolbar" id="toolbar">
+        <span class="only3d">
+          <span class="rot"><button id="rotL" title="Obróć w lewo"><svg><use href="#i-rotl"/></svg></button><span>360°</span><button id="rotR" title="Obróć w prawo"><svg><use href="#i-rotr"/></svg></button></span>
+          <button id="zoomIn" title="Przybliż"><svg><use href="#i-plus"/></svg></button><button id="zoomOut" title="Oddal"><svg><use href="#i-minus"/></svg></button>
+          <button id="resetView" title="Widok domyślny"><svg><use href="#i-reset"/></svg></button>
+        </span>
+        <button id="ovBtn" class="on" title="Pokaż / ukryj dostępność"><svg><use href="#i-eye"/></svg></button>
+        <button id="fsBtn" title="Pełny ekran"><svg><use href="#i-full"/></svg></button>
+      </div>
+      <div class="hint hide" id="hint">Przeciągnij, aby obrócić · Ctrl + kółko przybliża · kliknij mieszkanie</div>
+      <button class="panel-toggle" id="panelToggle" title="Lista i filtry"><svg><use href="#i-chev"/></svg></button>
+      <aside class="panel" id="panel">
+        <div class="panel-head">
+          <h3>Wyszukiwarka <span style="display:flex;gap:8px;align-items:center"><small id="pCount"></small><button class="chip pf-toggle" id="pfToggle">Filtry</button></span></h3>
+          <div class="filters" data-filters="panel"></div>
+        </div>
+        <div class="panel-list" id="pList"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== SEARCH / TABLE ===================== -->
+  <section class="block wrap" id="mieszkania">
+    <div class="sec-head">
+      <div><div class="eyebrow">Oferta</div><h2>Mieszkania w budynku 1</h2></div>
+      <p>Ceny, metraże i dostępność wszystkich lokali. Kliknij wiersz, aby zobaczyć rzut, historię cen i kartę katalogową.</p>
+    </div>
+    <div class="card search"><div class="filters" data-filters="main"></div></div>
+    <div class="res-bar">
+      <b id="resCount"></b>
+      <div class="right"><button class="link-reset" id="resetF">Wyczyść filtry</button></div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="units">
+        <thead><tr>
+          <th data-s="n">Numer<span class="ar">▲</span></th>
+          <th data-s="k">Klatka<span class="ar">▲</span></th>
+          <th data-s="f">Piętro<span class="ar">▲</span></th>
+          <th data-s="a">Metraż<span class="ar">▲</span></th>
+          <th data-s="r">Pokoje<span class="ar">▲</span></th>
+          <th data-s="m">Cena za m²<span class="ar">▲</span></th>
+          <th data-s="p">Cena<span class="ar">▲</span></th>
+          <th data-s="s">Dostępność<span class="ar">▲</span></th>
+          <th style="text-align:right;cursor:default">&nbsp;</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="tEmpty" hidden>Brak mieszkań spełniających kryteria. Zmień filtry.</div>
+    </div>
+    <div class="more"><button class="btn btn-ghost" id="moreBtn">Pokaż więcej</button></div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="block wrap" id="inwestycja">
+    <div class="sec-head">
+      <div><div class="eyebrow">O inwestycji</div><h2>Miejskie mieszkanie<br>w nowoczesnej formie</h2></div>
+    </div>
+    <div class="about">
+      <div class="card txt">
+        <p>Apartamenty Kaczorowskiego to dwa budynki o współczesnej architekturze w centralnej części Białegostoku, w sąsiedztwie ulic Legionowej i Waszyngtona. Budynek 1 tworzy charakterystyczną bryłę w kształcie litery U z zielonym dziedzińcem, a od strony ulicy wyróżnia go uskokowa, „piłowa” elewacja.</p>
+        <p>W ofercie są mieszkania od 1 do 4 pokoi. Każde ma balkon, loggię lub taras oraz duże przeszklenia. Mieszkańcy mają do dyspozycji cichą windę, podziemny garaż, komórki lokatorskie i rowerownie, a rozwiązania energooszczędne pomagają obniżyć koszty utrzymania.</p>
+        <div class="feats">
+          <div class="feat"><svg><use href="#i-window"/></svg><div><b>Duże przeszklenia</b><small>Jasne wnętrza z balkonem, loggią lub tarasem</small></div></div>
+          <div class="feat"><svg><use href="#i-elev"/></svg><div><b>Cicha winda</b><small>W każdej z pięciu klatek</small></div></div>
+          <div class="feat"><svg><use href="#i-car"/></svg><div><b>Garaż podziemny</b><small>Dwa poziomy: -1 i -2</small></div></div>
+          <div class="feat"><svg><use href="#i-leaf"/></svg><div><b>Zielony dziedziniec</b><small>Zadbana przestrzeń wewnątrz kwartału</small></div></div>
+          <div class="feat"><svg><use href="#i-box"/></svg><div><b>Komórki lokatorskie</b><small>Od 2,32 do 5,89 m²</small></div></div>
+          <div class="feat"><svg><use href="#i-sun"/></svg><div><b>Energooszczędność</b><small>Niższe koszty eksploatacji</small></div></div>
+        </div>
+      </div>
+      <div class="photo"><img loading="lazy" src="https://www.jaz-bud.pl/templates/yootheme/cache/19/Kaczorowskiego_1-5-1941776e.jpeg" alt="Budynek 1 przy ul. Kaczorowskiego nocą"><div class="cap">Wizualizacja budynku 1 od strony ul. Kaczorowskiego</div></div>
+    </div>
+    <div class="facts" id="facts"></div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="block wrap" id="galeria">
+    <div class="sec-head"><div><div class="eyebrow">Galeria</div><h2>Wizualizacje</h2></div><p>Dziewięć ujęć osiedla: od ulicy, z dziedzińca i z lotu ptaka.</p></div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- ===================== GARAGE ===================== -->
+  <section class="block wrap" id="garaz">
+    <div class="sec-head"><div><div class="eyebrow">Dodatkowo</div><h2>Garaż, komórki, rowerownie</h2></div><p>Pomieszczenia i miejsca postojowe są płatne dodatkowo i znajdują się na poziomach -1 i -2.</p></div>
+    <div class="garage">
+      <div class="card gcard"><small>Miejsca postojowe</small><b>50 000 – 70 000 zł</b><span>Garaż podziemny, poziom -1 i -2</span></div>
+      <div class="card gcard"><small>Komórki lokatorskie</small><b>3 000 zł/m²</b><span>Powierzchnia 2,32 – 5,89 m²</span></div>
+      <div class="card gcard"><small>Pomieszczenia na rowery</small><b>3 000 zł/m²</b><span>Powierzchnia 2,86 – 5,51 m²</span></div>
+    </div>
+    <div class="levels">
+      <button data-lb="g1"><img loading="lazy" src="https://www.jaz-bud.pl/templates/yootheme/cache/09/Kaczorowskiego_-_garaz_poziom_-1-09670184.png" alt="Garaż poziom -1"><b>Garaż · poziom -1</b></button>
+      <button data-lb="g2"><img loading="lazy" src="https://www.jaz-bud.pl/templates/yootheme/cache/d9/Kaczorowskiego%20-%20garaz%20poziom%20-2-d9dcc427.png" alt="Garaż poziom -2"><b>Garaż · poziom -2</b></button>
+    </div>
+  </section>
+
+  <!-- ===================== LOCATION ===================== -->
+  <section class="block wrap" id="lokalizacja">
+    <div class="sec-head"><div><div class="eyebrow">Lokalizacja</div><h2>Centrum Białegostoku</h2></div></div>
+    <div class="loc">
+      <iframe loading="lazy" title="Mapa – ul. Kaczorowskiego 1, Białystok" src="https://www.google.com/maps?q=ul.+Prezydenta+Ryszarda+Kaczorowskiego+1,+Bia%C5%82ystok&z=15&output=embed"></iframe>
+      <div class="card side">
+        <h3 style="margin:0">ul. Kaczorowskiego 1</h3>
+        <p>Białystok, okolice ulic Legionowej i Waszyngtona. Budynek 1 od północy przylega do ul. Prezydenta Ryszarda Kaczorowskiego, od zachodu do ul. Bułgarskiej.</p>
+        <div class="eyebrow" style="margin-bottom:10px">Dokumenty</div>
+        <div class="docs">
+          <a class="doc" target="_blank" rel="noopener" href="https://www.jaz-bud.pl/images/kaczorowskiego-1/prospekt/PROSPEKT_ul._Kaczorowskiego_1_-_klatka_12.pdf"><svg><use href="#i-pdf"/></svg><div><b>Prospekt informacyjny · klatki 1–2</b><small>Mieszkania 1–161 · PDF</small></div></a>
+          <a class="doc" target="_blank" rel="noopener" href="https://www.jaz-bud.pl/images/kaczorowskiego-1/prospekt/PROSPEKT_ul._Kaczorowskiego_1_-_klatka_345.pdf"><svg><use href="#i-pdf"/></svg><div><b>Prospekt informacyjny · klatki 3–5</b><small>Mieszkania 162–425 · PDF</small></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="block wrap" id="kontakt">
+    <div class="contact">
+      <div class="info">
+        <div class="eyebrow" style="color:#ff8a85">Biuro sprzedaży</div>
+        <h2>Porozmawiajmy<br>o Twoim mieszkaniu</h2>
+        <p>Doradcy pokażą rzuty, pomogą dobrać lokal i umówią prezentację.</p>
+        <div class="row"><svg><use href="#i-pin"/></svg><div><b>ul. Świętokrzyska 3</b><span>15-843 Białystok</span></div></div>
+        <div class="row"><svg><use href="#i-clock"/></svg><div><b>Pon. – pt. 8:00 – 17:00</b><span>Biuro sprzedaży w Białymstoku</span></div></div>
+        <div class="row"><svg><use href="#i-phone"/></svg><div><b><a href="tel:+48856514949">85 651 49 49</a></b><span>Dział sprzedaży</span></div></div>
+        <div class="row"><svg><use href="#i-mail"/></svg><div><b><a href="mailto:biuro@jaz-bud.pl">biuro@jaz-bud.pl</a></b><span>Odpowiadamy w dni robocze</span></div></div>
+      </div>
+      <form id="cform" novalidate>
+        <h3>Zapytaj o ofertę</h3>
+        <label>Imię i nazwisko<input name="name" autocomplete="name" required></label>
+        <label>Telefon<input name="tel" autocomplete="tel" inputmode="tel"></label>
+        <label class="full">E-mail<input name="email" type="email" autocomplete="email" required></label>
+        <label class="full">Mieszkanie<select name="unit" id="cUnit"><option value="">Nie wybrano – szukam propozycji</option></select></label>
+        <label class="full">Wiadomość<textarea name="msg" placeholder="Np. interesuje mnie 3-pokojowe mieszkanie na wyższym piętrze."></textarea></label>
+        <label class="full consent"><input type="checkbox" required> <span>Wyrażam zgodę na kontakt w sprawie oferty. Administratorem danych jest JAZ-BUD Sawicki Sp.k.</span></label>
+        <button class="btn btn-brand full" type="submit"><svg><use href="#i-mail"/></svg>Wyślij zapytanie</button>
+        <small>Formularz otworzy wiadomość w Twoim programie pocztowym.</small>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="https://www.jaz-bud.pl/images/2023/logo-jazbud-lift-2.svg" alt="Jaz-Bud" width="140" height="61">
+      JAZ-BUD Sawicki Sp.k. · ul. Świętokrzyska 3, 15-843 Białystok<br>
+      <a href="https://www.facebook.com/jazbudbialystok" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/jaz_bud_pl/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div style="max-width:560px">
+      Wizualizacje i model 3D mają charakter poglądowy. Położenie lokali w modelu odwzorowano na podstawie kart katalogowych; lokale nr 160, 161 i 341 (11. piętro) umieszczono orientacyjnie. Ceny i dostępność: stan na <span id="stamp"></span> według jaz-bud.pl. Oferta nie stanowi oferty handlowej w rozumieniu Kodeksu cywilnego.<br><br>Koncepcja nowej odsłony podstrony inwestycji.
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-brand cta-float" id="ctaFloat" href="#kontakt">Zapytaj o ofertę</a>
+
+<div class="tip" id="tip"><div class="tp-img" id="tpImg"></div><div><h4><span id="tpNo"></span><span class="dot" id="tpDot"></span></h4><div class="tp-st" id="tpSt"></div><p id="tpTxt"></p><div class="tp-price" id="tpPrice"></div><div class="tp-hint">Kliknij, aby otworzyć kartę</div></div></div>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+    <div class="d-media">
+      <div class="d-tabs" id="dTabs">
+        <button data-d="plan" class="on"><svg><use href="#i-plan"/></svg>Rzut mieszkania</button>
+        <button data-d="floor"><svg><use href="#i-layers"/></svg>Na piętrze</button>
+        <button data-d="b3d"><svg><use href="#i-cube"/></svg>Pokaż w 3D</button>
+      </div>
+      <div class="d-view on" data-dv="plan"><img id="dPlan" alt="Rzut mieszkania"></div>
+      <div class="d-view" data-dv="floor"><div class="d-floor"><img id="dFloorImg" alt="Rzut piętra"><svg id="dFloorSvg" viewBox="0 0 800 800"></svg></div></div>
+    </div>
+    <div class="d-info" id="dInfo"></div>
+  </div>
+</div>
+
+<div class="lb" id="lb"><img id="lbImg" alt=""><button class="x" data-lbx><svg><use href="#i-x"/></svg></button><button class="p" data-lbp><svg><use href="#i-rotl"/></svg></button><button class="n" data-lbn><svg><use href="#i-rotr"/></svg></button><div class="cnt" id="lbCnt"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>window.IMG_BASE='https://www.jaz-bud.pl';</script>
+<script>
+// Snapshot of jaz-bud.pl, ul. Kaczorowskiego 1 budynek 1 (17.11.2026)
+window.UNITS=[{"n":1,"a":30.34,"f":1,"r":1,"s":"R","k":1,"p":411210,"m":13500,"t":"W","h":[["2024-11-30",424760],["2025-09-10",424760],["2026-03-12",409590]],"g":[[63,376],[89,376],[85,398],[63,398]],"th":"d5204ef2"},{"n":2,"a":45.03,"f":1,"r":2,"s":"R","k":1,"p":580887,"m":12900,"t":"W","h":[["2024-11-30",603402],["2025-09-10",603402],["2026-03-12",580887]],"g":[[49,426],[62,407],[89,407],[89,425],[85,433],[49,433]],"th":"65d669e4"},{"n":3,"a":65.02,"f":1,"r":4,"s":"R","k":1,"p":812750,"m":12500,"t":"W","h":[["2024-11-30",845260],["2025-09-10",845260],["2026-03-12",812750]],"g":[[16,376],[39,376],[42,380],[45,429],[45,432],[24,432],[16,428]],"th":"7d7cbb80"},{"n":4,"a":53.86,"f":1,"r":3,"s":"D","k":1,"p":700180,"m":13000,"t":"W","h":[["2024-11-30",716338],["2025-09-10",716338],["2026-03-12",700180]],"g":[[16,324],[42,324],[45,329],[45,354],[43,368],[20,368],[18,360],[16,347]],"th":"362884bc"},{"n":5,"a":52.39,"f":1,"r":3,"s":"D","k":1,"p":681070,"m":13000,"t":"W","h":[["2024-11-30",696787],["2025-09-10",696787],["2026-03-12",681070]],"g":[[16,276],[56,276],[56,279],[40,316],[20,316],[16,306]],"th":"2e8256d8"},{"n":6,"a":50.32,"f":1,"r":2,"s":"D","k":1,"p":601324,"m":11950,"t":"W","h":[["2024-11-30",646548],["2025-09-10",646548],["2026-03-12",601324]],"g":[[59,281],[62,276],[89,276],[88,307],[85,316],[59,316]],"th":"077d2074"},{"n":7,"a":30.34,"f":2,"r":2,"s":"S","k":1,"g":[[62,377],[89,377],[85,399],[63,399],[62,384]]},{"n":8,"a":45.03,"f":2,"r":2,"s":"D","k":1,"p":612408,"m":13600,"t":"W","h":[["2024-11-30",612408],["2025-09-10",612408]],"g":[[50,426],[62,407],[89,407],[89,425],[85,433],[50,433]],"th":"e6d26e9a"},{"n":9,"a":65.02,"f":2,"r":4,"s":"D","k":1,"p":864766,"m":13300,"t":"W","h":[["2024-11-30",864766],["2025-09-10",864766]],"g":[[16,377],[39,377],[43,381],[46,406],[46,433],[24,433],[16,429]],"th":"897f8c68"},{"n":10,"a":53.86,"f":2,"r":3,"s":"D","k":1,"p":727110,"m":13500,"t":"W","h":[["2024-11-30",727110],["2025-09-10",727110]],"g":[[16,325],[42,325],[45,330],[45,355],[43,368],[20,368],[18,360],[16,348]],"th":"bc74c78d"},{"n":11,"a":52.39,"f":2,"r":3,"s":"S","k":1,"g":[[16,276],[56,276],[56,280],[40,317],[20,317],[16,306]]},{"n":12,"a":32.95,"f":2,"r":2,"s":"S","k":1,"g":[[63,276],[89,276],[89,278],[83,300],[62,300]]},{"n":13,"a":34.66,"f":2,"r":2,"s":"S","k":1,"g":[[60,326],[62,309],[83,309],[88,316],[89,326],[85,334],[63,334],[60,330]]},{"n":14,"a":30.34,"f":3,"r":2,"s":"S","k":1,"g":[[63,377],[90,377],[86,399],[64,399]]},{"n":15,"a":45.03,"f":3,"r":2,"s":"D","k":1,"p":612408,"m":13600,"t":"W","h":[["2024-11-30",612408],["2025-09-10",612408]],"g":[[50,426],[60,410],[63,407],[89,407],[89,426],[85,433],[50,433]],"th":"c6755c79"},{"n":16,"a":65.02,"f":3,"r":4,"s":"S","k":1,"g":[[16,377],[39,377],[42,381],[46,406],[46,433],[24,433],[16,429]]},{"n":17,"a":53.86,"f":3,"r":3,"s":"S","k":1,"g":[[16,325],[43,325],[46,330],[46,355],[43,369],[20,369],[16,348]]},{"n":18,"a":52.49,"f":3,"r":3,"s":"S","k":1,"g":[[16,276],[55,276],[55,280],[40,317],[20,317],[16,307]]},{"n":19,"a":32.95,"f":3,"r":2,"s":"S","k":1,"g":[[62,277],[89,277],[89,279],[83,301],[62,301]]},{"n":20,"a":34.66,"f":3,"r":2,"s":"S","k":1,"g":[[59,328],[62,309],[83,309],[87,316],[89,326],[85,335],[63,335],[59,331]]},{"n":21,"a":30.34,"f":4,"r":2,"s":"D","k":1,"p":439930,"m":14500,"t":"W","h":[["2024-11-30",439930],["2025-09-10",439930]],"g":[[63,377],[89,377],[85,399],[63,399]],"th":"92f4a069"},{"n":22,"a":45.03,"f":4,"r":2,"s":"D","k":1,"p":612408,"m":13600,"t":"W","h":[["2024-11-30",612408],["2025-09-10",612408]],"g":[[50,426],[60,410],[63,407],[89,407],[89,426],[78,433],[50,433]],"th":"bb0bd6c5"},{"n":23,"a":65.02,"f":4,"r":4,"s":"S","k":1,"g":[[16,376],[39,376],[42,381],[45,430],[45,433],[24,433],[16,429]]},{"n":24,"a":53.86,"f":4,"r":3,"s":"R","k":1,"p":727110,"m":13500,"t":"W","h":[["2024-11-30",727110],["2025-09-10",727110]],"g":[[16,325],[43,325],[46,330],[46,355],[43,368],[20,368],[18,360],[16,348]],"th":"e8f53b9d"},{"n":25,"a":52.39,"f":4,"r":3,"s":"S","k":1,"g":[[16,276],[55,276],[55,280],[40,317],[20,317],[16,307]]},{"n":26,"a":32.95,"f":4,"r":2,"s":"S","k":1,"g":[[63,276],[89,276],[89,278],[83,300],[62,300]]},{"n":27,"a":34.66,"f":4,"r":2,"s":"S","k":1,"g":[[59,328],[62,309],[83,309],[87,316],[89,326],[85,335],[63,335],[59,331]]},{"n":28,"a":30.34,"f":5,"r":2,"s":"S","k":1,"g":[[63,377],[89,377],[86,399],[63,399]]},{"n":29,"a":45.03,"f":5,"r":2,"s":"D","k":1,"p":623665,"m":13850,"t":"W","h":[["2024-11-30",623665],["2025-09-10",623665]],"g":[[50,426],[60,409],[63,407],[89,407],[89,425],[85,431],[79,433],[50,433]],"th":"ceab62f3"},{"n":30,"a":65.02,"f":5,"r":4,"s":"D","k":1,"p":881021,"m":13550,"t":"W","h":[["2024-11-30",881021],["2025-09-10",881021]],"g":[[16,376],[39,376],[43,381],[46,430],[46,433],[25,433],[16,429]],"th":"59902c24"},{"n":31,"a":53.86,"f":5,"r":3,"s":"D","k":1,"p":740575,"m":13750,"t":"W","h":[["2024-11-30",740575],["2025-09-10",740575]],"g":[[16,325],[42,325],[45,330],[45,355],[43,368],[20,368],[17,360],[16,348]],"th":"363dced6"},{"n":32,"a":52.39,"f":5,"r":3,"s":"S","k":1,"g":[[16,277],[55,277],[55,280],[40,317],[20,317],[16,307]]},{"n":33,"a":32.95,"f":5,"r":2,"s":"S","k":1,"g":[[63,276],[89,276],[89,279],[86,293],[83,300],[62,300]]},{"n":34,"a":34.66,"f":5,"r":2,"s":"S","k":1,"g":[[59,327],[62,308],[83,308],[88,316],[85,334],[62,334],[59,330]]},{"n":35,"a":30.34,"f":6,"r":2,"s":"S","k":1,"g":[[63,377],[89,377],[86,399],[64,399],[63,384]]},{"n":36,"a":45.03,"f":6,"r":2,"s":"D","k":1,"p":623665,"m":13850,"t":"W","h":[["2024-11-30",623665],["2025-09-10",623665]],"g":[[50,426],[60,410],[63,407],[89,407],[89,425],[85,433],[50,433]],"th":"edd6ec7b"},{"n":37,"a":65.02,"f":6,"r":4,"s":"S","k":1,"g":[[16,376],[39,376],[42,380],[45,432],[24,432],[16,428]]},{"n":38,"a":53.86,"f":6,"r":3,"s":"R","k":1,"p":740575,"m":13750,"t":"W","h":[["2024-11-30",740575],["2025-09-10",740575]],"g":[[16,325],[43,325],[46,330],[46,355],[43,369],[20,369],[16,348]],"th":"7b7e9203"},{"n":39,"a":52.39,"f":6,"r":3,"s":"S","k":1,"g":[[16,276],[55,276],[55,280],[42,314],[40,316],[20,316],[16,307]]},{"n":40,"a":32.95,"f":6,"r":2,"s":"S","k":1,"g":[[63,277],[90,277],[83,300],[63,300]]},{"n":41,"a":34.66,"f":6,"r":2,"s":"S","k":1,"g":[[62,309],[84,309],[88,316],[89,326],[85,334],[63,334],[60,330]]},{"n":42,"a":30.34,"f":7,"r":2,"s":"S","k":1,"g":[[63,377],[89,377],[86,400],[64,400],[63,384]]},{"n":43,"a":45.03,"f":7,"r":2,"s":"D","k":1,"p":623665,"m":13850,"t":"W","h":[],"g":[[50,427],[53,420],[62,408],[89,408],[89,426],[85,433],[50,433]],"th":"cff46fa1"},{"n":44,"a":65.02,"f":7,"r":4,"s":"S","k":1,"g":[[16,376],[39,376],[42,381],[45,430],[45,433],[24,433],[16,429]]},{"n":45,"a":53.86,"f":7,"r":3,"s":"S","k":1,"g":[[16,325],[43,325],[46,330],[46,355],[43,369],[20,369],[18,361],[16,348]]},{"n":46,"a":52.39,"f":7,"r":3,"s":"S","k":1,"g":[[17,276],[56,276],[56,280],[40,317],[20,317],[17,307]]},{"n":47,"a":32.95,"f":7,"r":2,"s":"S","k":1,"g":[[63,277],[89,277],[89,279],[83,301],[62,301]]},{"n":48,"a":34.66,"f":7,"r":2,"s":"R","k":1,"p":500837,"m":14450,"t":"W","h":[["2024-11-30",500837],["2025-09-10",500837]],"g":[[59,327],[62,309],[83,309],[87,316],[89,325],[85,334],[62,334],[59,330]],"th":"439a03c8"},{"n":49,"a":30.34,"f":8,"r":2,"s":"S","k":1,"g":[[62,379],[68,377],[89,377],[85,399],[63,399]]},{"n":50,"a":45.03,"f":8,"r":2,"s":"S","k":1,"g":[[50,426],[53,420],[62,407],[89,407],[89,425],[85,433],[50,433]]},{"n":51,"a":65.02,"f":8,"r":4,"s":"D","k":1,"p":897276,"m":13800,"t":"W","h":[["2024-11-30",897276],["2025-09-10",897276]],"g":[[16,377],[39,377],[43,381],[46,406],[46,433],[25,433],[16,429]],"th":"d4a14d1f"},{"n":52,"a":53.86,"f":8,"r":3,"s":"S","k":1,"g":[[16,325],[42,325],[45,330],[45,355],[43,368],[20,368],[18,360],[16,348]]},{"n":53,"a":52.39,"f":8,"r":3,"s":"S","k":1,"g":[[16,276],[55,276],[55,280],[39,317],[20,317],[16,307]]},{"n":54,"a":32.95,"f":8,"r":2,"s":"D","k":1,"p":484365,"m":14700,"t":"W","h":[["2024-11-30",484365],["2025-09-10",484365]],"g":[[62,276],[89,276],[89,278],[83,300],[62,300]],"th":"d9a7e67d"},{"n":55,"a":34.66,"f":8,"r":2,"s":"D","k":1,"p":509502,"m":14700,"t":"W","h":[["2024-11-30",509502],["2025-09-10",509502]],"g":[[62,308],[83,308],[87,315],[89,325],[85,334],[63,334],[60,330]],"th":"c10d3419"},{"n":56,"a":30.34,"f":9,"r":2,"s":"R","k":1,"p":455100,"m":15000,"t":"W","h":[],"g":[[63,377],[89,377],[86,399],[64,399]],"th":"e8f242b5"},{"n":57,"a":45.03,"f":9,"r":2,"s":"S","k":1,"g":[[49,426],[62,407],[89,407],[89,425],[85,433],[49,433]]},{"n":58,"a":65.02,"f":9,"r":4,"s":"S","k":1,"g":[[16,377],[39,377],[42,381],[46,406],[46,433],[24,433],[16,429]]},{"n":59,"a":53.86,"f":9,"r":3,"s":"S","k":1,"g":[[16,325],[42,325],[45,330],[45,366],[43,368],[20,368],[18,360],[16,348]]},{"n":60,"a":52.39,"f":9,"r":3,"s":"S","k":1,"g":[[16,276],[55,276],[55,280],[39,317],[19,317],[16,307]]},{"n":61,"a":32.95,"f":9,"r":2,"s":"S","k":1,"g":[[63,276],[89,276],[89,279],[86,293],[83,300],[62,300]]},{"n":62,"a":34.66,"f":9,"r":1,"s":"S","k":1,"g":[[60,326],[62,309],[83,309],[88,316],[89,326],[85,334],[63,334],[60,330]]},{"n":63,"a":30.34,"f":10,"r":1,"s":"D","k":1,"p":455100,"m":15000,"t":"W","h":[["2024-11-30",455100],["2025-09-10",455100]],"g":[[63,377],[89,377],[85,399],[63,399]],"th":"d4b3984e"},{"n":64,"a":45.03,"f":10,"r":2,"s":"S","k":1,"g":[[50,426],[60,410],[63,407],[90,407],[90,425],[85,433],[50,433]]},{"n":65,"a":65.02,"f":10,"r":4,"s":"S","k":1,"g":[[16,377],[39,377],[42,381],[46,431],[46,433],[24,433],[16,430]]},{"n":66,"a":53.86,"f":10,"r":3,"s":"S","k":1,"g":[[15,325],[42,325],[45,330],[45,355],[43,369],[19,369],[16,348]]},{"n":67,"a":52.39,"f":10,"r":3,"s":"S","k":1,"g":[[16,276],[56,276],[56,279],[40,316],[20,316],[16,306]]},{"n":68,"a":32.95,"f":10,"r":2,"s":"S","k":1,"g":[[63,276],[89,276],[89,278],[83,300],[62,300]]},{"n":69,"a":34.66,"f":10,"r":2,"s":"S","k":1,"g":[[60,326],[62,308],[83,308],[89,316],[89,325],[85,334],[63,334],[60,330]]},{"n":70,"a":45.73,"f":1,"r":2,"s":"D","k":2,"p":509890,"m":11150,"t":"W","h":[["2024-11-30",571625],["2025-09-10",571625],["2026-03-12",546473],["2026-04-14",509890]],"g":[[60,213],[63,210],[74,210],[80,221],[80,267],[63,267],[60,263]],"th":"b78be171"},{"n":71,"a":55.38,"f":1,"r":3,"s":"S","k":2,"g":[[16,233],[20,226],[42,226],[45,232],[55,256],[55,263],[36,266],[16,266]]},{"n":72,"a":49.55,"f":1,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[45,182],[45,188],[40,217],[16,217]]},{"n":73,"a":81.53,"f":1,"r":4,"s":"D","k":2,"p":1059890,"m":13000,"t":"W","h":[["2024-11-30",1084349],["2025-09-10",1084349],["2026-03-12",1059890]],"g":[[16,146],[24,142],[58,132],[79,132],[79,168],[16,168]],"th":"e973a74b"},{"n":74,"a":36.98,"f":1,"r":2,"s":"D","k":2,"p":462250,"m":12500,"t":"W","h":[["2024-11-30",499230],["2025-09-10",499230],["2026-03-12",462250]],"g":[[84,123],[112,123],[112,141],[95,158],[88,158],[84,156]],"th":"a2279877"},{"n":75,"a":36.39,"f":1,"r":2,"s":"S","k":2,"g":[[116,113],[144,113],[144,140],[125,142],[120,142],[116,137]]},{"n":76,"a":39.69,"f":1,"r":2,"s":"D","k":2,"p":496125,"m":12500,"t":"W","h":[["2024-11-30",535815],["2025-09-10",535815],["2026-03-12",496125]],"g":[[148,103],[178,103],[178,131],[174,134],[154,134],[148,121]],"th":"93723cbf"},{"n":77,"a":40.32,"f":1,"r":2,"s":"S","k":2,"g":[[148,162],[166,143],[174,143],[178,145],[178,180],[148,180]]},{"n":78,"a":36.2,"f":1,"r":2,"s":"D","k":2,"p":432590,"m":11950,"t":"W","h":[["2024-11-30",481460],["2025-09-10",481460],["2026-03-12",432590]],"g":[[117,165],[120,162],[145,162],[145,187],[137,190],[126,191],[117,187]],"th":"9bbed764"},{"n":79,"a":47.98,"f":2,"r":2,"s":"D","k":2,"p":539775,"m":11250,"t":"W","h":[["2024-11-30",599750],["2025-09-10",599750],["2026-04-14",539775]],"g":[[59,225],[62,210],[79,210],[79,266],[63,266],[59,262]],"th":"83140500"},{"n":80,"a":55.38,"f":2,"r":3,"s":"D","k":2,"p":747630,"m":13500,"t":"W","h":[["2024-11-30",747630],["2025-09-10",747630]],"g":[[16,234],[20,227],[43,227],[46,233],[56,256],[56,267],[16,267]],"th":"4a671aa7"},{"n":81,"a":49.55,"f":2,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[46,182],[46,188],[40,218],[16,218]]},{"n":82,"a":81.53,"f":2,"r":4,"s":"D","k":2,"p":1076196,"m":13200,"t":"W","h":[["2024-11-30",1100655],["2025-09-10",1100655],["2026-05-04",1076196]],"g":[[16,146],[24,142],[58,132],[79,132],[79,167],[16,167]],"th":"0c358ef9"},{"n":83,"a":36.98,"f":2,"r":2,"s":"D","k":2,"p":480740,"m":13000,"t":"W","h":[["2024-11-30",499230],["2025-09-10",499230],["2026-05-04",480740]],"g":[[84,123],[112,123],[112,141],[95,158],[88,158],[84,156]],"th":"149f5c9d"},{"n":84,"a":36.39,"f":2,"r":2,"s":"D","k":2,"p":473070,"m":13000,"t":"W","h":[["2024-11-30",491265],["2025-09-10",491265],["2026-05-04",473070]],"g":[[116,113],[144,113],[144,139],[125,141],[120,141],[116,137]],"th":"5fcb63a1"},{"n":85,"a":39.69,"f":2,"r":2,"s":"D","k":2,"p":515970,"m":13000,"t":"W","h":[["2024-11-30",535815],["2025-09-10",535815],["2026-05-04",515970]],"g":[[148,104],[178,104],[178,131],[175,134],[154,134],[148,122]],"th":"4761b1c5"},{"n":86,"a":40.32,"f":2,"r":2,"s":"S","k":2,"g":[[148,161],[166,142],[174,142],[178,144],[178,179],[148,179]]},{"n":87,"a":53.6,"f":2,"r":2,"s":"D","k":2,"p":597640,"m":11150,"t":"W","h":[["2024-11-30",670236],["2025-09-10",670236],["2026-05-04",597640]],"g":[[99,177],[131,162],[144,162],[144,191],[104,202],[99,202]],"th":"ef3d44b7"},{"n":88,"a":47.72,"f":3,"r":2,"s":"R","k":2,"p":541622,"m":11350,"t":"W","h":[["2024-11-30",596500],["2025-09-10",596500],["2026-04-14",541622]],"g":[[60,213],[63,210],[80,210],[80,267],[63,267],[60,263]],"th":"613fe8ab"},{"n":89,"a":55.38,"f":3,"r":3,"s":"D","k":2,"p":747630,"m":13500,"t":"W","h":[["2024-11-30",747630],["2025-09-10",747630]],"g":[[16,234],[20,227],[42,227],[46,234],[55,257],[55,264],[36,267],[16,267]],"th":"79953acf"},{"n":90,"a":49.55,"f":3,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[45,182],[45,188],[40,218],[16,218]]},{"n":91,"a":81.53,"f":3,"r":4,"s":"D","k":2,"p":1092502,"m":13400,"t":"W","h":[["2024-11-30",1108808],["2025-09-10",1108808],["2026-05-04",1092502]],"g":[[16,146],[24,142],[58,133],[79,133],[79,168],[16,168]],"th":"e56f53ee"},{"n":92,"a":36.98,"f":3,"r":2,"s":"S","k":2,"g":[[84,124],[112,124],[112,142],[95,159],[88,159],[84,157]]},{"n":93,"a":36.39,"f":3,"r":2,"s":"S","k":2,"g":[[116,113],[144,113],[144,140],[125,142],[121,142],[116,137]]},{"n":94,"a":39.69,"f":3,"r":2,"s":"D","k":2,"p":515970,"m":13000,"t":"W","h":[["2024-11-30",535815],["2025-09-10",535815],["2026-05-04",515970]],"g":[[148,103],[178,103],[178,131],[175,134],[155,134],[148,122]],"th":"9f6ec81a"},{"n":95,"a":40.32,"f":3,"r":2,"s":"S","k":2,"g":[[149,162],[167,142],[174,142],[178,145],[178,179],[149,179]]},{"n":96,"a":53.6,"f":3,"r":2,"s":"D","k":2,"p":603000,"m":11250,"t":"W","h":[["2024-11-30",670000],["2025-09-10",670000],["2026-05-04",603000]],"g":[[100,176],[121,166],[132,162],[144,162],[144,191],[105,202],[100,202]],"th":"ae3b6cd2"},{"n":97,"a":47.72,"f":4,"r":2,"s":"R","k":2,"p":541622,"m":11350,"t":"W","h":[["2024-11-30",620360],["2025-09-10",620360],["2026-04-14",541622]],"g":[[59,213],[62,210],[79,210],[79,266],[62,266],[59,263]],"th":"b691beb6"},{"n":98,"a":55.38,"f":4,"r":3,"s":"R","k":2,"p":747630,"m":13500,"t":"W","h":[["2024-11-30",747630],["2025-09-10",747630]],"g":[[16,233],[20,226],[42,226],[55,256],[55,264],[36,266],[16,266]],"th":"a82c0f3b"},{"n":99,"a":49.55,"f":4,"r":3,"s":"S","k":2,"g":[[16,186],[21,177],[42,177],[46,183],[46,188],[43,216],[40,218],[16,218]]},{"n":100,"a":81.53,"f":4,"r":4,"s":"D","k":2,"p":1108808,"m":13600,"t":"W","h":[["2024-11-30",1108808],["2025-09-10",1108808]],"g":[[16,147],[25,143],[59,133],[80,133],[80,168],[16,168]],"th":"a434b0e6"},{"n":101,"a":36.98,"f":4,"r":2,"s":"S","k":2,"g":[[84,123],[112,123],[112,141],[95,158],[88,158],[84,156]]},{"n":102,"a":36.39,"f":4,"r":2,"s":"S","k":2,"g":[[116,114],[144,114],[144,140],[124,142],[120,142],[116,137]]},{"n":103,"a":39.69,"f":4,"r":2,"s":"R","k":2,"p":543753,"m":13700,"t":"W","h":[["2024-11-30",549706],["2025-09-10",549706],["2026-05-04",543753]],"g":[[149,104],[179,104],[179,131],[175,134],[155,134],[149,122]],"th":"8dcbc64a"},{"n":104,"a":40.32,"f":4,"r":2,"s":"S","k":2,"g":[[148,162],[166,142],[174,142],[178,145],[178,179],[148,179]]},{"n":105,"a":53.6,"f":4,"r":2,"s":"D","k":2,"p":608360,"m":11350,"t":"W","h":[["2024-11-30",696800],["2025-09-10",696800],["2026-05-04",608360]],"g":[[100,176],[121,165],[132,162],[145,162],[145,191],[105,202],[100,202]],"th":"de352b12"},{"n":106,"a":47.72,"f":5,"r":2,"s":"D","k":2,"p":551166,"m":11550,"t":"W","h":[["2024-11-30",627518],["2025-09-10",627518],["2026-03-20",620360],["2026-04-14",551166]],"g":[[60,213],[63,210],[80,210],[80,266],[63,266],[60,262]],"th":"80cd6d28"},{"n":107,"a":55.38,"f":5,"r":3,"s":"S","k":2,"g":[[16,233],[20,226],[43,226],[55,256],[55,263],[37,266],[16,266]]},{"n":108,"a":49.55,"f":5,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[46,182],[46,188],[42,216],[40,218],[16,218]]},{"n":109,"a":81.53,"f":5,"r":4,"s":"D","k":2,"p":1125114,"m":13800,"t":"W","h":[["2024-11-30",1125114],["2025-09-10",1125114]],"g":[[16,147],[25,143],[59,133],[80,133],[80,168],[16,168]],"th":"0ecfc134"},{"n":110,"a":36.98,"f":5,"r":2,"s":"D","k":2,"p":521418,"m":14100,"t":"W","h":[["2024-11-30",521418],["2025-09-10",521418]],"g":[[84,123],[112,123],[112,141],[96,158],[88,158],[84,156]],"th":"99f48fe3"},{"n":111,"a":36.37,"f":5,"r":2,"s":"D","k":2,"p":513099,"m":14100,"t":"W","h":[["2024-11-30",513099],["2025-09-10",513099]],"g":[[117,113],[145,113],[145,140],[125,142],[121,142],[117,137]],"th":"d3afb6e0"},{"n":112,"a":39.69,"f":5,"r":2,"s":"D","k":2,"p":559629,"m":14100,"t":"W","h":[["2024-11-30",559629],["2025-09-10",559629]],"g":[[148,104],[178,104],[178,131],[174,134],[154,134],[148,122]],"th":"fa50c04c"},{"n":113,"a":40.32,"f":5,"r":2,"s":"R","k":2,"p":562464,"m":13950,"t":"W","h":[["2024-11-30",562464],["2025-09-10",562464]],"g":[[148,162],[166,143],[174,143],[178,145],[178,180],[148,180]],"th":"e2fa1228"},{"n":114,"a":53.6,"f":5,"r":2,"s":"D","k":2,"p":619080,"m":11550,"t":"W","h":[["2024-11-30",718240],["2025-09-10",718240],["2026-03-20",696800],["2026-05-04",619080]],"g":[[100,176],[131,162],[144,162],[144,190],[104,202],[100,202]],"th":"a9ae2d14"},{"n":115,"a":47.72,"f":6,"r":2,"s":"R","k":2,"p":551166,"m":11550,"t":"W","h":[["2024-11-30",627518],["2025-09-10",627518],["2026-03-20",620360],["2026-04-14",551166]],"g":[[60,213],[62,211],[80,211],[80,267],[63,267],[60,263]],"th":"b104ff70"},{"n":116,"a":55.38,"f":6,"r":3,"s":"S","k":2,"g":[[16,234],[21,226],[43,226],[56,256],[56,264],[37,266],[16,266]]},{"n":117,"a":49.55,"f":6,"r":3,"s":"S","k":2,"g":[[16,186],[20,177],[42,177],[46,183],[46,188],[43,216],[40,218],[16,218]]},{"n":118,"a":81.53,"f":6,"r":4,"s":"D","k":2,"p":1125114,"m":13800,"t":"W","h":[["2024-11-30",1125114],["2025-09-10",1125114]],"g":[[16,147],[24,143],[58,133],[79,133],[79,168],[16,168]],"th":"7954c732"},{"n":119,"a":36.98,"f":6,"r":2,"s":"D","k":2,"p":521418,"m":14100,"t":"W","h":[["2024-11-30",521418],["2025-09-10",521418]],"g":[[83,124],[112,124],[112,142],[95,159],[88,159],[83,156]],"th":"61fe1556"},{"n":120,"a":36.39,"f":6,"r":2,"s":"D","k":2,"p":513099,"m":14100,"t":"W","h":[["2024-11-30",513099],["2025-09-10",513099]],"g":[[116,113],[144,113],[144,140],[120,141],[116,137]],"th":"fa42151d"},{"n":121,"a":39.69,"f":6,"r":2,"s":"D","k":2,"p":559629,"m":14100,"t":"W","h":[["2024-11-30",559629],["2025-09-10",559629]],"g":[[148,104],[178,104],[178,131],[174,134],[154,134],[148,122]],"th":"95eff7ef"},{"n":122,"a":40.32,"f":6,"r":2,"s":"D","k":2,"p":562464,"m":13950,"t":"W","h":[["2024-11-30",562464],["2025-09-10",562464]],"g":[[148,162],[166,143],[174,143],[178,145],[178,180],[148,180]],"th":"bc108143"},{"n":123,"a":53.6,"f":6,"r":2,"s":"D","k":2,"p":619080,"m":11550,"t":"W","h":[["2024-11-30",718240],["2025-09-10",718240],["2026-03-20",696800],["2026-05-04",619080]],"g":[[99,177],[120,166],[131,162],[144,162],[144,191],[104,202],[99,202]],"th":"a4ba5327"},{"n":124,"a":47.72,"f":7,"r":2,"s":"R","k":2,"p":560710,"m":11750,"t":"W","h":[["2024-11-30",629904],["2025-09-10",629904],["2026-03-20",620360],["2026-04-14",560710]],"g":[[60,213],[63,210],[80,210],[80,266],[63,266],[60,262]],"th":"efee6c1b"},{"n":125,"a":55.38,"f":7,"r":3,"s":"S","k":2,"g":[[16,234],[20,226],[42,226],[43,227],[56,256],[56,266],[16,266]]},{"n":126,"a":49.55,"f":7,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[46,182],[46,188],[42,216],[40,218],[16,218]]},{"n":127,"a":81.53,"f":7,"r":4,"s":"R","k":2,"p":1141420,"m":14000,"t":"W","h":[["2024-11-30",1141420]],"g":[[15,147],[24,143],[58,133],[79,133],[79,168],[15,168]],"th":"58758f14"},{"n":128,"a":36.98,"f":7,"r":2,"s":"D","k":2,"p":521418,"m":14100,"t":"W","h":[["2024-11-30",521418],["2025-09-10",521418]],"g":[[84,123],[112,123],[112,142],[95,158],[88,158],[84,156]],"th":"d6772308"},{"n":129,"a":36.39,"f":7,"r":2,"s":"D","k":2,"p":513099,"m":14100,"t":"W","h":[["2024-11-30",513099],["2025-09-10",513099]],"g":[[116,113],[144,113],[144,139],[125,141],[120,141],[116,137]],"th":"ceddf16c"},{"n":130,"a":39.69,"f":7,"r":2,"s":"D","k":2,"p":559629,"m":14100,"t":"W","h":[["2024-11-30",559629],["2025-09-10",559629]],"g":[[148,104],[178,104],[178,131],[174,134],[154,134],[148,122]],"th":"59e6bfbb"},{"n":131,"a":40.32,"f":7,"r":2,"s":"D","k":2,"p":562464,"m":13950,"t":"W","h":[["2024-11-30",562464],["2025-09-10",562464]],"g":[[148,162],[166,143],[174,143],[178,145],[178,179],[148,179]],"th":"414c6ddf"},{"n":132,"a":53.6,"f":7,"r":2,"s":"D","k":2,"p":629800,"m":11750,"t":"W","h":[["2024-11-30",718240],["2025-09-10",718240],["2026-03-20",696800],["2026-05-04",629800]],"g":[[100,177],[132,162],[144,162],[144,191],[104,203],[100,203]],"th":"68b31b73"},{"n":133,"a":47.72,"f":8,"r":2,"s":"D","k":2,"p":560710,"m":11750,"t":"W","h":[["2024-11-30",639448],["2025-09-10",639448],["2026-03-20",625132],["2026-04-14",560710]],"g":[[60,213],[62,210],[79,210],[79,266],[63,266],[60,262]],"th":"7019c917"},{"n":134,"a":55.38,"f":8,"r":3,"s":"S","k":2,"g":[[16,234],[20,227],[42,227],[45,233],[55,256],[55,264],[36,267],[16,267]]},{"n":135,"a":49.55,"f":8,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[45,182],[45,189],[42,216],[40,218],[16,218]]},{"n":136,"a":81.53,"f":8,"r":4,"s":"S","k":2,"g":[[16,147],[25,142],[58,133],[80,133],[80,168],[16,168]]},{"n":137,"a":36.98,"f":8,"r":2,"s":"D","k":2,"p":530663,"m":14350,"t":"W","h":[["2024-11-30",530663],["2025-09-10",530663]],"g":[[84,124],[112,124],[112,142],[95,159],[88,159],[84,157]],"th":"65b5b011"},{"n":138,"a":36.39,"f":8,"r":2,"s":"D","k":2,"p":522196,"m":14350,"t":"W","h":[["2024-11-30",522196],["2025-09-10",522196]],"g":[[116,113],[144,113],[144,139],[125,141],[120,141],[116,137]],"th":"ebb71c0d"},{"n":139,"a":39.69,"f":8,"r":2,"s":"D","k":2,"p":569551,"m":14350,"t":"W","h":[["2024-11-30",569551],["2025-09-10",569551]],"g":[[148,103],[177,103],[177,131],[174,134],[154,134],[148,122]],"th":"f31dce69"},{"n":140,"a":40.32,"f":8,"r":2,"s":"D","k":2,"p":572544,"m":14200,"t":"W","h":[["2024-11-30",572544],["2025-09-10",572544]],"g":[[149,161],[167,142],[174,142],[178,144],[178,179],[149,179]],"th":"01c5a795"},{"n":141,"a":53.6,"f":8,"r":2,"s":"D","k":2,"p":629800,"m":11750,"t":"W","h":[["2024-11-30",731640],["2025-09-10",731640],["2026-03-20",702160],["2026-05-04",629800]],"g":[[99,176],[120,166],[131,162],[144,162],[144,191],[104,202],[99,202]],"th":"8066244b"},{"n":142,"a":47.72,"f":9,"r":2,"s":"D","k":2,"p":570254,"m":11950,"t":"W","h":[["2024-11-30",639448],["2025-09-10",639448],["2026-03-20",634676],["2026-04-14",570254]],"g":[[60,214],[62,211],[80,211],[80,267],[63,267],[60,263]],"th":"a99952e7"},{"n":143,"a":55.38,"f":9,"r":3,"s":"S","k":2,"g":[[15,235],[20,227],[42,227],[55,257],[55,265],[36,267],[15,267]]},{"n":144,"a":49.55,"f":9,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[46,182],[46,188],[41,216],[40,218],[16,218]]},{"n":145,"a":81.53,"f":9,"r":4,"s":"S","k":2,"g":[[16,146],[25,142],[59,132],[80,132],[80,168],[16,168]]},{"n":146,"a":36.98,"f":9,"r":2,"s":"S","k":2,"g":[[84,123],[112,123],[112,142],[95,158],[88,158],[84,156]]},{"n":147,"a":36.39,"f":9,"r":2,"s":"S","k":2,"g":[[116,114],[144,114],[144,140],[125,142],[120,142],[116,137]]},{"n":148,"a":39.69,"f":9,"r":2,"s":"S","k":2,"g":[[148,104],[178,104],[178,131],[174,134],[154,134],[148,122]]},{"n":149,"a":40.32,"f":9,"r":2,"s":"D","k":2,"p":572544,"m":14200,"t":"W","h":[["2024-11-30",572544],["2025-09-10",572544]],"g":[[149,162],[167,142],[174,142],[178,144],[178,179],[149,179]],"th":"323787fd"},{"n":150,"a":53.6,"f":9,"r":2,"s":"D","k":2,"p":640520,"m":11950,"t":"W","h":[["2024-11-30",731640],["2025-09-10",731640],["2026-03-20",712880],["2026-05-04",640520]],"g":[[100,176],[132,161],[144,161],[144,190],[105,202],[100,202]],"th":"a50cc92a"},{"n":151,"a":47.72,"f":10,"r":2,"s":"D","k":2,"p":570254,"m":11950,"t":"W","h":[["2024-11-30",644220],["2025-09-10",644220],["2026-04-14",570254]],"g":[[60,214],[63,211],[80,211],[80,267],[63,267],[60,263]],"th":"2d1906df"},{"n":152,"a":55.38,"f":10,"r":3,"s":"S","k":2,"g":[[16,233],[20,226],[42,226],[55,256],[55,263],[36,266],[16,266]]},{"n":153,"a":49.55,"f":10,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[45,182],[45,188],[40,218],[16,218]]},{"n":154,"a":81.53,"f":10,"r":4,"s":"S","k":2,"g":[[16,147],[24,143],[58,133],[79,133],[79,168],[16,168]]},{"n":155,"a":36.98,"f":10,"r":2,"s":"S","k":2,"g":[[84,123],[112,123],[112,141],[95,158],[88,158],[84,156]]},{"n":156,"a":36.39,"f":10,"r":2,"s":"S","k":2,"g":[[116,113],[144,113],[144,140],[120,141],[116,137]]},{"n":157,"a":39.69,"f":10,"r":2,"s":"S","k":2,"g":[[149,104],[178,104],[178,131],[175,134],[155,134],[153,132],[149,122]]},{"n":158,"a":40.32,"f":10,"r":2,"s":"D","k":2,"p":572544,"m":14200,"t":"W","h":[["2024-11-30",572544],["2025-09-10",572544]],"g":[[149,162],[167,143],[174,143],[179,145],[179,180],[149,180]],"th":"87e2770d"},{"n":159,"a":53.6,"f":10,"r":2,"s":"D","k":2,"p":640520,"m":11950,"t":"W","h":[["2024-11-30",731640],["2025-09-10",731640],["2026-03-20",723600],["2026-05-04",640520]],"g":[[100,176],[121,165],[132,161],[144,161],[144,190],[105,202],[100,202]],"th":"9f48a569"},{"n":160,"a":49.55,"f":11,"r":3,"s":"S","k":2,"g":[[16,185],[20,176],[42,176],[45,182],[45,188],[40,218],[16,218]],"approx":1},{"n":161,"a":81.48,"f":11,"r":4,"s":"S","k":2,"g":[[16,147],[24,143],[58,133],[79,133],[79,168],[16,168]],"approx":1},{"n":162,"a":50.02,"f":1,"r":2,"s":"D","k":3,"p":575230,"m":11500,"t":"M","h":[["2024-11-30",625250],["2025-09-10",625250],["2026-03-11",597739],["2026-05-04",575230]],"g":[[184,94],[213,94],[213,129],[209,134],[184,134]],"th":"aca85050"},{"n":163,"a":39.23,"f":1,"r":2,"s":"D","k":3,"p":490375,"m":12500,"t":"M","h":[["2024-11-30",529605],["2025-09-10",529605],["2026-03-11",490375]],"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]],"th":"b4028234"},{"n":164,"a":37.61,"f":1,"r":2,"s":"D","k":3,"p":470125,"m":12500,"t":"M","h":[["2024-11-30",507735],["2025-09-10",507735],["2026-03-11",470125]],"g":[[250,75],[278,75],[278,102],[259,105],[255,105],[250,102]],"th":"9f9134ed"},{"n":165,"a":37.68,"f":1,"r":2,"s":"D","k":3,"p":471135,"m":12500,"t":"M","h":[["2024-11-30",508680],["2025-09-10",508680],["2026-03-11",471135]],"g":[[283,64],[311,64],[311,92],[308,95],[289,95],[283,83]],"th":"873be689"},{"n":166,"a":42.25,"f":1,"r":2,"s":"D","k":3,"p":504887,"m":11950,"t":"M","h":[["2024-11-30",549250],["2025-09-10",549250],["2026-03-11",504887]],"g":[[282,126],[299,104],[306,104],[310,106],[310,145],[282,145]],"th":"aec49025"},{"n":167,"a":40.36,"f":1,"r":2,"s":"S","k":3,"g":[[250,126],[255,123],[260,123],[278,128],[278,156],[250,156]]},{"n":168,"a":34.47,"f":2,"r":1,"s":"D","k":3,"p":411916,"m":11950,"t":"M","h":[["2024-11-30",448110],["2025-09-10",448110],["2026-05-04",411916]],"g":[[184,133],[195,133],[206,139],[206,164],[197,168],[184,168]],"th":"386cee5d"},{"n":169,"a":39.32,"f":2,"r":2,"s":"D","k":3,"p":511160,"m":13000,"t":"M","h":[["2024-11-30",530820],["2025-09-10",530820],["2026-05-04",511160]],"g":[[183,94],[213,94],[213,108],[210,121],[208,124],[183,124]],"th":"20c63c39"},{"n":170,"a":39.23,"f":2,"r":2,"s":"D","k":3,"p":509990,"m":13000,"t":"M","h":[["2024-11-30",529605],["2025-09-10",529605],["2026-05-04",509990]],"g":[[218,84],[246,84],[246,104],[229,121],[222,121],[218,118]],"th":"b7fd72ee"},{"n":171,"a":37.62,"f":2,"r":2,"s":"R","k":3,"p":489060,"m":13000,"t":"M","h":[["2024-11-30",507870],["2025-09-10",507870],["2026-05-04",489060]],"g":[[250,75],[278,75],[278,102],[259,105],[255,105],[250,102]],"th":"d850901c"},{"n":172,"a":37.68,"f":2,"r":2,"s":"R","k":3,"p":489840,"m":13000,"t":"M","h":[["2024-11-30",508680],["2025-09-10",508680],["2026-05-04",489840]],"g":[[282,65],[310,65],[310,93],[308,96],[289,96],[282,83]],"th":"f1afe6b0"},{"n":173,"a":42.25,"f":2,"r":2,"s":"D","k":3,"p":549250,"m":13000,"t":"M","h":[["2024-11-30",549250],["2025-09-10",549250]],"g":[[282,126],[299,103],[306,103],[310,105],[310,145],[282,145]],"th":"e90534d4"},{"n":174,"a":40.36,"f":2,"r":2,"s":"S","k":3,"g":[[250,127],[254,123],[260,123],[278,129],[278,157],[250,157]]},{"n":175,"a":34.47,"f":3,"r":1,"s":"D","k":3,"p":415363,"m":12050,"t":"M","h":[["2024-11-30",448110],["2025-09-10",448110],["2026-05-04",415363]],"g":[[183,133],[195,133],[205,139],[205,164],[197,168],[183,168]],"th":"bafbd98c"},{"n":176,"a":39.32,"f":3,"r":2,"s":"D","k":3,"p":511160,"m":13000,"t":"M","h":[["2024-11-30",530820],["2025-09-10",530820],["2026-05-04",511160]],"g":[[184,94],[213,94],[213,109],[210,122],[208,125],[184,125]],"th":"0a0dfe9a"},{"n":177,"a":39.23,"f":3,"r":2,"s":"D","k":3,"p":509990,"m":13000,"t":"M","h":[["2024-11-30",529605],["2025-09-10",529605],["2026-05-04",509990]],"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]],"th":"12a72cfe"},{"n":178,"a":37.62,"f":3,"r":2,"s":"R","k":3,"p":489060,"m":13000,"t":"M","h":[["2024-11-30",507870],["2025-09-10",507870],["2026-05-04",489060]],"g":[[250,75],[278,75],[278,102],[258,105],[254,105],[250,102]],"th":"9ca580e2"},{"n":179,"a":37.68,"f":3,"r":2,"s":"D","k":3,"p":489840,"m":13000,"t":"M","h":[["2024-11-30",508680],["2025-09-10",508680],["2026-05-04",489840]],"g":[[283,65],[311,65],[311,92],[308,95],[289,95],[287,93],[283,83]],"th":"840f5286"},{"n":180,"a":42.25,"f":3,"r":2,"s":"S","k":3,"g":[[283,126],[299,103],[306,103],[311,105],[311,145],[283,145]]},{"n":181,"a":40.36,"f":3,"r":2,"s":"S","k":3,"g":[[250,126],[254,122],[259,122],[278,128],[278,156],[250,156]]},{"n":182,"a":34.47,"f":4,"r":2,"s":"D","k":3,"p":422257,"m":12250,"t":"M","h":[["2024-11-30",448110],["2025-09-10",448110],["2026-05-04",422257]],"g":[[184,133],[195,133],[206,139],[206,164],[197,168],[184,168]],"th":"0b2ed97f"},{"n":183,"a":39.32,"f":4,"r":2,"s":"D","k":3,"p":538684,"m":13700,"t":"M","h":[["2024-11-30",544582],["2025-09-10",544582],["2026-05-04",538684]],"g":[[183,104],[184,94],[213,94],[213,108],[210,122],[208,125],[184,125],[183,123]],"th":"13840b1b"},{"n":184,"a":39.23,"f":4,"r":2,"s":"R","k":3,"p":537451,"m":13700,"t":"M","h":[["2024-11-30",543335],["2025-09-10",543335],["2026-05-04",537451]],"g":[[218,85],[246,85],[246,106],[229,122],[222,122],[218,120]],"th":"58d03427"},{"n":185,"a":37.62,"f":4,"r":2,"s":"R","k":3,"p":515394,"m":13700,"t":"M","h":[["2024-11-30",521037],["2025-09-10",521037],["2026-05-04",515394]],"g":[[250,74],[278,74],[278,102],[259,105],[255,105],[250,102]],"th":"407ae643"},{"n":186,"a":37.68,"f":4,"r":2,"s":"R","k":3,"p":516216,"m":13700,"t":"M","h":[["2024-11-30",521868],["2025-09-10",521868],["2026-05-04",516216]],"g":[[282,65],[310,65],[310,93],[308,96],[289,96],[282,83]],"th":"f7e1054c"},{"n":187,"a":42.25,"f":4,"r":2,"s":"S","k":3,"g":[[282,127],[299,104],[306,104],[310,106],[310,146],[282,146]]},{"n":188,"a":40.36,"f":4,"r":2,"s":"S","k":3,"g":[[250,126],[255,123],[260,123],[278,129],[278,157],[250,157]]},{"n":189,"a":34.47,"f":5,"r":1,"s":"D","k":3,"p":425705,"m":12350,"t":"M","h":[["2024-11-30",458451],["2025-09-10",458451],["2026-05-04",425705]],"g":[[184,133],[196,133],[206,139],[206,164],[198,168],[184,168]],"th":"79e3a950"},{"n":190,"a":39.32,"f":5,"r":2,"s":"D","k":3,"p":554412,"m":14100,"t":"M","h":[["2024-11-30",554412],["2025-09-10",554412]],"g":[[183,94],[213,94],[213,109],[210,122],[207,125],[183,125]],"th":"eed8e787"},{"n":191,"a":39.23,"f":5,"r":2,"s":"D","k":3,"p":553143,"m":14100,"t":"M","h":[["2024-11-30",553143],["2025-09-10",553143]],"g":[[217,84],[245,84],[245,105],[229,121],[222,121],[217,119]],"th":"81750575"},{"n":192,"a":37.62,"f":5,"r":2,"s":"S","k":3,"g":[[250,74],[278,74],[278,101],[259,105],[254,105],[250,101]]},{"n":193,"a":37.68,"f":5,"r":2,"s":"D","k":3,"p":531288,"m":14100,"t":"M","h":[["2024-11-30",531288],["2025-09-10",531288]],"g":[[283,65],[311,65],[311,93],[308,96],[289,96],[283,83]],"th":"b020a1bd"},{"n":194,"a":42.25,"f":5,"r":2,"s":"D","k":3,"p":589387,"m":13950,"t":"M","h":[["2024-11-30",589387],["2025-09-10",589387]],"g":[[282,126],[298,104],[306,104],[310,106],[310,146],[282,146]],"th":"fb749e81"},{"n":195,"a":40.36,"f":5,"r":2,"s":"D","k":3,"p":563022,"m":13950,"t":"M","h":[["2024-11-30",563022],["2025-09-10",563022]],"g":[[250,126],[255,123],[260,123],[278,129],[278,157],[250,157]],"th":"e3de4ce5"},{"n":196,"a":34.47,"f":6,"r":1,"s":"D","k":3,"p":429152,"m":12450,"t":"M","h":[["2024-11-30",458451],["2026-05-04",429152]],"g":[[184,133],[195,133],[206,139],[206,164],[198,168],[184,168]],"th":"ca213a49"},{"n":197,"a":39.32,"f":6,"r":2,"s":"D","k":3,"p":554412,"m":14100,"t":"M","h":[["2024-11-30",554412],["2025-09-10",554412]],"g":[[184,94],[213,94],[213,108],[210,121],[208,124],[184,124]],"th":"d28be82d"},{"n":198,"a":39.23,"f":6,"r":2,"s":"D","k":3,"p":553143,"m":14100,"t":"M","h":[["2024-11-30",553143],["2025-09-10",553143]],"g":[[217,84],[245,84],[245,105],[228,121],[221,121],[217,118]],"th":"5c894431"},{"n":199,"a":37.62,"f":6,"r":2,"s":"D","k":3,"p":530442,"m":14100,"t":"M","h":[["2024-11-30",530442],["2025-09-10",530442]],"g":[[250,74],[278,74],[278,102],[259,105],[255,105],[250,102]],"th":"44239655"},{"n":200,"a":37.68,"f":6,"r":2,"s":"D","k":3,"p":531288,"m":14100,"t":"M","h":[["2024-11-30",531288],["2025-09-10",531288]],"g":[[283,65],[310,65],[310,93],[308,95],[289,95],[287,93],[283,83]],"th":"5367a0ca"},{"n":201,"a":42.25,"f":6,"r":2,"s":"D","k":3,"p":589387,"m":13950,"t":"M","h":[["2024-11-30",589387],["2025-09-10",589387]],"g":[[282,126],[299,103],[306,103],[310,105],[310,145],[282,145]],"th":"d2c42314"},{"n":202,"a":40.36,"f":6,"r":2,"s":"S","k":3,"g":[[250,126],[255,123],[260,123],[278,129],[278,157],[250,157]]},{"n":203,"a":34.47,"f":7,"r":1,"s":"D","k":3,"p":432599,"m":12550,"t":"M","h":[["2024-11-30",458451],["2025-09-10",458451],["2026-05-04",432599]],"g":[[183,132],[195,132],[205,138],[205,164],[197,168],[183,168]],"th":"e39187dc"},{"n":204,"a":39.32,"f":7,"r":2,"s":"S","k":3,"g":[[183,94],[213,94],[213,108],[210,121],[208,124],[183,124]]},{"n":205,"a":39.23,"f":7,"r":2,"s":"S","k":3,"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]]},{"n":206,"a":37.62,"f":7,"r":2,"s":"D","k":3,"p":530442,"m":14100,"t":"M","h":[["2024-11-30",530442],["2025-09-10",530442]],"g":[[250,74],[278,74],[278,102],[259,105],[255,105],[250,102]],"th":"ee972cbe"},{"n":207,"a":37.68,"f":7,"r":2,"s":"D","k":3,"p":531288,"m":14100,"t":"M","h":[["2024-11-30",531288],["2025-09-10",531288]],"g":[[282,65],[310,65],[310,93],[308,96],[289,96],[282,83]],"th":"f63dfeda"},{"n":208,"a":42.25,"f":7,"r":2,"s":"S","k":3,"g":[[282,126],[299,103],[306,103],[310,105],[310,145],[282,145]]},{"n":209,"a":40.36,"f":7,"r":2,"s":"D","k":3,"p":563022,"m":13950,"t":"M","h":[["2024-11-30",563022],["2025-09-10",563022]],"g":[[250,126],[255,123],[260,123],[278,129],[278,156],[250,156]],"th":"609580a2"},{"n":210,"a":34.47,"f":8,"r":1,"s":"D","k":3,"p":439493,"m":12750,"t":"M","h":[["2024-11-30",475686],["2025-09-10",475686],["2026-05-04",439493]],"g":[[184,133],[196,133],[206,139],[206,164],[198,168],[184,168]],"th":"f7aece75"},{"n":211,"a":39.32,"f":8,"r":2,"s":"D","k":3,"p":564242,"m":14350,"t":"M","h":[["2024-11-30",564242],["2025-09-10",564242]],"g":[[184,94],[213,94],[213,109],[210,122],[208,125],[184,125]],"th":"7fbb0180"},{"n":212,"a":39.23,"f":8,"r":2,"s":"D","k":3,"p":562950,"m":14350,"t":"M","h":[["2024-11-30",562950],["2025-09-10",562950]],"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]],"th":"5644772c"},{"n":213,"a":37.62,"f":8,"r":2,"s":"D","k":3,"p":539847,"m":14350,"t":"M","h":[["2024-11-30",539847],["2025-09-10",539847]],"g":[[250,75],[278,75],[278,102],[259,105],[255,105],[250,102]],"th":"4eeea548"},{"n":214,"a":37.68,"f":8,"r":2,"s":"D","k":3,"p":540708,"m":14350,"t":"M","h":[["2024-11-30",540708],["2025-09-10",540708]],"g":[[282,65],[310,65],[310,93],[308,95],[289,95],[282,83]],"th":"05ba9a74"},{"n":215,"a":42.25,"f":8,"r":2,"s":"D","k":3,"p":599950,"m":14200,"t":"M","h":[["2024-11-30",599950],["2025-09-10",599950]],"g":[[282,127],[299,104],[306,104],[310,106],[310,146],[282,146]],"th":"1d104810"},{"n":216,"a":40.36,"f":8,"r":2,"s":"D","k":3,"p":573112,"m":14200,"t":"M","h":[["2024-11-30",573112],["2025-09-10",573112]],"g":[[251,126],[255,123],[260,123],[278,129],[278,157],[251,157]],"th":"43e80e2a"},{"n":217,"a":34.47,"f":9,"r":1,"s":"D","k":3,"p":448110,"m":13000,"t":"M","h":[["2024-11-30",475686],["2025-09-10",475686],["2026-05-04",448110]],"g":[[183,133],[195,133],[205,139],[205,164],[197,168],[184,168]],"th":"5b42dc4e"},{"n":218,"a":39.32,"f":9,"r":2,"s":"D","k":3,"p":564242,"m":14350,"t":"M","h":[["2024-11-30",564242],["2025-09-10",564242]],"g":[[184,94],[213,94],[213,108],[208,125],[184,125]],"th":"d5407052"},{"n":219,"a":39.23,"f":9,"r":2,"s":"D","k":3,"p":562950,"m":14350,"t":"M","h":[["2024-11-30",562950],["2025-09-10",562950]],"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]],"th":"cdeaa236"},{"n":220,"a":37.62,"f":9,"r":2,"s":"D","k":3,"p":539847,"m":14350,"t":"M","h":[["2024-11-30",539847],["2025-09-10",539847]],"g":[[250,74],[278,74],[278,102],[259,105],[255,105],[250,101]],"th":"cf5ff3c7"},{"n":221,"a":37.68,"f":9,"r":2,"s":"D","k":3,"p":540708,"m":14350,"t":"M","h":[["2024-11-30",540708],["2025-09-10",540708]],"g":[[282,65],[310,65],[310,93],[307,95],[288,95],[282,83]],"th":"e1680fc0"},{"n":222,"a":42.25,"f":9,"r":2,"s":"D","k":3,"p":599950,"m":14200,"t":"M","h":[["2024-11-30",599950],["2025-09-10",599950]],"g":[[283,127],[299,104],[307,104],[311,106],[311,146],[283,146]],"th":"c897796c"},{"n":223,"a":40.36,"f":9,"r":2,"s":"D","k":3,"p":573112,"m":14200,"t":"M","h":[["2024-11-30",573112],["2025-09-10",573112]],"g":[[250,126],[255,123],[260,123],[278,129],[278,157],[250,157]],"th":"d03dab08"},{"n":224,"a":34.47,"f":10,"r":1,"s":"D","k":3,"p":448110,"m":13000,"t":"M","h":[["2024-11-30",475686],["2025-09-10",475686],["2026-05-04",448110]],"g":[[184,133],[195,133],[206,140],[206,165],[197,169],[184,169]],"th":"9b699434"},{"n":225,"a":39.32,"f":10,"r":2,"s":"S","k":3,"g":[[184,94],[214,94],[214,109],[208,125],[184,125]]},{"n":226,"a":39.23,"f":10,"r":2,"s":"S","k":3,"g":[[218,84],[246,84],[246,105],[229,121],[222,121],[218,119]]},{"n":227,"a":37.62,"f":10,"r":2,"s":"S","k":3,"g":[[250,75],[278,75],[278,102],[259,105],[254,105],[250,102]]},{"n":228,"a":37.68,"f":10,"r":2,"s":"S","k":3,"g":[[282,65],[310,65],[310,93],[307,96],[288,96],[282,83]]},{"n":229,"a":42.25,"f":10,"r":2,"s":"D","k":3,"p":599950,"m":14200,"t":"M","h":[["2024-11-30",599950],["2025-09-10",599950]],"g":[[282,126],[299,104],[306,104],[310,106],[310,145],[282,145]],"th":"5339ac76"},{"n":230,"a":40.36,"f":10,"r":2,"s":"S","k":3,"g":[[250,126],[254,123],[260,123],[278,129],[278,157],[250,157]]},{"n":231,"a":32.85,"f":1,"r":2,"s":"D","k":4,"p":427050,"m":13000,"t":"M","h":[["2024-11-30",450045],["2025-09-10",450045],["2026-03-11",427050]],"g":[[349,107],[353,103],[372,99],[377,99],[377,120],[372,124],[349,124]],"th":"8f8781de"},{"n":232,"a":44.43,"f":1,"r":2,"s":"D","k":4,"p":533160,"m":12000,"t":"M","h":[["2024-11-30",577590],["2025-09-10",577590],["2026-03-11",533160]],"g":[[316,104],[327,94],[335,94],[344,100],[344,134],[316,134]],"th":"90e5d911"},{"n":233,"a":40.79,"f":1,"r":2,"s":"D","k":4,"p":509875,"m":12500,"t":"M","h":[["2024-11-30",550665],["2025-09-10",550665],["2026-03-11",509875]],"g":[[316,56],[344,56],[344,72],[339,86],[323,95],[316,95]],"th":"884f0b75"},{"n":234,"a":37.39,"f":1,"r":2,"s":"D","k":4,"p":467375,"m":12500,"t":"M","h":[["2024-11-30",504765],["2025-09-10",504765],["2026-03-11",467375]],"g":[[349,45],[377,45],[377,73],[358,76],[354,76],[349,72]],"th":"c31b3449"},{"n":235,"a":42.83,"f":1,"r":2,"s":"D","k":4,"p":535375,"m":12500,"t":"M","h":[["2024-11-30",578205],["2025-09-10",578205],["2026-03-11",535375]],"g":[[381,35],[409,35],[409,68],[381,67]],"th":"dbb1e62d"},{"n":236,"a":47.12,"f":1,"r":2,"s":"D","k":4,"p":563084,"m":11950,"t":"M","h":[["2024-11-30",612560],["2025-09-10",612560],["2026-03-11",563084]],"g":[[413,25],[443,25],[443,46],[423,70],[417,70],[413,68]],"th":"8549a017"},{"n":237,"a":77.36,"f":1,"r":4,"s":"D","k":4,"p":1005680,"m":13000,"t":"M","h":[["2024-11-30",1036624],["2025-09-10",1036624],["2026-03-11",1005680]],"g":[[447,69],[453,21],[475,21],[477,24],[477,71],[447,71]],"th":"9de37273"},{"n":238,"a":33.55,"f":1,"r":2,"s":"S","k":4,"g":[[450,80],[476,80],[476,105],[452,105]]},{"n":239,"a":28.56,"f":1,"r":2,"s":"S","k":4,"g":[[449,121],[452,113],[476,113],[476,134],[449,134]]},{"n":240,"a":38.61,"f":1,"r":2,"s":"D","k":4,"p":482625,"m":12500,"t":"M","h":[["2024-11-30",528957],["2025-09-10",528957],["2026-03-11",482625]],"g":[[437,165],[450,143],[476,143],[476,168],[437,168]],"th":"f99365f7"},{"n":241,"a":42.4,"f":1,"r":2,"s":"D","k":4,"p":506680,"m":11950,"t":"M","h":[["2024-11-30",530000],["2025-09-10",530000],["2026-03-11",506680]],"g":[[413,149],[418,113],[433,113],[433,163],[429,167],[417,167],[413,159]],"th":"e139b793"},{"n":242,"a":56.74,"f":2,"r":3,"s":"D","k":4,"p":652510,"m":11500,"t":"M","h":[["2024-11-30",709250],["2025-09-10",709250],["2026-05-04",652510]],"g":[[349,107],[363,96],[381,94],[393,94],[399,113],[399,124],[349,124]],"th":"c8c6c13f"},{"n":243,"a":44.43,"f":2,"r":2,"s":"D","k":4,"p":577590,"m":13000,"t":"M","h":[["2024-11-30",577590],["2025-09-10",577590]],"g":[[316,104],[328,94],[335,94],[344,101],[344,134],[316,134]],"th":"496542e1"},{"n":244,"a":40.79,"f":2,"r":2,"s":"R","k":4,"p":530270,"m":13000,"t":"M","h":[["2024-11-30",550665],["2025-09-10",550665],["2026-05-04",530270]],"g":[[316,55],[344,55],[344,72],[323,96],[316,96]],"th":"02317ddd"},{"n":245,"a":37.39,"f":2,"r":2,"s":"D","k":4,"p":486070,"m":13000,"t":"M","h":[["2024-11-30",504765],["2025-09-10",504765],["2026-05-04",486070]],"g":[[348,45],[376,45],[376,73],[357,76],[353,76],[348,72]],"th":"1a9bafb9"},{"n":246,"a":42.83,"f":2,"r":2,"s":"D","k":4,"p":556790,"m":13000,"t":"M","h":[["2024-11-30",578205],["2025-09-10",578205],["2026-05-04",556790]],"g":[[380,36],[408,36],[408,69],[389,71],[385,71],[380,68]],"th":"3364d915"},{"n":247,"a":47.12,"f":2,"r":2,"s":"D","k":4,"p":572508,"m":12150,"t":"M","h":[["2024-11-30",612560],["2025-09-10",612560],["2026-05-04",572508]],"g":[[413,25],[442,25],[442,46],[433,58],[422,71],[416,71],[413,68]],"th":"2bce0b71"},{"n":248,"a":77.36,"f":2,"r":4,"s":"D","k":4,"p":1044360,"m":13500,"t":"M","h":[["2024-11-30",1059832],["2025-09-10",1059832],["2026-05-04",1044360]],"g":[[447,69],[453,21],[475,21],[477,24],[477,71],[447,71]],"th":"a5cca76d"},{"n":249,"a":33.55,"f":2,"r":2,"s":"S","k":4,"g":[[450,79],[476,79],[476,105],[452,105]]},{"n":250,"a":28.56,"f":2,"r":2,"s":"S","k":4,"g":[[453,113],[477,113],[477,134],[449,134]]},{"n":251,"a":38.6,"f":2,"r":2,"s":"R","k":4,"p":501800,"m":13000,"t":"M","h":[["2024-11-30",528820],["2025-09-10",528820],["2026-05-04",501800]],"g":[[437,165],[450,143],[477,143],[477,169],[437,169]],"th":"45f0d92c"},{"n":252,"a":42.39,"f":2,"r":2,"s":"D","k":4,"p":536251,"m":12500,"t":"M","h":[["2024-11-30",529875],["2025-09-10",529875]],"g":[[413,149],[419,113],[433,113],[433,164],[430,168],[417,168],[413,160]],"th":"6c0faf80"},{"n":253,"a":56.74,"f":3,"r":3,"s":"D","k":4,"p":663858,"m":11700,"t":"M","h":[["2024-11-30",709250],["2025-09-10",709250],["2026-05-04",663858]],"g":[[348,106],[362,96],[380,93],[393,93],[398,113],[398,124],[348,124]],"th":"74a57de4"},{"n":254,"a":44.43,"f":3,"r":2,"s":"D","k":4,"p":577590,"m":13000,"t":"M","h":[["2024-11-30",577590],["2025-09-10",577590]],"g":[[316,103],[327,94],[335,94],[344,100],[344,134],[316,134]],"th":"3ff142d8"},{"n":255,"a":40.79,"f":3,"r":2,"s":"S","k":4,"g":[[317,55],[344,55],[344,71],[340,85],[323,95],[317,95]]},{"n":256,"a":37.39,"f":3,"r":2,"s":"R","k":4,"p":486070,"m":13000,"t":"M","h":[["2024-11-30",504765],["2025-09-10",504765],["2026-05-04",486070]],"g":[[348,45],[376,45],[376,73],[357,76],[353,76],[348,72]],"th":"90c073b3"},{"n":257,"a":42.83,"f":3,"r":2,"s":"D","k":4,"p":556790,"m":13000,"t":"M","h":[["2024-11-30",578205],["2025-09-10",578205],["2026-05-04",556790]],"g":[[381,36],[409,36],[409,69],[381,68]],"th":"886aa1d7"},{"n":258,"a":47.12,"f":3,"r":2,"s":"D","k":4,"p":584288,"m":12400,"t":"M","h":[["2024-11-30",626696],["2025-09-10",626696],["2026-05-04",584288]],"g":[[413,26],[443,26],[443,47],[423,71],[417,71],[413,69]],"th":"06680dcb"},{"n":259,"a":77.36,"f":3,"r":4,"s":"D","k":4,"p":1044360,"m":13500,"t":"M","h":[["2024-11-30",1059832],["2025-09-10",1059832],["2026-05-04",1044360]],"g":[[449,54],[453,34],[456,25],[476,25],[476,72],[447,72]],"th":"1ec2dfaf"},{"n":260,"a":33.55,"f":3,"r":2,"s":"S","k":4,"g":[[450,80],[477,80],[477,105],[453,105]]},{"n":261,"a":28.56,"f":3,"r":2,"s":"S","k":4,"g":[[449,121],[452,113],[476,113],[476,134],[449,134]]},{"n":262,"a":38.6,"f":3,"r":2,"s":"R","k":4,"p":509520,"m":13200,"t":"M","h":[["2024-11-30",528820],["2025-09-10",528820],["2026-05-04",509520]],"g":[[437,166],[447,146],[450,143],[477,143],[477,168],[437,168]],"th":"5a251a00"},{"n":263,"a":42.39,"f":3,"r":2,"s":"D","k":4,"p":546863,"m":12900,"t":"M","h":[["2024-11-30",546831],["2025-09-10",546831]],"g":[[413,143],[419,114],[433,114],[433,164],[430,168],[417,168],[413,160]],"th":"428fc864"},{"n":264,"a":56.74,"f":4,"r":3,"s":"D","k":4,"p":675206,"m":11900,"t":"M","h":[["2024-11-30",737620],["2025-09-10",737620],["2026-05-04",675206]],"g":[[348,107],[362,97],[380,94],[392,94],[399,114],[399,125],[348,125]],"th":"09dbf758"},{"n":265,"a":44.43,"f":4,"r":2,"s":"R","k":4,"p":599805,"m":13500,"t":"M","h":[["2024-11-30",608691],["2025-09-10",608691],["2026-05-04",599805]],"g":[[316,103],[327,93],[334,93],[344,100],[344,134],[316,133]],"th":"88787486"},{"n":266,"a":40.79,"f":4,"r":2,"s":"D","k":4,"p":550665,"m":13500,"t":"M","h":[["2024-11-30",564941],["2025-09-10",564941],["2026-05-04",550665]],"g":[[316,55],[344,55],[344,75],[339,85],[323,95],[316,95]],"th":"a187022a"},{"n":267,"a":37.39,"f":4,"r":2,"s":"R","k":4,"p":504765,"m":13500,"t":"M","h":[["2024-11-30",517851],["2025-09-10",517851],["2026-05-04",504765]],"g":[[348,46],[376,46],[376,73],[357,76],[353,76],[348,72]],"th":"b92dd04e"},{"n":268,"a":42.83,"f":4,"r":2,"s":"S","k":4,"g":[[381,36],[409,36],[409,68],[389,71],[385,71],[381,68]]},{"n":269,"a":47.12,"f":4,"r":2,"s":"D","k":4,"p":593712,"m":12600,"t":"M","h":[["2024-11-30",631408],["2025-09-10",631408],["2026-05-04",593712]],"g":[[413,26],[443,26],[443,47],[423,71],[417,71],[413,69]],"th":"2f85ae36"},{"n":270,"a":77.36,"f":4,"r":4,"s":"D","k":4,"p":1059832,"m":13700,"t":"M","h":[["2024-11-30",1059832],["2025-09-10",1059832]],"g":[[447,69],[453,22],[476,22],[477,23],[477,71],[447,71]],"th":"cfb9d077"},{"n":271,"a":33.55,"f":4,"r":2,"s":"S","k":4,"g":[[449,79],[477,79],[477,105],[453,105],[450,100]]},{"n":272,"a":28.56,"f":4,"r":2,"s":"S","k":4,"g":[[452,113],[476,113],[476,134],[449,134]]},{"n":273,"a":38.6,"f":4,"r":2,"s":"R","k":4,"p":521100,"m":13500,"t":"M","h":[["2024-11-30",528820],["2025-09-10",528820],["2026-05-04",521100]],"g":[[437,165],[447,145],[450,142],[477,142],[477,168],[437,168]],"th":"e646a6db"},{"n":274,"a":42.39,"f":4,"r":2,"s":"D","k":4,"p":568026,"m":13400,"t":"M","h":[["2024-11-30",568026],["2025-09-10",568026]],"g":[[413,142],[419,113],[433,113],[433,164],[429,168],[416,168],[413,160]],"th":"ad1299e7"},{"n":275,"a":56.74,"f":5,"r":3,"s":"D","k":4,"p":757479,"m":13350,"t":"M","h":[["2024-11-30",757479],["2025-09-10",757479]],"g":[[348,106],[362,96],[380,93],[393,93],[399,113],[399,124],[348,124]],"th":"25075612"},{"n":276,"a":44.43,"f":5,"r":2,"s":"D","k":4,"p":619798,"m":13950,"t":"M","h":[["2024-11-30",619798],["2025-09-10",619798]],"g":[[316,103],[328,94],[335,94],[344,101],[344,134],[316,134]],"th":"0cf820be"},{"n":277,"a":40.79,"f":5,"r":2,"s":"D","k":4,"p":575139,"m":14100,"t":"M","h":[["2024-11-30",575139],["2025-09-11",575139]],"g":[[316,56],[344,56],[344,72],[340,86],[323,96],[316,96]],"th":"1452f2da"},{"n":278,"a":37.39,"f":5,"r":2,"s":"D","k":4,"p":527199,"m":14100,"t":"M","h":[["2024-11-30",527199],["2025-09-10",527199]],"g":[[349,45],[377,45],[377,72],[376,73],[358,76],[354,76],[349,71]],"th":"9a505ec6"},{"n":279,"a":42.83,"f":5,"r":2,"s":"D","k":4,"p":599620,"m":14000,"t":"M","h":[["2024-11-30",599620],["2025-09-10",599620]],"g":[[380,36],[408,36],[408,68],[380,68]],"th":"82fa8ca2"},{"n":280,"a":47.12,"f":5,"r":2,"s":"D","k":4,"p":643188,"m":13650,"t":"M","h":[["2024-11-30",643188],["2025-09-10",643188]],"g":[[413,26],[442,26],[442,47],[433,59],[422,71],[416,71],[413,68]],"th":"4b899305"},{"n":281,"a":77.36,"f":5,"r":4,"s":"D","k":4,"p":1083040,"m":14000,"t":"M","h":[["2024-11-30",1083040],["2025-09-10",1083040]],"g":[[446,6],[476,6],[476,71],[446,71]],"th":"53234161"},{"n":282,"a":33.55,"f":5,"r":2,"s":"R","k":4,"p":503250,"m":15000,"t":"M","h":[["2024-11-30",503250],["2025-09-10",503250]],"g":[[449,79],[476,79],[476,105],[452,105],[449,100]],"th":"7adc37cd"},{"n":283,"a":28.56,"f":5,"r":2,"s":"R","k":4,"p":428400,"m":15000,"t":"M","h":[["2024-11-30",428400],["2025-09-10",428400]],"g":[[452,113],[476,113],[476,134],[449,134]],"th":"6276e5a9"},{"n":284,"a":38.6,"f":5,"r":2,"s":"D","k":4,"p":538470,"m":13950,"t":"M","h":[["2024-11-30",538470],["2025-09-10",538470]],"g":[[437,165],[447,146],[450,143],[476,143],[476,168],[437,168]],"th":"5e25ea03"},{"n":285,"a":42.39,"f":5,"r":2,"s":"D","k":4,"p":578623,"m":13650,"t":"M","h":[["2024-11-30",578623],["2025-09-10",578623]],"g":[[413,149],[419,113],[433,113],[433,164],[430,168],[417,168],[413,159]],"th":"468f3867"},{"n":286,"a":56.74,"f":6,"r":3,"s":"D","k":4,"p":757479,"m":13350,"t":"M","h":[["2024-11-30",757479],["2025-09-10",757479]],"g":[[348,107],[352,103],[362,96],[380,94],[392,94],[398,113],[398,124],[348,124]],"th":"6f704ecb"},{"n":287,"a":44.43,"f":6,"r":2,"s":"D","k":4,"p":619798,"m":13950,"t":"M","h":[["2024-11-30",619798],["2025-09-10",619798]],"g":[[316,103],[327,94],[335,94],[344,100],[344,134],[316,134]],"th":"77da9caf"},{"n":288,"a":40.79,"f":6,"r":2,"s":"D","k":4,"p":575139,"m":14100,"t":"M","h":[["2024-11-30",575139],["2025-09-10",575139]],"g":[[316,55],[344,55],[344,75],[339,85],[323,95],[316,95]],"th":"f9d830b3"},{"n":289,"a":37.39,"f":6,"r":2,"s":"D","k":4,"p":527199,"m":14100,"t":"M","h":[["2024-11-30",527199],["2025-09-10",527199]],"g":[[348,46],[376,46],[376,73],[357,76],[353,76],[348,72]],"th":"e172e2d7"},{"n":290,"a":42.83,"f":6,"r":2,"s":"D","k":4,"p":599620,"m":14000,"t":"M","h":[["2024-11-30",599620],["2025-09-10",599620]],"g":[[380,36],[408,36],[408,68],[389,71],[385,71],[380,68]],"th":"168e25e5"},{"n":291,"a":47.12,"f":6,"r":2,"s":"D","k":4,"p":643188,"m":13650,"t":"M","h":[["2024-11-30",643188],["2025-09-10",643188]],"g":[[413,26],[442,26],[442,47],[433,59],[423,71],[416,71],[413,68]],"th":"0e24f781"},{"n":292,"a":77.36,"f":6,"r":4,"s":"D","k":4,"p":1083040,"m":14000,"t":"M","h":[["2024-11-30",1083040],["2025-09-10",1083040]],"g":[[446,23],[453,22],[475,22],[476,23],[476,71],[446,71]],"th":"27db812d"},{"n":293,"a":33.55,"f":6,"r":2,"s":"S","k":4,"g":[[449,80],[476,80],[476,105],[452,105],[449,100]]},{"n":294,"a":28.56,"f":6,"r":2,"s":"D","k":4,"p":428400,"m":15000,"t":"M","h":[["2024-11-30",428400],["2025-09-10",428400]],"g":[[453,113],[477,113],[477,134],[450,134]],"th":"74256c75"},{"n":295,"a":38.6,"f":6,"r":2,"s":"D","k":4,"p":538470,"m":13950,"t":"M","h":[["2024-11-30",538470],["2025-09-10",538470]],"g":[[437,165],[447,145],[450,142],[477,142],[477,168],[437,168]],"th":"1b888e87"},{"n":297,"a":56.74,"f":7,"r":3,"s":"D","k":4,"p":757479,"m":13350,"t":"M","h":[["2024-11-30",757479],["2025-09-10",757479]],"g":[[349,107],[353,103],[363,96],[381,94],[393,94],[399,113],[399,124],[349,124]],"th":"2add2a4f"},{"n":298,"a":44.43,"f":7,"r":2,"s":"D","k":4,"p":619798,"m":13950,"t":"M","h":[["2024-11-30",619798],["2025-09-10",619798]],"g":[[316,104],[328,94],[335,94],[344,101],[344,134],[316,134]],"th":"a4df8653"},{"n":299,"a":40.79,"f":7,"r":2,"s":"D","k":4,"p":575139,"m":14100,"t":"M","h":[["2024-11-30",575139],["2025-09-10",575139]],"g":[[316,56],[344,56],[344,72],[323,96],[316,96]],"th":"bc755437"},{"n":300,"a":37.39,"f":7,"r":2,"s":"D","k":4,"p":527199,"m":14100,"t":"M","h":[["2024-11-30",527199],["2025-09-10",527199]],"g":[[348,45],[376,45],[376,73],[348,72]],"th":"e0a038f0"},{"n":301,"a":42.83,"f":7,"r":2,"s":"D","k":4,"p":599620,"m":14000,"t":"M","h":[["2024-11-30",599620],["2025-09-10",599620]],"g":[[381,36],[409,36],[409,68],[381,68]],"th":"f80aea94"},{"n":302,"a":47.12,"f":7,"r":2,"s":"D","k":4,"p":643188,"m":13650,"t":"M","h":[["2024-11-30",643188],["2025-09-10",643188]],"g":[[413,26],[443,26],[443,47],[423,72],[417,72],[413,69]],"th":"d1f59c38"},{"n":303,"a":77.36,"f":7,"r":4,"s":"S","k":4,"g":[[449,53],[454,20],[474,20],[477,23],[477,71],[447,71]]},{"n":304,"a":33.55,"f":7,"r":2,"s":"S","k":4,"g":[[450,80],[477,80],[477,105],[453,105]]},{"n":305,"a":28.56,"f":7,"r":2,"s":"S","k":4,"g":[[451,122],[453,113],[477,113],[477,134],[450,134]]},{"n":306,"a":38.6,"f":7,"r":2,"s":"D","k":4,"p":538470,"m":13950,"t":"M","h":[],"g":[[437,165],[447,145],[450,142],[477,142],[477,168],[437,168]],"th":"c459e53e"},{"n":307,"a":42.39,"f":7,"r":2,"s":"D","k":4,"p":578623,"m":13650,"t":"M","h":[["2024-11-30",578623],["2025-05-10",578623]],"g":[[413,149],[419,113],[433,113],[433,164],[430,168],[417,168],[413,160]],"th":"dcf3375a"},{"n":308,"a":56.74,"f":8,"r":3,"s":"D","k":4,"p":771664,"m":13600,"t":"M","h":[],"g":[[348,107],[362,97],[381,95],[393,95],[399,114],[399,125],[348,125]],"th":"52f19b46"},{"n":309,"a":44.43,"f":8,"r":2,"s":"D","k":4,"p":630906,"m":14200,"t":"M","h":[["2024-11-30",630906],["2025-05-10",630906]],"g":[[316,103],[327,94],[335,94],[344,100],[344,134],[316,134]],"th":"4a5b4922"},{"n":310,"a":40.79,"f":8,"r":2,"s":"S","k":4,"g":[[316,55],[344,55],[344,72],[323,96],[316,95]]},{"n":311,"a":37.39,"f":8,"r":2,"s":"D","k":4,"p":536546,"m":14350,"t":"M","h":[["2024-11-30",536546],["2025-05-10",536546]],"g":[[348,45],[376,45],[376,73],[357,75],[353,75],[348,71]],"th":"c5cad591"},{"n":312,"a":42.83,"f":8,"r":2,"s":"D","k":4,"p":610327,"m":14250,"t":"M","h":[["2024-11-30",610327],["2025-05-10",610327]],"g":[[381,36],[409,36],[409,68],[389,71],[385,71],[381,68]],"th":"ec35a33d"},{"n":313,"a":47.12,"f":8,"r":2,"s":"D","k":4,"p":654968,"m":13900,"t":"M","h":[["2024-11-30",654968]],"g":[[413,26],[443,26],[443,46],[433,59],[423,71],[416,71],[413,68]],"th":"f49f7159"},{"n":314,"a":77.36,"f":8,"r":4,"s":"R","k":4,"p":1121720,"m":14500,"t":"M","h":[["2024-11-30",1121720],["2025-05-10",1121720]],"g":[[445,5],[476,5],[476,71],[447,71]],"th":"bfcb4e65"},{"n":315,"a":33.55,"f":8,"r":2,"s":"S","k":4,"g":[[449,80],[476,80],[476,105],[452,105],[449,100]]},{"n":316,"a":28.56,"f":8,"r":2,"s":"S","k":4,"g":[[452,114],[453,113],[477,113],[477,134],[450,134]]},{"n":317,"a":38.6,"f":8,"r":2,"s":"D","k":4,"p":548120,"m":14200,"t":"M","h":[["2024-11-30",548120],["2025-09-10",548120]],"g":[[437,165],[450,143],[476,143],[476,168],[437,168]],"th":"0850ad6a"},{"n":318,"a":42.39,"f":8,"r":2,"s":"D","k":4,"p":589221,"m":13900,"t":"M","h":[["2024-11-30",589221],["2025-05-10",589221]],"g":[[413,149],[419,113],[433,113],[433,164],[430,168],[417,168],[413,160]],"th":"86520176"},{"n":319,"a":56.74,"f":9,"r":3,"s":"D","k":4,"p":771664,"m":13600,"t":"M","h":[["2024-11-30",771664],["2025-09-10",771664]],"g":[[348,107],[362,96],[380,94],[393,94],[399,113],[399,124],[348,124]],"th":"9ef8d312"},{"n":320,"a":44.43,"f":9,"r":2,"s":"D","k":4,"p":630906,"m":14200,"t":"M","h":[["2024-11-30",630906],["2025-09-10",630906]],"g":[[316,104],[327,95],[335,95],[344,101],[344,134],[316,134]],"th":"eb4ab275"},{"n":321,"a":40.79,"f":9,"r":2,"s":"D","k":4,"p":585336,"m":14350,"t":"M","h":[["2024-11-30",585336],["2025-09-10",585336]],"g":[[316,55],[344,55],[344,75],[339,86],[323,95],[316,95]],"th":"f3e06011"},{"n":322,"a":37.39,"f":9,"r":2,"s":"D","k":4,"p":536546,"m":14350,"t":"M","h":[["2024-11-30",536546],["2025-09-10",536546]],"g":[[349,45],[377,45],[377,73],[349,72]],"th":"da1f16bd"},{"n":323,"a":42.83,"f":9,"r":2,"s":"D","k":4,"p":610327,"m":14250,"t":"M","h":[["2024-11-30",610327],["2025-09-10",610327]],"g":[[380,46],[381,36],[409,36],[409,68],[389,71],[385,71],[381,67],[380,59]],"th":"c2b5c4d9"},{"n":324,"a":47.12,"f":9,"r":2,"s":"D","k":4,"p":654968,"m":13900,"t":"M","h":[["2024-11-30",654968],["2025-09-10",654968]],"g":[[413,27],[443,27],[443,47],[423,71],[417,71],[413,69]],"th":"89e1fbe5"},{"n":325,"a":77.36,"f":9,"r":4,"s":"S","k":4,"g":[[446,5],[476,5],[476,71],[446,71]]},{"n":326,"a":33.55,"f":9,"r":2,"s":"S","k":4,"g":[[449,80],[476,80],[476,106],[452,106],[449,101]]},{"n":327,"a":28.56,"f":9,"r":2,"s":"S","k":4,"g":[[449,132],[453,113],[477,113],[477,134],[450,134]]},{"n":328,"a":38.6,"f":9,"r":2,"s":"S","k":4,"g":[[437,165],[447,145],[451,142],[477,142],[477,168],[437,168]]},{"n":329,"a":42.39,"f":9,"r":2,"s":"D","k":4,"p":589221,"m":13900,"t":"M","h":[["2024-11-30",589221],["2025-09-10",589221]],"g":[[413,150],[419,114],[433,114],[433,164],[429,168],[417,168],[413,160]],"th":"afbfa28b"},{"n":330,"a":56.74,"f":10,"r":3,"s":"D","k":4,"p":771664,"m":13600,"t":"M","h":[["2024-11-30",771664],["2025-09-10",771664]],"g":[[349,107],[353,103],[363,96],[381,94],[393,94],[399,113],[399,124],[349,124]],"th":"3884ec5c"},{"n":331,"a":44.43,"f":10,"r":2,"s":"D","k":4,"p":630906,"m":14200,"t":"M","h":[["2024-11-30",630906],["2025-09-10",630906]],"g":[[316,104],[328,95],[335,95],[344,101],[344,134],[316,134]],"th":"57290eae"},{"n":332,"a":40.79,"f":10,"r":2,"s":"D","k":4,"p":585336,"m":14350,"t":"M","h":[["2024-11-30",585336],["2025-09-10",585336]],"g":[[317,56],[345,55],[345,76],[340,86],[324,96],[317,96]],"th":"7ed67802"},{"n":333,"a":37.39,"f":10,"r":2,"s":"S","k":4,"g":[[348,45],[376,45],[376,73],[357,76],[353,76],[348,72]]},{"n":334,"a":42.83,"f":10,"r":2,"s":"S","k":4,"g":[[381,36],[409,36],[409,69],[389,71],[385,71],[381,68]]},{"n":335,"a":47.12,"f":10,"r":2,"s":"S","k":4,"g":[[413,26],[442,26],[442,46],[433,59],[422,71],[416,71],[413,68]]},{"n":336,"a":77.36,"f":10,"r":4,"s":"S","k":4,"g":[[445,5],[476,5],[476,71],[447,71]]},{"n":337,"a":33.55,"f":10,"r":2,"s":"S","k":4,"g":[[449,79],[476,79],[476,105],[452,105],[449,100]]},{"n":338,"a":28.56,"f":10,"r":2,"s":"S","k":4,"g":[[452,113],[476,113],[476,134],[449,134]]},{"n":339,"a":38.6,"f":10,"r":2,"s":"S","k":4,"g":[[437,165],[447,145],[450,142],[477,142],[477,168],[437,168]]},{"n":340,"a":42.39,"f":10,"r":2,"s":"D","k":4,"p":589221,"m":13900,"t":"M","h":[["2024-11-30",589221],["2025-09-10",589221]],"g":[[413,149],[419,113],[433,113],[433,164],[430,168],[417,168],[413,159]],"th":"f018e9e3"},{"n":341,"a":146.86,"f":11,"r":4,"s":"S","k":4,"g":[[413,26],[445,5],[476,5],[476,71],[416,71],[413,68]],"approx":1},{"n":342,"a":34.26,"f":1,"r":2,"s":"D","k":5,"p":462510,"m":13500,"t":"M","h":[["2024-11-30",479640],["2025-09-10",479640],["2026-03-11",462510]],"g":[[452,309],[476,309],[476,326],[472,334],[450,334],[447,330]],"th":"c14d4d2b"},{"n":343,"a":51.22,"f":1,"r":3,"s":"D","k":5,"p":640250,"m":12500,"t":"M","h":[["2024-11-30",676104],["2025-09-10",676104],["2026-03-11",640250]],"g":[[447,345],[450,343],[477,343],[477,373],[473,384],[450,384],[447,379]],"th":"d9e79f4f"},{"n":344,"a":57.98,"f":1,"r":3,"s":"D","k":5,"p":724750,"m":12500,"t":"M","h":[["2024-11-30",765336],["2025-09-10",765336],["2026-03-11",724750]],"g":[[437,421],[447,391],[457,391],[476,392],[476,426],[473,433],[437,433]],"th":"92b3a073"},{"n":345,"a":67.4,"f":1,"r":4,"s":"D","k":5,"p":822280,"m":12200,"t":"M","h":[["2024-11-30",876200],["2025-09-10",876200],["2026-03-11",822280]],"g":[[403,383],[407,376],[433,376],[433,433],[403,433]],"th":"fd1e4281"},{"n":346,"a":46.9,"f":1,"r":2,"s":"S","k":5,"g":[[404,350],[407,343],[417,325],[433,325],[433,344],[431,364],[428,368],[403,368]]},{"n":347,"a":33.81,"f":1,"r":1,"s":"R","k":5,"p":456435,"m":13500,"t":"M","h":[["2024-11-30",469959],["2025-09-10",469959],["2026-03-11",456435]],"g":[[403,287],[430,287],[433,290],[433,317],[413,317],[403,293]],"th":"cc4be649"},{"n":348,"a":56.47,"f":1,"r":3,"s":"D","k":5,"p":705875,"m":12500,"t":"M","h":[["2024-11-30",728463],["2025-09-10",728463],["2026-03-11",705875]],"g":[[403,218],[407,210],[433,210],[433,263],[427,266],[417,266],[413,258],[403,227]],"th":"42494a55"},{"n":349,"a":29.84,"f":1,"r":2,"s":"S","k":5,"g":[[413,177],[440,177],[443,180],[443,183],[430,201],[413,201]]},{"n":350,"a":51.39,"f":1,"r":3,"s":"D","k":5,"p":614110,"m":11950,"t":"M","h":[["2024-11-30",678348],["2025-09-10",678348],["2026-03-11",614110]],"g":[[447,191],[449,180],[450,178],[477,178],[477,212],[473,219],[450,219],[447,214]],"th":"9f293d81"},{"n":351,"a":46.41,"f":1,"r":3,"s":"S","k":5,"g":[[447,254],[450,228],[477,228],[477,257],[473,264],[451,264],[447,259]]},{"n":352,"a":34.26,"f":2,"r":2,"s":"S","k":5,"g":[[447,311],[453,308],[477,308],[477,325],[473,334],[450,334],[447,329]]},{"n":353,"a":51.22,"f":2,"r":3,"s":"D","k":5,"p":683787,"m":13350,"t":"M","h":[["2024-11-30",683787],["2025-09-10",683787]],"g":[[447,356],[449,343],[477,343],[477,373],[473,383],[450,383],[447,379]],"th":"b6d64b2d"},{"n":354,"a":57.98,"f":2,"r":3,"s":"S","k":5,"g":[[437,421],[447,392],[477,392],[477,426],[473,433],[437,433]]},{"n":355,"a":67.4,"f":2,"r":4,"s":"D","k":5,"p":872830,"m":12950,"t":"M","h":[["2024-11-30",886310],["2025-09-10",886310],["2026-05-05",872830]],"g":[[403,385],[409,377],[433,377],[433,433],[409,433],[403,421]],"th":"922f96e3"},{"n":356,"a":46.9,"f":2,"r":2,"s":"D","k":5,"p":607355,"m":12950,"t":"M","h":[["2024-11-30",621425],["2025-09-10",621425],["2026-05-05",607355]],"g":[[406,351],[417,325],[433,325],[433,344],[431,365],[429,369],[410,369],[406,358]],"th":"bbd0e04f"},{"n":357,"a":46.83,"f":2,"r":2,"s":"D","k":5,"p":606448,"m":12950,"t":"M","h":[["2024-11-30",620497],["2025-09-10",620497],["2026-05-05",606448]],"g":[[403,285],[409,275],[432,275],[432,317],[412,317],[403,292]],"th":"a37a322b"},{"n":358,"a":56.47,"f":2,"r":3,"s":"D","k":5,"p":728463,"m":12900,"t":"M","h":[["2024-11-30",728463],["2025-09-10",728463]],"g":[[405,220],[409,210],[433,210],[433,263],[428,267],[417,267],[413,258],[406,227]],"th":"2d789e37"},{"n":359,"a":29.84,"f":2,"r":2,"s":"R","k":5,"p":432680,"m":14500,"t":"M","h":[["2024-11-30",432680],["2025-09-10",432680]],"g":[[413,177],[440,177],[443,180],[443,183],[429,201],[413,201]],"th":"35d24c53"},{"n":360,"a":51.39,"f":2,"r":3,"s":"D","k":5,"p":686056,"m":13350,"t":"M","h":[["2024-11-30",686056],["2025-09-10",686056]],"g":[[447,180],[450,178],[477,178],[477,212],[473,219],[450,219],[447,214]],"th":"37671da2"},{"n":361,"a":46.41,"f":2,"r":3,"s":"R","k":5,"p":626535,"m":13500,"t":"M","h":[["2024-11-30",626535],["2025-09-10",626535]],"g":[[447,254],[450,227],[477,227],[477,256],[473,264],[450,264],[447,259]],"th":"2fcdcfc6"},{"n":362,"a":34.26,"f":3,"r":2,"s":"S","k":5,"g":[[447,312],[453,309],[476,309],[476,327],[472,335],[450,335],[447,330]]},{"n":363,"a":51.22,"f":3,"r":3,"s":"D","k":5,"p":683787,"m":13350,"t":"M","h":[["2024-11-30",683787],["2025-09-10",683787]],"g":[[447,357],[449,343],[476,343],[476,374],[472,384],[450,384],[447,380]],"th":"1e986b0e"},{"n":364,"a":57.98,"f":3,"r":3,"s":"D","k":5,"p":762437,"m":13150,"t":"M","h":[["2024-11-30",774033],["2025-09-10",774033],["2026-05-05",762437]],"g":[[437,421],[447,392],[477,392],[476,427],[472,433],[437,433]],"th":"ccc50588"},{"n":365,"a":67.4,"f":3,"r":4,"s":"D","k":5,"p":872830,"m":12950,"t":"M","h":[["2024-11-30",886310],["2025-09-10",886310],["2026-05-05",872830]],"g":[[403,385],[409,376],[433,376],[433,433],[426,433],[409,432],[403,421]],"th":"d46fd7ec"},{"n":366,"a":46.9,"f":3,"r":2,"s":"D","k":5,"p":607355,"m":12950,"t":"M","h":[["2024-11-30",621425],["2025-09-10",621425],["2026-05-05",607355]],"g":[[406,351],[413,333],[417,325],[433,325],[433,344],[431,365],[428,369],[409,369],[406,359]],"th":"fd90a140"},{"n":367,"a":46.83,"f":3,"r":2,"s":"D","k":5,"p":606448,"m":12950,"t":"M","h":[["2024-11-30",620497],["2025-09-10",620497],["2026-05-05",606448]],"g":[[403,285],[409,275],[432,275],[432,317],[413,317],[403,292]],"th":"e53a7324"},{"n":368,"a":56.47,"f":3,"r":3,"s":"D","k":5,"p":728463,"m":12900,"t":"M","h":[["2024-11-30",728463],["2025-09-10",728463]],"g":[[405,220],[410,211],[433,211],[433,263],[428,267],[417,267],[414,259]],"th":"6b38df38"},{"n":369,"a":29.84,"f":3,"r":2,"s":"S","k":5,"g":[[413,178],[440,178],[442,183],[429,202],[413,202]]},{"n":370,"a":51.39,"f":3,"r":3,"s":"D","k":5,"p":686056,"m":13350,"t":"M","h":[["2024-11-30",686056],["2025-09-10",686056]],"g":[[447,191],[450,177],[477,177],[477,212],[473,219],[451,219],[447,214]],"th":"93ae731d"},{"n":371,"a":46.41,"f":3,"r":3,"s":"R","k":5,"p":626535,"m":13500,"t":"M","h":[["2024-11-30",626535],["2025-09-10",626535]],"g":[[447,229],[450,227],[477,227],[477,257],[473,264],[451,264],[447,259]],"th":"8b04a179"},{"n":372,"a":34.26,"f":4,"r":2,"s":"S","k":5,"g":[[447,312],[453,309],[476,309],[476,327],[472,335],[450,335],[447,330]]},{"n":373,"a":51.22,"f":4,"r":3,"s":"D","k":5,"p":683787,"m":13350,"t":"M","h":[["2024-11-30",683787],["2025-09-10",683787]],"g":[[447,356],[449,345],[450,343],[477,343],[477,374],[473,384],[451,384],[447,379]],"th":"ba5105b1"},{"n":374,"a":57.98,"f":4,"r":3,"s":"D","k":5,"p":762437,"m":13150,"t":"M","h":[["2024-11-30",774033],["2026-05-05",762437]],"g":[[437,421],[447,392],[476,392],[476,426],[472,433],[437,433]],"th":"f1053a8d"},{"n":375,"a":67.4,"f":4,"r":4,"s":"R","k":5,"p":879570,"m":13050,"t":"M","h":[["2024-11-30",886310],["2025-09-10",886310],["2026-05-05",879570]],"g":[[403,385],[409,376],[433,376],[433,392],[432,433],[409,433],[403,421]],"th":"77cb7d4a"},{"n":376,"a":46.9,"f":4,"r":2,"s":"S","k":5,"g":[[405,357],[407,350],[417,325],[433,325],[433,344],[431,364],[429,368],[410,368]]},{"n":377,"a":46.83,"f":4,"r":2,"s":"D","k":5,"p":611131,"m":13050,"t":"M","h":[["2024-11-30",620497],["2025-09-10",620497],["2026-05-05",611131]],"g":[[409,275],[433,275],[433,316],[413,316],[405,292]],"th":"469ed982"},{"n":378,"a":56.47,"f":4,"r":3,"s":"D","k":5,"p":734110,"m":13000,"t":"M","h":[["2024-11-30",734110],["2025-09-10",734110]],"g":[[403,221],[409,211],[433,211],[433,228],[431,263],[428,267],[417,267],[413,259]],"th":"c89c759e"},{"n":379,"a":29.84,"f":4,"r":2,"s":"S","k":5,"g":[[413,178],[440,178],[443,180],[443,183],[429,202],[413,202]]},{"n":380,"a":51.39,"f":4,"r":3,"s":"D","k":5,"p":686056,"m":13350,"t":"M","h":[["2024-11-30",686056],["2025-09-10",686056]],"g":[[447,192],[449,178],[477,178],[477,212],[473,219],[450,219],[447,214]],"th":"6e4288cb"},{"n":381,"a":46.41,"f":4,"r":3,"s":"R","k":5,"p":626535,"m":13500,"t":"M","h":[["2024-11-30",626535],["2025-09-10",626535]],"g":[[446,254],[449,227],[476,227],[476,257],[472,264],[450,264],[446,259]],"th":"76e85aaf"},{"n":382,"a":34.26,"f":5,"r":2,"s":"S","k":5,"g":[[447,311],[453,309],[477,309],[477,326],[473,334],[450,334],[447,330]]},{"n":383,"a":51.22,"f":5,"r":3,"s":"D","k":5,"p":696592,"m":13600,"t":"M","h":[["2024-11-30",696592],["2025-09-10",696592]],"g":[[447,356],[450,343],[477,343],[477,374],[473,384],[451,384],[447,379]],"th":"47bdfe67"},{"n":384,"a":57.98,"f":5,"r":3,"s":"D","k":5,"p":788528,"m":13600,"t":"M","h":[["2024-11-30",788528],["2025-09-10",788528]],"g":[[437,421],[446,392],[476,392],[476,426],[472,433],[437,433]],"th":"0ce9c15b"},{"n":385,"a":67.4,"f":5,"r":4,"s":"D","k":5,"p":903160,"m":13400,"t":"M","h":[["2024-11-30",903160],["2025-09-10",903160]],"g":[[403,385],[410,376],[433,376],[433,433],[410,433],[403,421]],"th":"1443133f"},{"n":386,"a":46.9,"f":5,"r":2,"s":"S","k":5,"g":[[406,358],[409,343],[413,333],[417,325],[433,325],[433,344],[431,365],[428,369],[409,369]]},{"n":387,"a":46.83,"f":5,"r":2,"s":"R","k":5,"p":632205,"m":13500,"t":"M","h":[["2024-11-30",632205],["2025-09-10",632205]],"g":[[403,285],[409,275],[432,275],[432,317],[412,317],[404,292]],"th":"2516b7f7"},{"n":388,"a":56.47,"f":5,"r":3,"s":"D","k":5,"p":748227,"m":13250,"t":"M","h":[["2024-11-30",748227]],"g":[[404,220],[409,210],[433,210],[433,263],[427,267],[416,267],[413,259],[405,227]],"th":"321d4a51"},{"n":389,"a":29.84,"f":5,"r":2,"s":"S","k":5,"g":[[413,178],[440,178],[443,181],[443,184],[430,202],[413,202]]},{"n":390,"a":51.39,"f":5,"r":3,"s":"D","k":5,"p":698904,"m":13600,"t":"M","h":[["2024-11-30",698904],["2025-09-10",698904]],"g":[[446,192],[449,178],[476,178],[476,213],[472,219],[450,219],[446,215]],"th":"bd8cd6e2"},{"n":391,"a":46.41,"f":5,"r":3,"s":"R","k":5,"p":638137,"m":13750,"t":"M","h":[["2024-11-30",638137],["2025-09-10",638137]],"g":[[447,230],[450,228],[477,228],[477,257],[473,264],[451,264],[447,260]],"th":"a5260486"},{"n":392,"a":34.26,"f":6,"r":2,"s":"S","k":5,"g":[[447,311],[453,309],[477,309],[477,326],[473,334],[450,334]]},{"n":393,"a":51.22,"f":6,"r":3,"s":"D","k":5,"p":696592,"m":13600,"t":"M","h":[["2024-11-30",696592],["2025-09-10",696592]],"g":[[447,357],[449,343],[477,343],[477,374],[472,384],[450,384],[447,380]],"th":"9473a04e"},{"n":394,"a":57.98,"f":6,"r":3,"s":"D","k":5,"p":788528,"m":13600,"t":"M","h":[["2024-11-30",788528],["2025-09-10",788528]],"g":[[438,421],[447,392],[477,392],[477,426],[473,433],[438,433]],"th":"df279f72"},{"n":395,"a":67.4,"f":6,"r":4,"s":"D","k":5,"p":903160,"m":13400,"t":"M","h":[["2024-11-30",903160],["2025-09-10",903160]],"g":[[403,385],[409,376],[433,376],[433,433],[425,433],[409,432],[403,421]],"th":"b08a7d80"},{"n":396,"a":46.9,"f":6,"r":2,"s":"D","k":5,"p":633150,"m":13500,"t":"M","h":[["2024-11-30",633150],["2025-09-10",633150]],"g":[[406,351],[413,332],[417,325],[433,325],[433,344],[430,364],[428,368],[409,368],[406,358]],"th":"99750b2c"},{"n":397,"a":46.83,"f":6,"r":2,"s":"D","k":5,"p":632205,"m":13500,"t":"M","h":[["2024-11-30",632205],["2025-09-10",632205]],"g":[[403,284],[409,274],[432,274],[432,316],[412,316],[404,291]],"th":"81dfd948"},{"n":398,"a":56.47,"f":6,"r":3,"s":"D","k":5,"p":748227,"m":13250,"t":"M","h":[["2024-11-30",748227],["2025-09-10",748227]],"g":[[403,220],[409,210],[433,210],[433,263],[428,266],[417,266],[413,258]],"th":"0fdd7554"},{"n":399,"a":29.84,"f":6,"r":2,"s":"D","k":5,"p":438648,"m":14700,"t":"M","h":[["2024-11-30",438648],["2025-09-10",438648]],"g":[[413,178],[440,178],[442,183],[429,202],[413,202]],"th":"1777a730"},{"n":400,"a":51.39,"f":6,"r":3,"s":"D","k":5,"p":698904,"m":13600,"t":"M","h":[["2024-11-30",698904],["2025-09-10",698904]],"g":[[447,180],[450,178],[477,178],[477,212],[472,219],[450,219],[447,214]],"th":"eecd9dbb"},{"n":401,"a":46.41,"f":6,"r":3,"s":"R","k":5,"p":638137,"m":13750,"t":"M","h":[["2024-11-30",638137],["2025-09-10",638137]],"g":[[447,254],[450,228],[477,228],[477,257],[473,264],[450,264],[447,260]],"th":"f6674fdf"},{"n":402,"a":44.59,"f":7,"r":2,"s":"D","k":5,"p":624260,"m":14000,"t":"M","h":[["2024-11-30",624260],["2025-09-10",624260]],"g":[[437,325],[447,312],[458,309],[476,309],[476,325],[470,335],[437,335]],"th":"df983973"},{"n":403,"a":60.73,"f":7,"r":3,"s":"D","k":5,"p":850220,"m":14000,"t":"M","h":[["2024-11-30",850220],["2025-09-10",850220]],"g":[[409,275],[433,275],[433,333],[421,335],[413,335],[403,286]],"th":"c732eb17"},{"n":404,"a":56.47,"f":7,"r":3,"s":"S","k":5,"g":[[404,220],[409,210],[433,210],[433,263],[428,266],[417,266],[413,258]]},{"n":405,"a":29.84,"f":7,"r":2,"s":"D","k":5,"p":446108,"m":14950,"t":"M","h":[["2024-11-30",446108],["2025-09-10",446108]],"g":[[413,177],[440,177],[443,180],[443,183],[429,202],[413,202]],"th":"0e03df0d"},{"n":406,"a":51.39,"f":7,"r":3,"s":"D","k":5,"p":711751,"m":13850,"t":"M","h":[["2024-11-30",711751],["2025-09-10",711751]],"g":[[446,191],[449,177],[476,177],[476,212],[472,219],[450,219],[446,214]],"th":"27fca9a1"},{"n":407,"a":46.41,"f":7,"r":3,"s":"R","k":5,"p":649740,"m":14000,"t":"M","h":[["2024-11-30",649740],["2025-09-10",649740]],"g":[[447,254],[450,228],[477,228],[477,257],[473,264],[451,264],[447,259]],"th":"3f567bc5"},{"n":408,"a":44.8,"f":8,"r":2,"s":"R","k":5,"p":627200,"m":14000,"t":"M","h":[["2024-11-30",627200],["2025-09-10",627200]],"g":[[438,324],[448,311],[459,309],[476,309],[477,324],[471,334],[438,334]],"th":"b154d7d9"},{"n":409,"a":60.73,"f":8,"r":3,"s":"D","k":5,"p":838074,"m":13800,"t":"M","h":[["2024-11-30",838074],["2025-09-10",838074]],"g":[[403,284],[409,275],[433,275],[433,334],[413,334],[403,286]],"th":"a9fe05bd"},{"n":410,"a":56.47,"f":8,"r":3,"s":"D","k":5,"p":762345,"m":13500,"t":"M","h":[["2024-11-30",762345],["2025-09-10",762345]],"g":[[404,220],[409,210],[433,210],[433,263],[428,266],[417,266],[413,258]],"th":"49c27bfc"},{"n":411,"a":29.84,"f":8,"r":2,"s":"D","k":5,"p":446108,"m":14950,"t":"M","h":[["2024-11-30",446108],["2025-09-10",446108]],"g":[[413,178],[441,178],[443,183],[430,202],[413,202]],"th":"5168a998"},{"n":412,"a":51.39,"f":8,"r":3,"s":"D","k":5,"p":711751,"m":13850,"t":"M","h":[["2024-11-30",711751],["2025-09-10",711751]],"g":[[447,180],[449,178],[476,178],[476,213],[472,219],[450,219],[447,214]],"th":"7897df34"},{"n":413,"a":46.41,"f":8,"r":3,"s":"D","k":5,"p":649740,"m":14000,"t":"M","h":[["2024-11-30",649740],["2025-09-10",649740]],"g":[[446,229],[449,227],[476,227],[476,257],[472,264],[450,264],[446,259]],"th":"603d0d50"},{"n":414,"a":44.8,"f":9,"r":2,"s":"D","k":5,"p":627200,"m":14000,"t":"M","h":[["2024-11-30",627200],["2025-09-10",627200]],"g":[[437,324],[447,312],[458,309],[476,309],[476,325],[470,335],[437,335]],"th":"2b69326c"},{"n":415,"a":60.73,"f":9,"r":3,"s":"S","k":5,"g":[[403,284],[409,275],[432,275],[432,334],[412,334],[403,286]]},{"n":416,"a":56.47,"f":9,"r":3,"s":"D","k":5,"p":762345,"m":13500,"t":"M","h":[["2024-11-30",762345],["2025-09-10",762345]],"g":[[404,220],[409,210],[433,210],[433,227],[431,262],[428,266],[417,266],[413,258]],"th":"8a838b35"},{"n":417,"a":29.84,"f":9,"r":2,"s":"D","k":5,"p":446108,"m":14950,"t":"M","h":[["2024-11-30",446108],["2025-09-10",446108]],"g":[[413,178],[440,178],[443,181],[443,184],[430,202],[413,202]],"th":"92295951"},{"n":418,"a":51.39,"f":9,"r":3,"s":"S","k":5,"g":[[447,180],[449,178],[476,178],[476,212],[472,219],[450,219],[447,214]]},{"n":419,"a":46.41,"f":9,"r":3,"s":"D","k":5,"p":649740,"m":14000,"t":"M","h":[["2024-11-30",649740],["2025-09-10",649740]],"g":[[447,254],[450,228],[477,228],[477,257],[473,264],[451,264],[447,259]],"th":"04812729"},{"n":420,"a":44.8,"f":10,"r":2,"s":"S","k":5,"g":[[437,324],[447,312],[459,309],[477,309],[477,324],[471,335],[437,335]]},{"n":421,"a":60.73,"f":10,"r":3,"s":"S","k":5,"g":[[409,275],[433,275],[433,334],[413,334],[403,286]]},{"n":422,"a":56.28,"f":10,"r":3,"s":"D","k":5,"p":759780,"m":13500,"t":"M","h":[["2024-11-30",759780],["2025-09-10",759780]],"g":[[403,220],[409,210],[432,210],[432,228],[430,262],[427,266],[416,266],[413,258]],"th":"4066e286"},{"n":423,"a":29.84,"f":10,"r":2,"s":"D","k":5,"p":446108,"m":14950,"t":"M","h":[["2024-11-30",446108],["2025-09-10",446108]],"g":[[413,177],[440,177],[443,180],[443,183],[429,202],[413,202]],"th":"58cc30e2"}];
+
+</script>
+<script>
+(function(){
+'use strict';
+const IMG = window.IMG_BASE || 'https://www.jaz-bud.pl';
+const U = window.UNITS;
+const byN = new Map(U.map(u => [u.n, u]));
+const ST = {D:'Dostępne', R:'Rezerwacja', S:'Sprzedane'};
+const TERM = {W:'wrzesień 2027', M:'maj 2027', C:'czerwiec 2027', G:'grudzień 2026'};
+const STAMP = '17.11.2026';
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const nf = new Intl.NumberFormat('pl-PL');
+const fmtP = p => nf.format(p) + ' zł';
+const fmtA = a => a.toFixed(2).replace('.', ',') + ' m²';
+const roomsTxt = r => r === 1 ? '1 pokój' : r + (r < 5 ? ' pokoje' : ' pokoi');
+const floorTxt = f => f === 0 ? 'parter' : 'piętro ' + f;
+
+/* ---------- geometry helpers (plan frame -> floor-plan image px) ---------- */
+const KT = {k1:[17,82,1.544], k2:[12,78,1.5545], k7:[10,76,1.562], k8:[10,77,1.5575]};
+const floorType = f => f === 1 ? 'k1' : f <= 6 ? 'k2' : f === 7 ? 'k7' : f <= 10 ? 'k8' : null;
+const toPlan = (g, t) => { const [ox, oy, s] = KT[t]; return g.map(([x, y]) => [ox + x*s, oy + y*s]); };
+const centroid = pts => { let a=0,cx=0,cy=0; for (let i=0;i<pts.length;i++){const [x0,y0]=pts[i],[x1,y1]=pts[(i+1)%pts.length];const c=x0*y1-x1*y0;a+=c;cx+=(x0+x1)*c;cy+=(y0+y1)*c;} a/=2; return a ? [cx/(6*a), cy/(6*a)] : pts[0]; };
+const planUrl = n => (n === 160 || n === 161 || n === 341) ? null : `${IMG}/images/kaczorowskiego-1/11.2024/rzuty/M${n}.jpg`;
+const kartaUrl = n => n === 40 ? `${IMG}/images/kaczorowskiego-1/1.2025/M40.pdf` : n === 318 ? `${IMG}/images/kaczorowskiego-1/pdf/M318.pdf` : (n === 160 || n === 161 || n === 341) ? null : `${IMG}/images/kaczorowskiego-1/11.2024/karty-pdf/M${n}.pdf`;
+const thumbUrl = u => u && u.th ? `${IMG}/templates/yootheme/cache/${u.th.slice(0, 2)}/M${u.n}-${u.th}.webp` : null;
+const floorImg = t => `${IMG}/images/plany/407/${t}.jpg`;
+const term = u => u.t ? TERM[u.t] : (u.k <= 2 ? TERM.W : TERM.M);
+
+/* ---------- favourites ---------- */
+let favs = new Set();
+try { favs = new Set(JSON.parse(localStorage.getItem('jb_fav') || '[]')); } catch(e) {}
+const saveFav = () => { try { localStorage.setItem('jb_fav', JSON.stringify([...favs])); } catch(e) {} updateFavUI(); };
+function toggleFav(n){ favs.has(n) ? favs.delete(n) : favs.add(n); saveFav(); toast(favs.has(n) ? `Dodano M-${n} do ulubionych` : `Usunięto M-${n} z ulubionych`); }
+function updateFavUI(){ $('#favCount').textContent = favs.size; $('#favBtn').classList.toggle('has', favs.size > 0); $$('.icon-btn.fav').forEach(b => b.classList.toggle('on', favs.has(+b.dataset.n))); }
+
+/* ---------- state & filters ---------- */
+const state = {
+  view: 'estate', overlay: true, floor: null, planFloor: 2,
+  f: { rooms: new Set(), status: new Set(['D','R','S']), fmin: 1, fmax: 11, amin: '', amax: '', pmax: '', kl: '', fav: false },
+  sort: { key: 'n', dir: 1 }, shown: 30
+};
+function match(u){
+  const f = state.f;
+  if (!f.status.has(u.s)) return false;
+  if (f.rooms.size && !f.rooms.has(Math.min(u.r, 4))) return false;
+  if (u.f < f.fmin || u.f > f.fmax) return false;
+  if (f.amin !== '' && u.a < +f.amin) return false;
+  if (f.amax !== '' && u.a > +f.amax) return false;
+  if (f.pmax !== '' && (u.s === 'S' || u.p > +f.pmax)) return false;
+  if (f.kl !== '' && u.k !== +f.kl) return false;
+  if (f.fav && !favs.has(u.n)) return false;
+  return true;
+}
+const listeners = [];
+function changed(){ state.shown = 30; syncFilterUI(); renderTable(); renderPanel(); renderLegend(); renderPlan(); listeners.forEach(fn => fn()); }
+
+function filterMarkup(){
+  const floorsOpt = sel => Array.from({length:11}, (_, i) => `<option value="${i+1}" ${sel===i+1?'selected':''}>${i+1}</option>`).join('');
+  return `
+  <div class="frow"><span class="flabel">Pokoje</span>${[1,2,3,4].map(r => `<button class="chip" data-room="${r}">${r === 4 ? '4' : r}</button>`).join('')}</div>
+  <div class="frow"><span class="flabel">Status</span>${['D','R','S'].map(s => `<button class="chip st ${s}" data-st="${s}"><i></i>${ST[s]}</button>`).join('')}</div>
+  <div class="frow"><span class="flabel">Piętro</span><span class="rng"><select class="sel" data-k="fmin">${floorsOpt(1)}</select><span>–</span><select class="sel" data-k="fmax">${floorsOpt(11)}</select></span></div>
+  <div class="frow"><span class="flabel">Metraż</span><span class="rng"><input type="number" min="0" step="1" placeholder="od" data-k="amin"><span>–</span><input type="number" min="0" step="1" placeholder="do" data-k="amax"><span>m²</span></span></div>
+  <div class="frow"><span class="flabel">Cena</span><select class="sel" data-k="pmax"><option value="">bez limitu</option>${[450000,500000,550000,600000,700000,800000,1000000].map(v => `<option value="${v}">do ${nf.format(v)} zł</option>`).join('')}</select>
+    <select class="sel" data-k="kl"><option value="">Wszystkie klatki</option>${[1,2,3,4,5].map(k => `<option value="${k}">Klatka ${k}</option>`).join('')}</select>
+    <button class="chip" data-favf><span style="color:var(--brand)">♥</span> Ulubione</button></div>`;
+}
+function bindFilters(root){
+  root.innerHTML = filterMarkup();
+  root.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.room){ const r = +b.dataset.room; state.f.rooms.has(r) ? state.f.rooms.delete(r) : state.f.rooms.add(r); changed(); }
+    else if (b.dataset.st){ const s = b.dataset.st, st = state.f.status; if (st.size === 3) state.f.status = new Set([s]); else if (st.has(s) && st.size === 1) state.f.status = new Set(['D','R','S']); else { st.has(s) ? st.delete(s) : st.add(s); if (!st.size || st.size === 3) state.f.status = new Set(['D','R','S']); } changed(); }
+    else if ('favf' in b.dataset){ state.f.fav = !state.f.fav; changed(); }
+  });
+  root.addEventListener('change', e => {
+    const k = e.target.dataset.k; if (!k) return;
+    let v = e.target.value;
+    if (k === 'fmin' || k === 'fmax') v = +v;
+    state.f[k] = v;
+    if (state.f.fmin > state.f.fmax) { if (k === 'fmin') state.f.fmax = state.f.fmin; else state.f.fmin = state.f.fmax; }
+    changed();
+  });
+}
+function syncFilterUI(){
+  $$('[data-filters]').forEach(root => {
+    $$('[data-room]', root).forEach(b => b.classList.toggle('on', state.f.rooms.has(+b.dataset.room)));
+    $$('[data-st]', root).forEach(b => b.classList.toggle('on', state.f.status.has(b.dataset.st) && state.f.status.size < 3));
+    $$('[data-favf]', root).forEach(b => b.classList.toggle('on', state.f.fav));
+    $$('[data-k]', root).forEach(el => { if (document.activeElement !== el) el.value = state.f[el.dataset.k]; });
+  });
+}
+function resetFilters(){ state.f = { rooms:new Set(), status:new Set(['D','R','S']), fmin:1, fmax:11, amin:'', amax:'', pmax:'', kl:'', fav:false }; changed(); }
+
+/* ---------- KPIs / facts ---------- */
+function renderKpis(){
+  const av = U.filter(u => u.s === 'D');
+  const minM = Math.min(...av.map(u => u.m));
+  const minP = Math.min(...av.map(u => u.p));
+  const amin = Math.min(...U.map(u => u.a)), amax = Math.max(...U.map(u => u.a));
+  $('#kpis').innerHTML = `
+    <div class="kpi"><small>Mieszkań</small><b class="num">${U.length}</b></div>
+    <div class="kpi ok"><small>Dostępnych</small><b class="num">${av.length}</b></div>
+    <div class="kpi"><small>Cena od</small><b class="num">${nf.format(minM)} zł/m²</b></div>
+    <div class="kpi"><small>Oddanie</small><b>maj / wrz. 2027</b></div>`;
+  $('#facts').innerHTML = `
+    <div class="fact"><small>Metraże</small><b class="num">${fmtA(amin).replace(' m²','')} – ${fmtA(amax)}</b><span>od kawalerek po apartament 4-pokojowy</span></div>
+    <div class="fact"><small>Najtańsze dostępne</small><b class="num">${fmtP(minP)}</b><span>ceny od ${nf.format(minM)} zł/m²</span></div>
+    <div class="fact"><small>Kondygnacje</small><b>parter + 10 pięter</b><span>5 klatek, lokale usługowe w parterze</span></div>
+    <div class="fact"><small>Termin oddania</small><b>2027</b><span>klatki 3–5: maj · klatki 1–2: wrzesień</span></div>`;
+  $('#stamp').textContent = STAMP;
+}
+
+/* ---------- legend ---------- */
+function renderLegend(){
+  const vis = U.filter(match);
+  $('#legend').innerHTML = ['D','R','S'].map(s => `<button class="${s} ${state.f.status.has(s)?'':'off'}" data-lg="${s}"><i></i>${ST[s]} <span class="c num">${vis.filter(u=>u.s===s).length}</span></button>`).join('');
+}
+$('#legend').addEventListener('click', e => { const b = e.target.closest('[data-lg]'); if (!b) return; const s = b.dataset.lg; state.f.status.has(s) ? state.f.status.delete(s) : state.f.status.add(s); if (!state.f.status.size) state.f.status = new Set(['D','R','S']); changed(); });
+
+/* ---------- table ---------- */
+function sorted(list){
+  const {key, dir} = state.sort;
+  const rank = {D:0, R:1, S:2};
+  return list.slice().sort((a, b) => {
+    let va = a[key], vb = b[key];
+    if (key === 's') { va = rank[a.s]; vb = rank[b.s]; }
+    if (key === 'p' || key === 'm') { va = a.s === 'S' ? Infinity : a[key]; vb = b.s === 'S' ? Infinity : b[key]; }
+    return (va > vb ? 1 : va < vb ? -1 : a.n - b.n) * dir;
+  });
+}
+function renderTable(){
+  const list = sorted(U.filter(match));
+  $('#resCount').textContent = `${list.length} ${list.length === 1 ? 'mieszkanie' : (list.length % 10 >= 2 && list.length % 10 <= 4 && (list.length % 100 < 10 || list.length % 100 >= 20)) ? 'mieszkania' : 'mieszkań'}`;
+  const rows = list.slice(0, state.shown).map(u => `
+    <tr class="${u.s}" data-n="${u.n}">
+      <td>M-${u.n}</td>
+      <td data-l="Klatka">${u.k}</td>
+      <td data-l="Piętro">${u.f}</td>
+      <td data-l="Metraż" class="num">${fmtA(u.a)}</td>
+      <td data-l="Pokoje">${u.r}</td>
+      <td data-l="Cena za m²" class="num">${u.s === 'S' ? '—' : nf.format(u.m) + ' zł'}</td>
+      <td data-l="Cena" class="num" style="font-weight:700">${u.s === 'S' ? '—' : fmtP(u.p)}</td>
+      <td><span class="badge ${u.s}"><i></i>${ST[u.s]}</span></td>
+      <td class="tact"><div class="tactions">
+        <button class="icon-btn fav ${favs.has(u.n)?'on':''}" data-n="${u.n}" data-fav title="Ulubione"><svg><use href="#i-heart"/></svg></button>
+        ${kartaUrl(u.n) ? `<a class="icon-btn" href="${kartaUrl(u.n)}" target="_blank" rel="noopener" title="Karta katalogowa (PDF)" data-stop><svg><use href="#i-pdf"/></svg></a>` : ''}
+      </div></td>
+    </tr>`).join('');
+  $('#tbody').innerHTML = rows;
+  $('#tEmpty').hidden = list.length > 0;
+  $('#moreBtn').parentElement.style.display = list.length > state.shown ? '' : 'none';
+  $$('table.units th[data-s]').forEach(th => { th.classList.toggle('sorted', th.dataset.s === state.sort.key); th.querySelector('.ar').textContent = th.dataset.s === state.sort.key && state.sort.dir < 0 ? '▼' : '▲'; });
+}
+$('#tbody').addEventListener('click', e => {
+  if (e.target.closest('[data-stop]')) return;
+  const fb = e.target.closest('[data-fav]'); if (fb) { toggleFav(+fb.dataset.n); if (state.f.fav) changed(); return; }
+  const tr = e.target.closest('tr[data-n]'); if (tr) openUnit(+tr.dataset.n);
+});
+$('#tbody').addEventListener('mouseover', e => { const tr = e.target.closest('tr[data-n]'); if (tr) hl(+tr.dataset.n); });
+$('#tbody').addEventListener('mouseleave', () => hl(null));
+$$('table.units th[data-s]').forEach(th => th.addEventListener('click', () => { const k = th.dataset.s; state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : 1 }; renderTable(); }));
+$('#moreBtn').addEventListener('click', () => { state.shown += 40; renderTable(); });
+$('#resetF').addEventListener('click', resetFilters);
+
+/* ---------- side panel ---------- */
+function renderPanel(){
+  const list = sorted(U.filter(match));
+  $('#pCount').textContent = `${list.length} wyników`;
+  $('#pList').innerHTML = list.slice(0, 160).map(u => `
+    <div class="pitem ${u.s}" data-n="${u.n}">
+      <div class="thumb">${thumbUrl(u) ? `<img loading="lazy" decoding="async" src="${thumbUrl(u)}" alt="" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply">` : ''}</div>
+      <div><b>M-${u.n} <span class="dot ${u.s}"></span></b><small>${fmtA(u.a)} · ${roomsTxt(u.r)} · p. ${u.f} · kl. ${u.k}</small></div>
+      <div class="pr">${u.s === 'S' ? '<small>sprzedane</small>' : `<span class="num">${nf.format(Math.round(u.p/1000))} tys.</span><small class="num">${nf.format(u.m)} zł/m²</small>`}</div>
+    </div>`).join('') + (list.length > 160 ? `<div class="empty">+ ${list.length - 160} kolejnych – zawęź filtry lub zobacz tabelę poniżej</div>` : '') + (!list.length ? '<div class="empty">Brak wyników</div>' : '');
+}
+$('#pList').addEventListener('click', e => { const it = e.target.closest('.pitem'); if (it) openUnit(+it.dataset.n); });
+$('#pList').addEventListener('mouseover', e => { const it = e.target.closest('.pitem'); if (it) hl(+it.dataset.n); });
+$('#pList').addEventListener('mouseleave', () => hl(null));
+$('#panelToggle').addEventListener('click', () => $('#viewer').classList.toggle('panel-open'));
+$('#pfToggle').addEventListener('click', () => { $('#panel').classList.toggle('show-f'); $('#pfToggle').classList.toggle('on'); });
+
+/* ---------- highlight across views ---------- */
+let hlN = null;
+function hl(n){
+  if (n === hlN) return; hlN = n;
+  $$('.upoly.hl').forEach(p => p.classList.remove('hl'));
+  if (n != null) { const p = $(`#planSvg .upoly[data-n="${n}"]`); if (p) p.classList.add('hl'); }
+  $$('.pitem.hl').forEach(p => p.classList.remove('hl'));
+  if (n != null) { const it = $(`.pitem[data-n="${n}"]`); if (it) it.classList.add('hl'); }
+  if (window.APP3D) window.APP3D.highlight(n);
+  const u = n != null && byN.get(n);
+  if (u && state.view === 'plan' && u.f !== state.planFloor && floorType(u.f)) { /* keep floor; no auto-switch */ }
+}
+
+/* ---------- tooltip ---------- */
+const tip = $('#tip');
+let tipN = null;
+function showTip(u, x, y){
+  if (!u) return hideTip();
+  if (tipN !== u.n){
+    tipN = u.n;
+    const pu = thumbUrl(u) || planUrl(u.n);
+    $('#tpImg').style.backgroundImage = pu ? `url("${pu}")` : 'none';
+    $('#tpNo').textContent = 'M-' + u.n;
+    $('#tpDot').className = 'dot ' + u.s;
+    $('#tpSt').textContent = ST[u.s]; $('#tpSt').className = 'tp-st ' + u.s;
+    $('#tpTxt').innerHTML = `pow. <b>${fmtA(u.a)}</b><br>piętro <b>${u.f}</b> · klatka <b>${u.k}</b><br>pokoje <b>${u.r}</b>`;
+    $('#tpPrice').textContent = u.s === 'S' ? '' : fmtP(u.p);
+  }
+  tip.classList.add('on');
+  const r = tip.getBoundingClientRect();
+  let left = x + 22, top = y - r.height / 2;
+  if (left + r.width > innerWidth - 12) left = x - r.width - 22;
+  top = Math.max(12, Math.min(innerHeight - r.height - 12, top));
+  tip.style.left = left + 'px'; tip.style.top = top + 'px';
+}
+function hideTip(){ tip.classList.remove('on'); tipN = null; }
+
+/* ---------- views ---------- */
+function setView(v){
+  state.view = v;
+  const V = $('#viewer');
+  V.classList.remove('m-estate','m-3d','m-plan'); V.classList.add('m-' + v);
+  $$('.stage').forEach(s => s.classList.toggle('on', s.dataset.view === v));
+  $$('#vtabs button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+  $('#floors').hidden = v === 'estate';
+  hideTip();
+  if (v === '3d') { if (window.APP3D) window.APP3D.activate(true); else window.__want3d = true; $('#hint').classList.remove('hide'); setTimeout(() => $('#hint').classList.add('hide'), 4200); }
+  else { if (window.APP3D) window.APP3D.activate(false); $('#hint').classList.add('hide'); }
+  if (v === 'plan') renderPlan();
+  if (v === 'estate') layoutEstate();
+  renderFloors();
+  updateCompass();
+}
+$('#vtabs').addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (b) setView(b.dataset.v); });
+
+/* ---------- floors rail ---------- */
+function renderFloors(){
+  const cur = state.view === 'plan' ? state.planFloor : state.floor;
+  const counts = {}; U.forEach(u => { if (u.s === 'D' && match(u)) counts[u.f] = (counts[u.f] || 0) + 1; });
+  let h = `<div class="fl-title">PIĘTRO</div>`;
+  if (state.view === '3d') h += `<button class="all ${cur == null ? 'on' : ''}" data-fl="">Całość</button>`;
+  for (let f = 11; f >= 1; f--) h += `<button class="${cur === f ? 'on' : ''}" data-fl="${f}" title="Piętro ${f}: ${counts[f] || 0} dostępnych">${f}<i class="${counts[f] ? '' : 'none'}"></i></button>`;
+  $('#floors').innerHTML = h;
+}
+$('#floors').addEventListener('click', e => {
+  const b = e.target.closest('[data-fl]'); if (!b) return;
+  const f = b.dataset.fl === '' ? null : +b.dataset.fl;
+  if (state.view === 'plan') { if (f) { state.planFloor = f; renderPlan(); } }
+  else { state.floor = f; if (window.APP3D) window.APP3D.setFloor(f); }
+  renderFloors();
+});
+
+/* ---------- plan view ---------- */
+function renderPlan(){
+  const f = state.planFloor, t = floorType(f);
+  const units = U.filter(u => u.f === f);
+  const av = units.filter(u => u.s === 'D').length;
+  $('#planTitle').innerHTML = `<b>Piętro ${f}</b>${units.length} mieszkań · <span style="color:var(--ok);font-weight:700">${av} dostępnych</span>`;
+  if (!t) {
+    $('#planInner').style.visibility = 'hidden';
+    $('#planEmpty').classList.add('on');
+    $('#planEmpty').innerHTML = `<div><b style="font-size:20px;color:var(--ink)">11. piętro – apartamenty</b><br>${units.map(u => `M-${u.n} · ${fmtA(u.a)} · ${ST[u.s].toLowerCase()}`).join('<br>')}<br><br>Dla tej kondygnacji dewelopera nie udostępnia rzutu.</div>`;
+    return;
+  }
+  $('#planInner').style.visibility = '';
+  $('#planEmpty').classList.remove('on');
+  const img = $('#planImg'); const src = floorImg(t); if (img.getAttribute('src') !== src) img.src = src;
+  $('#planSvg').innerHTML = units.map(u => {
+    const pts = toPlan(u.g, t); const [cx, cy] = centroid(pts);
+    const ok = match(u);
+    return `<polygon class="upoly ${u.s} ${ok ? '' : 'dim'}" data-n="${u.n}" points="${pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ')}"/><text class="utext" x="${cx.toFixed(1)}" y="${cy.toFixed(1)}">${u.n}</text>`;
+  }).join('');
+}
+const planSvg = $('#planSvg');
+planSvg.addEventListener('pointermove', e => { const p = e.target.closest('.upoly'); if (p) { const n = +p.dataset.n; hl(n); if (e.pointerType !== 'touch') showTip(byN.get(n), e.clientX, e.clientY); } else { hl(null); hideTip(); } });
+planSvg.addEventListener('pointerleave', () => { hl(null); hideTip(); });
+planSvg.addEventListener('click', e => { const p = e.target.closest('.upoly'); if (p) openUnit(+p.dataset.n); });
+
+/* ---------- estate (aerial) view ---------- */
+const AER = { w: 1920, h: 1129 };
+const estateItems = [
+  { type:'b', x: 1300, y: 330, html: () => { const d = U.filter(u => u.s === 'D').length; return `<b>Budynek 1</b><span class="cnt"><i></i>${d} dostępnych z ${U.length}</span><span class="go">Wybierz mieszkanie →</span>`; }, go: '3d' },
+  { type:'b', x: 640, y: 520, html: () => `<b>Budynek 2</b><span class="cnt"><i></i>poza ofertą tej strony</span>`, muted: true },
+  { type:'pin', x: 1610, y: 610, label: 'Widok z ulicy', img: 2 },
+  { type:'pin', x: 300, y: 930, label: 'Widok z parku', img: 3 },
+  { type:'pin', x: 985, y: 372, label: 'Dziedziniec', img: 5 },
+  { type:'pin', x: 1800, y: 420, label: 'Ul. Kaczorowskiego nocą', img: 'hero' }
+];
+function buildEstate(){
+  $('#estateLabels').innerHTML = estateItems.map((it, i) => it.type === 'b'
+    ? `<div class="blabel ${it.muted ? 'muted' : ''}" data-i="${i}">${it.html()}</div>`
+    : `<button class="pin" data-i="${i}"><em>${it.label}</em><span><svg><use href="#i-camera"/></svg></span></button>`).join('');
+}
+function layoutEstate(){
+  const el = $('#stEstate'); const W = el.clientWidth, H = el.clientHeight; if (!W) return;
+  // on narrow / portrait screens crop the aerial around building 1 instead of the centre
+  let vx = 0, vw = AER.w;
+  if (W / H < 1.4) { vw = Math.min(AER.w, AER.h * W / H); vx = Math.max(0, Math.min(AER.w - vw, 1200 - vw / 2)); }
+  $('#aer').setAttribute('viewBox', `${vx} 0 ${vw} ${AER.h}`);
+  const s = Math.max(W / vw, H / AER.h), ox = (W - vw * s) / 2 - vx * s, oy = (H - AER.h * s) / 2;
+  $$('#estateLabels [data-i]').forEach(n => {
+    const it = estateItems[+n.dataset.i]; const x = it.x * s + ox; let y = it.y * s + oy - (it.type === 'b' ? 44 : 0); if (it.type === 'b') y = Math.max(y, n.offsetHeight + 84);
+    n.style.left = x + 'px'; n.style.top = y + 'px';
+    n.style.display = (x < 60 || x > W - 60) ? 'none' : '';
+  });
+}
+$('#estateLabels').addEventListener('click', e => {
+  const n = e.target.closest('[data-i]'); if (!n) return; const it = estateItems[+n.dataset.i];
+  if (it.go) setView(it.go);
+  if (it.type === 'pin') openLightbox(it.img === 'hero' ? 9 : it.img);
+});
+$('#b1poly').addEventListener('click', () => setView('3d'));
+$('#b1poly').addEventListener('mouseenter', () => $('.blabel[data-i="0"]').style.transform = 'translate(-50%,-100%) translateY(-4px)');
+$('#b1poly').addEventListener('mouseleave', () => $('.blabel[data-i="0"]').style.transform = '');
+addEventListener('resize', layoutEstate);
+
+/* ---------- toolbar ---------- */
+$('#ovBtn').addEventListener('click', () => {
+  state.overlay = !state.overlay;
+  $('#ovBtn').classList.toggle('on', state.overlay);
+  $('#ovBtn use').setAttribute('href', state.overlay ? '#i-eye' : '#i-eyeoff');
+  $('#stEstate').classList.toggle('overlay-off', !state.overlay);
+  $('#stPlan').classList.toggle('overlay-off', !state.overlay);
+  if (window.APP3D) window.APP3D.refresh();
+});
+$('#fsBtn').addEventListener('click', () => { const v = $('#viewer'); if (document.fullscreenElement) document.exitFullscreen(); else if (v.requestFullscreen) v.requestFullscreen(); else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen(); });
+document.addEventListener('fullscreenchange', () => setTimeout(() => { layoutEstate(); if (window.APP3D) window.APP3D.resize(); }, 60));
+$('#rotL').addEventListener('click', () => window.APP3D && window.APP3D.rotate(-1));
+$('#rotR').addEventListener('click', () => window.APP3D && window.APP3D.rotate(1));
+$('#zoomIn').addEventListener('click', () => window.APP3D && window.APP3D.zoom(1));
+$('#zoomOut').addEventListener('click', () => window.APP3D && window.APP3D.zoom(-1));
+$('#resetView').addEventListener('click', () => { state.floor = null; renderFloors(); window.APP3D && window.APP3D.reset(); });
+function updateCompass(){
+  let deg = 29; // plan north is ~29° clockwise from drawing "up"
+  if (state.view === '3d' && window.APP3D) deg = window.APP3D.northDeg();
+  if (state.view === 'estate') deg = 50;
+  $('#needle').style.transform = `rotate(${deg}deg)`;
+}
+
+/* ---------- unit card (modal) ---------- */
+let curN = null, navList = [];
+function openUnit(n){
+  const u = byN.get(n); if (!u) return;
+  curN = n; hideTip();
+  navList = sorted(U.filter(match)).map(x => x.n); if (!navList.includes(n)) navList = U.map(x => x.n);
+  const pu = planUrl(n), ku = kartaUrl(n), t = floorType(u.f);
+  $('#dPlan').src = pu || floorImg(t || 'k8');
+  // floor tab
+  if (t) {
+    $('#dFloorImg').src = floorImg(t);
+    $('#dFloorSvg').innerHTML = U.filter(x => x.f === u.f).map(x => `<polygon class="${x.n === n ? 'me' : ''}" points="${toPlan(x.g, t).map(p => p.join(',')).join(' ')}"/>`).join('');
+  }
+  $('[data-d="floor"]').style.display = t ? '' : 'none';
+  setDTab('plan');
+  const sim = U.filter(x => x.n !== n && x.s === 'D' && x.r === u.r).sort((a, b) => Math.abs(a.a - u.a) - Math.abs(b.a - u.a) || Math.abs(a.f - u.f) - Math.abs(b.f - u.f)).slice(0, 3);
+  const h = u.h || [];
+  const idx = navList.indexOf(n);
+  $('#dInfo').innerHTML = `
+    <div class="d-top">
+      <div class="nav2"><button class="d-close" data-prev title="Poprzednie"><svg><use href="#i-rotl"/></svg></button><button class="d-close" data-next title="Następne"><svg><use href="#i-rotr"/></svg></button><span class="d-note" style="align-self:center;margin-left:4px">${idx + 1} / ${navList.length}</span></div>
+      <div class="nav2"><button class="d-close icon-btn fav ${favs.has(n) ? 'on' : ''}" data-n="${n}" data-favd title="Ulubione"><svg><use href="#i-heart"/></svg></button><button class="d-close" data-share title="Kopiuj link"><svg><use href="#i-share"/></svg></button><button class="d-close" data-close title="Zamknij"><svg><use href="#i-x"/></svg></button></div>
+    </div>
+    <div class="d-title"><h3 id="dTitle">Mieszkanie <b>M-${n}</b></h3><span class="pill ${u.s}">${ST[u.s]}</span></div>
+    <div class="tiles">
+      <div class="tile"><small>Powierzchnia</small><b class="num">${fmtA(u.a)}</b></div>
+      <div class="tile"><small>Pokoje</small><b>${u.r}</b></div>
+      <div class="tile"><small>Piętro</small><b>${u.f}</b></div>
+      <div class="tile"><small>Klatka</small><b>${u.k}</b></div>
+    </div>
+    ${u.s === 'S' ? `<div class="box"><h5>Lokal sprzedany</h5><p>To mieszkanie znalazło już właściciela. Zobacz podobne dostępne lokale poniżej albo zapytaj doradcę o nowe propozycje.</p></div>` : `
+    <div class="tiles two">
+      <div class="tile price"><small>Cena lokalu</small><b class="num">${fmtP(u.p)}</b></div>
+      <div class="tile"><small>Cena za m²</small><b class="num">${nf.format(u.m)} zł</b></div>
+    </div>
+    <div class="box"><h5>Termin oddania<span style="font-weight:800">${term(u)}</span></h5></div>
+    ${h.length ? `<div class="box"><h5>Historia cen <button class="tog" data-histtab>Tabela</button></h5>${chartSvg(h, u.p)}<table class="hist" id="histTbl"><tr><th>Data</th><th>Cena</th><th>Cena za m²</th></tr>${h.slice().reverse().map(([d, p]) => `<tr><td>${fmtDate(d)}</td><td class="num">${fmtP(p)}</td><td class="num">${nf.format(Math.round(p / u.a))} zł</td></tr>`).join('')}</table></div>` : ''}
+    <div class="box"><h5>Inne świadczenia pieniężne <button class="tog" data-more>Szczegóły</button></h5><p data-moretxt hidden>Od przekazania lokalu do zawarcia umowy przeniesienia własności nabywca płaci miesięczną opłatę za korzystanie z lokalu (powierzchnia użytkowa × stawka z protokołu odbioru) oraz pokrywa koszty mediów, jeśli nie rozlicza ich bezpośrednio z dostawcami. Wysokości tej opłaty nie da się określić na dzień złożenia oferty.</p></div>`}
+    <div class="d-actions">
+      ${ku ? `<a class="btn btn-ghost" href="${ku}" target="_blank" rel="noopener"><svg><use href="#i-pdf"/></svg>Karta katalogowa</a>` : `<span></span>`}
+      <a class="btn btn-brand" href="#kontakt" data-ask><svg><use href="#i-mail"/></svg>Zapytaj o M-${n}</a>
+    </div>
+    <div class="d-note">Komórki lokatorskie (3 000 zł/m²) i miejsca postojowe (50–70 tys. zł) płatne dodatkowo. Stan na ${STAMP}.${u.approx ? ' Położenie lokalu w modelu 3D jest orientacyjne.' : ''}</div>
+    ${sim.length ? `<div><div class="eyebrow" style="margin:6px 0 10px">Podobne dostępne</div><div class="similar">${sim.map(x => `<button data-goto="${x.n}">${thumbUrl(x) ? `<img loading="lazy" src="${thumbUrl(x)}" alt="">` : ''}<b>M-${x.n} · ${fmtA(x.a)}</b><small>piętro ${x.f} · ${fmtP(x.p)}</small></button>`).join('')}</div></div>` : ''}`;
+  bindChart();
+  const m = $('#modal'); m.classList.add('on'); m.setAttribute('aria-hidden', 'false');
+  requestAnimationFrame(() => m.classList.add('show'));
+  document.body.style.overflow = 'hidden';
+  history.replaceState(null, '', '#M' + n);
+  if (window.APP3D) window.APP3D.select(n);
+}
+function closeUnit(){
+  const m = $('#modal'); m.classList.remove('show'); m.setAttribute('aria-hidden', 'true');
+  setTimeout(() => m.classList.remove('on'), 250);
+  document.body.style.overflow = '';
+  if (location.hash.startsWith('#M')) history.replaceState(null, '', location.pathname + location.search);
+  if (window.APP3D) window.APP3D.select(null);
+}
+function setDTab(d){ $$('#dTabs button').forEach(b => b.classList.toggle('on', b.dataset.d === d)); $$('.d-view').forEach(v => v.classList.toggle('on', v.dataset.dv === d)); }
+$('#dTabs').addEventListener('click', e => {
+  const b = e.target.closest('button[data-d]'); if (!b) return;
+  if (b.dataset.d === 'b3d') { const n = curN, u = byN.get(n); closeUnit(); setView('3d'); state.floor = u.f; renderFloors(); const go = () => { window.APP3D.setFloor(u.f); window.APP3D.select(n); window.APP3D.focusUnit(n); }; if (window.APP3D) go(); else window.__after3d = go; $('#wizualizacja').scrollIntoView({behavior:'smooth'}); return; }
+  setDTab(b.dataset.d);
+});
+$('#modal').addEventListener('click', e => {
+  if (e.target.closest('[data-close]')) return closeUnit();
+  if (e.target.closest('[data-prev]')) { const i = navList.indexOf(curN); return openUnit(navList[(i - 1 + navList.length) % navList.length]); }
+  if (e.target.closest('[data-next]')) { const i = navList.indexOf(curN); return openUnit(navList[(i + 1) % navList.length]); }
+  const g = e.target.closest('[data-goto]'); if (g) return openUnit(+g.dataset.goto);
+  const fb = e.target.closest('[data-favd]'); if (fb) { toggleFav(curN); fb.classList.toggle('on', favs.has(curN)); return; }
+  if (e.target.closest('[data-share]')) { const url = location.href.split('#')[0] + '#M' + curN; (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast('Link do mieszkania skopiowany'), () => toast(url)); return; }
+  if (e.target.closest('[data-more]')) { const p = $('[data-moretxt]'); p.hidden = !p.hidden; return; }
+  if (e.target.closest('[data-histtab]')) { $('#histTbl').classList.toggle('on'); return; }
+  if (e.target.closest('[data-ask]')) { e.preventDefault(); const n = curN; closeUnit(); $('#cUnit').value = String(n); $('#kontakt').scrollIntoView({behavior:'smooth'}); }
+});
+addEventListener('keydown', e => {
+  if ($('#lb').classList.contains('on')) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowRight') stepLb(1); if (e.key === 'ArrowLeft') stepLb(-1); return; }
+  if (!$('#modal').classList.contains('on')) return;
+  if (e.key === 'Escape') closeUnit();
+  if (e.key === 'ArrowRight') { const i = navList.indexOf(curN); openUnit(navList[(i + 1) % navList.length]); }
+  if (e.key === 'ArrowLeft') { const i = navList.indexOf(curN); openUnit(navList[(i - 1 + navList.length) % navList.length]); }
+});
+
+/* ---------- price history chart ---------- */
+const fmtDate = d => { const [y, m, dd] = d.split('-'); return `${dd}.${m}.${y}`; };
+let chartPts = [];
+function chartSvg(h, cur){
+  const W = 460, H = 160, pl = 58, pr = 14, pt = 12, pb = 26;
+  const t = h.map(([d]) => +new Date(d)); const v = h.map(x => x[1]);
+  const t0 = Math.min(...t), t1 = Math.max(+new Date('2026-11-17'), ...t);
+  let lo = Math.min(...v), hi = Math.max(...v); const pad = Math.max((hi - lo) * 0.25, hi * 0.02); lo -= pad; hi += pad;
+  const X = x => pl + (x - t0) / (t1 - t0 || 1) * (W - pl - pr), Y = y => pt + (1 - (y - lo) / (hi - lo)) * (H - pt - pb);
+  let d = `M${X(t[0])},${Y(v[0])}`; for (let i = 1; i < t.length; i++) d += ` H${X(t[i])} V${Y(v[i])}`; d += ` H${X(t1)}`;
+  chartPts = h.map(([dd, p], i) => ({ x: X(t[i]), y: Y(p), d: dd, p }));
+  const ticks = [lo + (hi - lo) * 0.15, (lo + hi) / 2, hi - (hi - lo) * 0.15];
+  return `<div class="chart" id="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Historia ceny mieszkania">
+    <g class="grid">${ticks.map(tk => `<line x1="${pl}" x2="${W - pr}" y1="${Y(tk)}" y2="${Y(tk)}"/><text class="ax" x="${pl - 8}" y="${Y(tk) + 4}" text-anchor="end">${nf.format(Math.round(tk / 1000))} tys.</text>`).join('')}</g>
+    <path class="ln" d="${d}"/>
+    ${chartPts.map((p, i) => `<circle class="pt ${i === chartPts.length - 1 ? 'last' : ''}" cx="${p.x}" cy="${p.y}" r="4"/>`).join('')}
+    <text class="ax" x="${pl}" y="${H - 6}">${fmtDate(h[0][0]).slice(3)}</text><text class="ax" x="${W - pr}" y="${H - 6}" text-anchor="end">dziś</text>
+    <rect class="hit" x="${pl}" y="0" width="${W - pl - pr}" height="${H}"/>
+  </svg><div class="ctip" id="ctip"></div></div>`;
+}
+function bindChart(){
+  const c = $('#chart'); if (!c) return; const svg = c.querySelector('svg'), ct = $('#ctip');
+  svg.addEventListener('pointermove', e => {
+    const r = svg.getBoundingClientRect(); const sx = (e.clientX - r.left) / r.width * 460;
+    let best = chartPts[0]; chartPts.forEach(p => { if (Math.abs(p.x - sx) < Math.abs(best.x - sx)) best = p; });
+    ct.innerHTML = `${fmtDate(best.d)} · ${fmtP(best.p)}`; ct.style.left = (best.x / 460 * r.width) + 'px'; ct.style.top = (best.y / 160 * r.height) + 'px'; ct.classList.add('on');
+  });
+  svg.addEventListener('pointerleave', () => ct.classList.remove('on'));
+}
+
+/* ---------- gallery & lightbox ---------- */
+const GAL = [
+  ['d6/kaczorowskiego-galeria-0-d63f60be'], ['3e/kaczorowskiego-galeria-1-3e28f01f'], ['dd/kaczorowskiego-galeria-2-dd6147bd'],
+  ['35/kaczorowskiego-galeria-3-3576d71c'], ['b7/kaczorowskiego-galeria-4-b7841e2e'], ['5f/kaczorowskiego-galeria-5-5f938e8f'],
+  ['bc/kaczorowskiego-galeria-6-bcda392d'], ['54/kaczorowskiego-galeria-7-54cda98c'], ['fb/kaczorowskiego-galeria-8-fb47fcb2']
+];
+const ORDER = [8, 5, 3, 0, 1, 2, 4, 6, 7];
+const lbItems = GAL.map((_, i) => `${IMG}/images/kaczorowskiego-1/galeria/2026-ga/kaczorowskiego-galeria-${i}.jpg`)
+  .concat([`${IMG}/templates/yootheme/cache/19/Kaczorowskiego_1-5-1941776e.jpeg`, `${IMG}/templates/yootheme/cache/09/Kaczorowskiego_-_garaz_poziom_-1-09670184.png`, `${IMG}/templates/yootheme/cache/d9/Kaczorowskiego%20-%20garaz%20poziom%20-2-d9dcc427.png`]);
+function buildGallery(){
+  $('#gallery').innerHTML = ORDER.map((gi, i) => `<button class="g${i}" data-lbi="${gi}" aria-label="Wizualizacja ${i + 1}"><img loading="lazy" src="${IMG}/templates/yootheme/cache/${GAL[gi][0]}.jpeg" alt="Wizualizacja osiedla ${i + 1}"></button>`).join('');
+}
+let lbI = 0, lbSet = [];
+function openLightbox(i, set){ lbSet = set || [...ORDER, 9]; lbI = i; showLb(); $('#lb').classList.add('on'); }
+function showLb(){ $('#lbImg').src = lbItems[lbI]; const k = lbSet.indexOf(lbI); $('#lbCnt').textContent = k >= 0 ? `${k + 1} / ${lbSet.length}` : ''; }
+function stepLb(d){ let k = lbSet.indexOf(lbI); if (k < 0) k = 0; lbI = lbSet[(k + d + lbSet.length) % lbSet.length]; showLb(); }
+function closeLightbox(){ $('#lb').classList.remove('on'); }
+$('#gallery').addEventListener('click', e => { const b = e.target.closest('[data-lbi]'); if (b) openLightbox(+b.dataset.lbi); });
+$('#garaz').addEventListener('click', e => { const b = e.target.closest('[data-lb]'); if (b) openLightbox(b.dataset.lb === 'g1' ? 10 : 11, [10, 11]); });
+$('#lb').addEventListener('click', e => { if (e.target.closest('[data-lbx]') || e.target.id === 'lb') closeLightbox(); if (e.target.closest('[data-lbp]')) stepLb(-1); if (e.target.closest('[data-lbn]')) stepLb(1); });
+
+/* ---------- contact ---------- */
+function buildContact(){
+  $('#cUnit').innerHTML += U.filter(u => u.s !== 'S').map(u => `<option value="${u.n}">M-${u.n} · ${fmtA(u.a)} · ${roomsTxt(u.r)} · piętro ${u.f} · ${fmtP(u.p)}</option>`).join('');
+}
+$('#cform').addEventListener('submit', e => {
+  e.preventDefault(); const f = e.target;
+  if (!f.name.value.trim() || !/\S+@\S+\.\S+/.test(f.email.value) || !f.querySelector('.consent input').checked) { toast('Uzupełnij imię, e-mail i zaznacz zgodę'); return; }
+  const un = f.unit.value; const u = un && byN.get(+un);
+  const subj = u ? `Zapytanie: Kaczorowskiego 1, mieszkanie M-${u.n}` : 'Zapytanie: Kaczorowskiego 1, budynek 1';
+  const body = `${f.msg.value}\n\n${u ? `Mieszkanie: M-${u.n}, ${fmtA(u.a)}, ${roomsTxt(u.r)}, piętro ${u.f}, klatka ${u.k}\n` : ''}Imię i nazwisko: ${f.name.value}\nTelefon: ${f.tel.value}\nE-mail: ${f.email.value}`;
+  location.href = `mailto:biuro@jaz-bud.pl?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+});
+
+/* ---------- misc ---------- */
+let toastT;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2400); }
+$('#favBtn').addEventListener('click', () => { if (!favs.size) { toast('Dodaj mieszkania do ulubionych sercem ♥'); return; } state.f.fav = true; changed(); $('#mieszkania').scrollIntoView({behavior:'smooth'}); });
+$('#burger').addEventListener('click', () => $('#nav').classList.toggle('open'));
+$('#nav').addEventListener('click', e => { if (e.target.closest('a')) $('#nav').classList.remove('open'); });
+
+function updateCta(){ const vis = id => { const r = $(id).getBoundingClientRect(); return r.top < innerHeight * 0.6 && r.bottom > innerHeight * 0.4; }; const hide = $('#viewer').classList.contains('panel-open') || $('#modal').classList.contains('on') || vis('#kontakt') || (innerWidth < 820 && vis('#viewer')); $('#ctaFloat').classList.toggle('hide', hide); }
+addEventListener('scroll', updateCta, {passive:true});
+new MutationObserver(updateCta).observe($('#viewer'), {attributes:true, attributeFilter:['class']});
+new MutationObserver(updateCta).observe($('#modal'), {attributes:true, attributeFilter:['class']});
+
+/* ---------- public API for the 3D module ---------- */
+window.APP = { U, byN, match, state, hover: (n, x, y) => { hl(n); if (n == null) hideTip(); else showTip(byN.get(n), x, y); }, open: openUnit, onChange: fn => listeners.push(fn), compass: updateCompass, floorDone: renderFloors };
+
+/* ---------- init ---------- */
+$$('[data-filters]').forEach(bindFilters);
+renderKpis(); buildEstate(); buildGallery(); buildContact();
+changed(); updateFavUI(); renderFloors();
+requestAnimationFrame(layoutEstate);
+if (/^#M\d+$/.test(location.hash)) setTimeout(() => openUnit(+location.hash.slice(2)), 200);
+})();
+
+</script>
+<script>window.THREE_URL="./three.module.min.js";</script>
+<script type="module">
+// 3D model of building 1 – generated from the unit footprints read from the developer's catalogue cards.
+const APP = window.APP;
+const canvas = document.getElementById('c3d');
+const loadingEl = document.getElementById('loading3d');
+let THREE;
+try {
+  if (window.THREE_URL) THREE = await import(window.THREE_URL);
+  else THREE = await import(URL.createObjectURL(new Blob([document.getElementById('three-src').textContent], { type: 'text/javascript' })));
+} catch (e) {
+  loadingEl.textContent = 'Nie udało się wczytać modelu 3D. Skorzystaj z rzutów pięter.';
+  throw e;
+}
+
+const S = 0.215, CX = 246, CY = 224;           // plan px -> metres, plan centre
+const GF = 4.6, FH = 3.1, UH = 2.7, SL = FH - UH; // ground floor, storey, unit box, slab
+const base = f => GF + (f - 1) * FH;
+const wx = X => (X - CX) * S, wz = Y => (Y - CY) * S;
+const v2 = ([X, Y]) => new THREE.Vector2(wx(X), -wz(Y));
+const units = APP.U;
+const cen = u => u.g.reduce((a, p) => [a[0] + p[0] / u.g.length, a[1] + p[1] / u.g.length], [0, 0]);
+
+let renderer, scene, camera, built = false, active = false, dirty = true, raf = 0;
+const unitInfo = new Map();      // n -> { mesh, start, count, key }
+const floorObjs = {};
+const pickMeshes = [];
+
+/* ---------------- colours ---------------- */
+const C = (h) => new THREE.Color(h);
+let COL;
+
+/* ---------------- helpers ---------------- */
+function convex(pts) {
+  const p = pts.map(q => [q[0], q[1]]).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], up = [];
+  for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  for (const q of p.slice().reverse()) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  return lo.slice(0, -1).concat(up.slice(0, -1));
+}
+const inset = (poly, k) => { const c = poly.reduce((a, p) => [a[0] + p[0] / poly.length, a[1] + p[1] / poly.length], [0, 0]); return poly.map(p => [c[0] + (p[0] - c[0]) * k, c[1] + (p[1] - c[1]) * k]); };
+function extrude(poly, h, y0) {
+  const g = new THREE.ExtrudeGeometry(new THREE.Shape(poly.map(v2)), { depth: h, bevelEnabled: false, curveSegments: 1 });
+  g.rotateX(-Math.PI / 2); g.translate(0, y0, 0);
+  return g.index ? g.toNonIndexed() : g;
+}
+function merge(geoms, withColor) {
+  let n = 0; geoms.forEach(g => n += g.attributes.position.count);
+  const pos = new Float32Array(n * 3), nor = new Float32Array(n * 3); let o = 0;
+  geoms.forEach(g => { pos.set(g.attributes.position.array, o * 3); nor.set(g.attributes.normal.array, o * 3); o += g.attributes.position.count; g.dispose(); });
+  const out = new THREE.BufferGeometry();
+  out.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  out.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+  if (withColor) out.setAttribute('color', new THREE.BufferAttribute(new Float32Array(n * 3), 3));
+  return out;
+}
+const M = (c, o = {}) => new THREE.MeshStandardMaterial(Object.assign({ color: c, roughness: 0.8, metalness: 0 }, o));
+const mesh = (g, m, cast = true) => { const o = new THREE.Mesh(g, m); o.castShadow = cast; o.receiveShadow = true; return o; };
+function rng(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+
+/* ---------------- scene build (lazy) ---------------- */
+function build() {
+  if (built) return; built = true;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  } catch (e) { loadingEl.textContent = 'Twoja przeglądarka nie obsługuje WebGL. Skorzystaj z rzutów pięter.'; throw e; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+  scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0xeeebe5, 380, 950);
+  camera = new THREE.PerspectiveCamera(32, 1, 1, 3000);
+  COL = { D: C(0x34b37e), R: C(0xe6a03a), S: C(0xcf4b41), facade: C(0x5d636c), dim: C(0xe4e0d9), white: C(0xffffff) };
+
+  scene.add(new THREE.HemisphereLight(0xeaf3ff, 0xb9b1a3, 1.25));
+  const sun = new THREE.DirectionalLight(0xfff1dc, 2.4);
+  sun.position.set(-150, 210, 120); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -130, right: 130, top: 130, bottom: -130, near: 50, far: 600 });
+  sun.shadow.bias = -0.0005; sun.shadow.normalBias = 0.6; scene.add(sun);
+  const fill = new THREE.DirectionalLight(0xdfe9ff, 0.55); fill.position.set(160, 90, -140); scene.add(fill);
+
+  const slabMat = M(0xf3f1ec, { roughness: 0.9 }), coreMat = M(0xcfcac2, { roughness: 0.9 }), gfMat = M(0x48505a, { roughness: 0.3, metalness: 0.35 });
+  const roofMat = M(0x8eab72, { roughness: 1 }), boxMat = M(0x3a3e44, { roughness: 0.7 }), ghostMat = M(0xffffff, { transparent: true, opacity: 0.5, roughness: 1 });
+  const unitMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.55, metalness: 0.05 });
+
+  /* ground & context */
+  const flat = (poly, mat, y) => { const g = new THREE.ShapeGeometry(new THREE.Shape(poly.map(v2))); g.rotateX(-Math.PI / 2); g.translate(0, y, 0); const o = new THREE.Mesh(g, mat); o.receiveShadow = true; scene.add(o); };
+  { const g = new THREE.CircleGeometry(900, 64); g.rotateX(-Math.PI / 2); const o = new THREE.Mesh(g, M(0xe9e5de, { roughness: 1 })); o.receiveShadow = true; scene.add(o); }
+  const road = M(0xbdbab4, { roughness: 1 }), walk = M(0xdcd8d1, { roughness: 1 }), grass = M(0xbcd1a1, { roughness: 1 }), park = M(0xb6cc98, { roughness: 1 });
+  const ny = X => 74 - 0.242 * (X - 15);                               // ul. Kaczorowskiego (south kerb)
+  flat([[-600, ny(-600) - 62], [1100, ny(1100) - 62], [1100, ny(1100) + 8], [-600, ny(-600) + 8]], walk, 0.01);
+  flat([[-600, ny(-600) - 55], [1100, ny(1100) - 55], [1100, ny(1100)], [-600, ny(-600)]], road, 0.03);
+  flat([[-74, ny(-74) - 5], [-14, ny(-14) - 5], [-14, 900], [-74, 900]], walk, 0.015);
+  flat([[-66, ny(-66)], [-22, ny(-22)], [-22, 900], [-66, 900]], road, 0.035);
+  flat([[492, ny(492)], [556, ny(556)], [556, 900], [492, 900]], walk, 0.015);
+  flat([[500, ny(500)], [548, ny(548)], [548, 900], [500, 900]], road, 0.035);
+  flat([[-66, 616], [548, 616], [548, 662], [-66, 662]], road, 0.04);
+  flat([[90, 202], [180, 182], [311, 148], [403, 176], [403, 456], [90, 456]], grass, 0.025);
+  flat([[-600, 690], [1100, 690], [1100, 1300], [-600, 1300]], park, 0.02);
+  flat([[-600, ny(-600) + 30], [-90, ny(-90) + 30], [-90, 640], [-600, 640]], park, 0.02);
+  { // building 2 (context only)
+    const edgeMat = new THREE.LineBasicMaterial({ color: 0x9aa0a8, transparent: true, opacity: 0.6 });
+    [[[110, 494], [477, 494], [477, 608], [110, 608], GF + 10 * FH], [[30, 500], [110, 500], [110, 602], [30, 602], GF + 7 * FH]].forEach(b => {
+      const m = mesh(extrude(b.slice(0, 4), b[4], 0), ghostMat); scene.add(m, new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), edgeMat));
+    });
+  }
+  { // trees (instanced)
+    const r = rng(7), spots = [];
+    for (let X = -560; X < 1060; X += 26) spots.push([X + r() * 6, ny(X) - 66 - r() * 10]);
+    for (let Y = ny(-80) + 20; Y < 640; Y += 24) spots.push([-84 - r() * 8, Y]);
+    for (let Y = ny(566) + 20; Y < 640; Y += 24) spots.push([566 + r() * 8, Y]);
+    for (let i = 0; i < 150; i++) spots.push([-560 + r() * 1600, 705 + r() * 420]);
+    for (let i = 0; i < 70; i++) spots.push([-560 + r() * 440, 140 + r() * 480]);
+    for (let i = 0; i < 70; i++) spots.push([580 + r() * 480, 40 + r() * 600]);
+    [[150, 260], [205, 300], [340, 250], [365, 330], [140, 400], [355, 420], [260, 410]].forEach(p => spots.push(p));
+    const crowns = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), M(0xffffff, { roughness: 1 }), spots.length);
+    const trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.18, 0.25, 1, 6), M(0x7b6a58), spots.length);
+    const mtx = new THREE.Matrix4(), q = new THREE.Quaternion(), sc = new THREE.Vector3(), ps = new THREE.Vector3(), col = new THREE.Color();
+    spots.forEach(([X, Y], i) => {
+      const s = 2.6 + r() * 2.2, h = 3 + r() * 2;
+      mtx.compose(ps.set(wx(X), h + s * 0.8, wz(Y)), q, sc.set(s, s * 1.15, s)); crowns.setMatrixAt(i, mtx);
+      crowns.setColorAt(i, col.setHSL(0.24 + r() * 0.06, 0.32 + r() * 0.12, 0.38 + r() * 0.1));
+      mtx.compose(ps.set(wx(X), h / 2, wz(Y)), q, sc.set(1, h, 1)); trunks.setMatrixAt(i, mtx);
+    });
+    crowns.castShadow = true; trunks.castShadow = true; scene.add(crowns, trunks);
+  }
+
+  /* building 1 */
+  const grp = u => { const cx = cen(u)[0]; if (u.k === 2) return cx < 82 ? '2a' : '2b'; if (u.k === 4) return cx < 405 ? '4a' : '4b'; return String(u.k); };
+  const CONN = [
+    ['1', '2a', [[16, 262], [80, 262], [90, 280], [16, 280]]],
+    ['2a', '2b', [[79, 133], [84, 123], [95, 158], [99, 177], [99, 202], [80, 210], [79, 168]]],
+    ['2b', '3', [[176, 103], [185, 94], [185, 168], [176, 180]]],
+    ['3', '4a', [[308, 64], [318, 55], [318, 134], [308, 146]]],
+    ['4a', '4b', [[407, 36], [415, 25], [415, 124], [407, 124]]],
+    ['4b', '5', [[413, 166], [477, 166], [477, 180], [413, 180]]]
+  ];
+  const floors = {};
+  units.forEach(u => { const F = (floors[u.f] = floors[u.f] || { groups: {} }); (F.groups[grp(u)] = F.groups[grp(u)] || []).push(u); });
+  const topOf = {}; units.forEach(u => { const g = grp(u); topOf[g] = Math.max(topOf[g] || 0, u.f); });
+  const coreOf = list => list.length >= 3 ? convex(list.map(cen)) : null;   // corridor: hull of flat centroids
+  const hasAbove = u => units.some(v => v.f === u.f + 1 && v.k === u.k && Math.hypot(cen(v)[0] - cen(u)[0], cen(v)[1] - cen(u)[1]) < 9);
+  const B = new THREE.Group(); scene.add(B);
+  { const gs = [];
+    Object.values(floors[1].groups).forEach(list => { list.forEach(u => gs.push(extrude(u.g, GF - 0.02, 0))); const c = coreOf(list); if (c) gs.push(extrude(c, GF - 0.02, 0)); });
+    CONN.forEach(([a, b, poly]) => { if (floors[1].groups[a] && floors[1].groups[b]) gs.push(extrude(poly, GF - 0.02, 0)); });
+    B.add(mesh(merge(gs), gfMat)); }
+  Object.keys(floors).map(Number).sort((a, b) => a - b).forEach(f => {
+    const F = floors[f], y = base(f), slabs = [], cores = [], roofs = [], boxes = [], ug = [], list = Object.values(F.groups).flat();
+    Object.entries(F.groups).forEach(([g, gl]) => {
+      gl.forEach(u => { slabs.push(extrude(u.g, SL, y + UH)); if (!hasAbove(u)) roofs.push(extrude(inset(u.g, 0.86), 0.12, y + FH)); });
+      const c = coreOf(gl);
+      if (c) { cores.push(extrude(c, UH - 0.06, y)); slabs.push(extrude(c, SL, y + UH)); }
+      if (topOf[g] === f && c) {
+        const m = c.reduce((a, p) => [a[0] + p[0] / c.length, a[1] + p[1] / c.length], [0, 0]);
+        [[-7, -3], [7, 5], [0, 14]].slice(0, gl.length > 6 ? 3 : 1).forEach(([dx, dy]) => boxes.push(extrude([[m[0] + dx - 4, m[1] + dy - 4], [m[0] + dx + 4, m[1] + dy - 4], [m[0] + dx + 4, m[1] + dy + 4], [m[0] + dx - 4, m[1] + dy + 4]], 1.6, y + FH)));
+      }
+    });
+    CONN.forEach(([a, b, poly]) => { if (F.groups[a] && F.groups[b]) { slabs.push(extrude(poly, SL, y + UH)); cores.push(extrude(poly, UH - 0.06, y)); } });
+    // all flats of the floor in ONE mesh, coloured per vertex
+    const ranges = []; let start = 0;
+    list.forEach(u => { const g = extrude(u.g, UH, y); ranges.push([u.n, start, g.attributes.position.count]); start += g.attributes.position.count; ug.push(g); });
+    const um = mesh(merge(ug, true), unitMat);
+    const tri = new Uint16Array(start / 3);
+    ranges.forEach(([n, s, c]) => { unitInfo.set(n, { mesh: um, start: s, count: c, key: '' }); tri.fill(n, s / 3, (s + c) / 3); });
+    um.userData.tri = tri; um.userData.f = f; pickMeshes.push(um);
+    const o = floorObjs[f] = { units: um, slab: mesh(merge(slabs), slabMat), core: cores.length ? mesh(merge(cores), coreMat, false) : new THREE.Object3D() };
+    B.add(um, o.slab, o.core);
+    if (roofs.length) { o.roof = new THREE.Group(); o.roof.add(mesh(merge(roofs), roofMat, false)); if (boxes.length) o.roof.add(mesh(merge(boxes), boxMat)); B.add(o.roof); }
+  });
+
+  outline = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: 0xffffff })); outline.visible = false; scene.add(outline);
+  selOutline = new THREE.LineSegments(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: 0x15171b })); selOutline.visible = false; scene.add(selOutline);
+  buildLabels();
+  bindPointer();
+  new ResizeObserver(resize).observe(canvas);
+  apply(true); updateCamera(); resize();
+  loadingEl.remove();
+}
+
+/* ---------------- labels ---------------- */
+const labelsEl = document.getElementById('labels3d');
+const klLabels = []; let unitLabels = [];
+function buildLabels() {
+  const byK = {}; units.forEach(u => (byK[u.k] = byK[u.k] || []).push(u));
+  Object.entries(byK).forEach(([k, list]) => {
+    const top = Math.max(...list.map(u => u.f)); const tl = list.filter(u => u.f === top - (top === 11 ? 1 : 0));
+    const pts = tl.flatMap(u => u.g); const c = pts.reduce((a, p) => [a[0] + p[0] / pts.length, a[1] + p[1] / pts.length], [0, 0]);
+    const el = document.createElement('div'); el.className = 'l3'; el.textContent = 'KLATKA ' + k; labelsEl.appendChild(el);
+    klLabels.push({ el, p: new THREE.Vector3(wx(c[0]), base(top) + FH + 5, wz(c[1])) });
+  });
+  const el = document.createElement('div'); el.className = 'l3'; el.style.opacity = '.75'; el.textContent = 'BUDYNEK 2'; labelsEl.appendChild(el);
+  klLabels.push({ el, p: new THREE.Vector3(wx(290), GF + 10 * FH + 5, wz(551)) });
+}
+function buildUnitLabels(f) {
+  unitLabels.forEach(l => l.el.remove()); unitLabels = [];
+  if (f == null || !built) return;
+  units.filter(u => u.f === f).forEach(u => {
+    const c = cen(u); const el = document.createElement('div'); el.className = 'l3 unit ' + u.s; el.textContent = u.n; labelsEl.appendChild(el);
+    unitLabels.push({ el, p: new THREE.Vector3(wx(c[0]), base(f) + UH + 0.6, wz(c[1])), n: u.n });
+  });
+}
+let tmpV;
+function placeLabels() {
+  tmpV = tmpV || new THREE.Vector3();
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  const place = l => { tmpV.copy(l.p).project(camera); const vis = tmpV.z < 1 && Math.abs(tmpV.x) < 1.1 && Math.abs(tmpV.y) < 1.1; l.el.style.display = vis ? '' : 'none'; if (vis) l.el.style.transform = `translate(${((tmpV.x + 1) / 2 * w).toFixed(1)}px,${((1 - tmpV.y) / 2 * h).toFixed(1)}px) translate(-50%,-50%)`; };
+  klLabels.forEach(l => { if (cutFloor != null) l.el.style.display = 'none'; else place(l); });
+  unitLabels.forEach(l => { if (!APP.match(APP.byN.get(l.n))) l.el.style.display = 'none'; else place(l); });
+}
+
+/* ---------------- state -> colours ---------------- */
+let cutFloor = null, hoverN = null, selN = null, outline, selOutline;
+const edgeCache = new Map();
+const edgesFor = n => { if (!edgeCache.has(n)) { const u = APP.byN.get(n); const g = extrude(u.g, UH, base(u.f)); edgeCache.set(n, new THREE.EdgesGeometry(g, 20)); g.dispose(); } return edgeCache.get(n); };
+const tmpC = () => new THREE.Color();
+function colorFor(u) {
+  const ok = APP.match(u), colored = APP.state.overlay && (cutFloor == null || u.f === cutFloor);
+  let key, c;
+  if (u.n === selN) { key = 'sel' + u.s; c = tmpC().copy(colored || !ok ? COL[u.s] : COL.facade).lerp(COL.white, 0.12).multiplyScalar(1.25); }
+  else if (u.n === hoverN) { key = 'hov' + (colored || !ok ? u.s : 'f'); c = tmpC().copy(colored || !ok ? COL[u.s] : COL.facade).lerp(COL.white, 0.38); }
+  else if (!ok) { key = 'dim'; c = COL.dim; }
+  else if (colored) { key = u.s; c = COL[u.s]; }
+  else { key = 'f'; c = COL.facade; }
+  return [key, c];
+}
+const touched = new Set();
+function paint(n) {
+  const inf = unitInfo.get(n); if (!inf) return;
+  const [key, c] = colorFor(APP.byN.get(n)); if (key === inf.key) return;
+  inf.key = key; const arr = inf.mesh.geometry.attributes.color.array;
+  for (let i = inf.start, e = inf.start + inf.count; i < e; i++) { arr[i * 3] = c.r; arr[i * 3 + 1] = c.g; arr[i * 3 + 2] = c.b; }
+  touched.add(inf.mesh);
+}
+function flush() { touched.forEach(m => m.geometry.attributes.color.needsUpdate = true); touched.clear(); dirty = true; }
+function apply(all) {
+  if (!built) return;
+  if (all) units.forEach(u => paint(u.n));
+  Object.entries(floorObjs).forEach(([f, o]) => {
+    f = +f; const hide = cutFloor != null && f > cutFloor;
+    o.units.visible = !hide; o.core.visible = !hide; o.slab.visible = !hide && cutFloor !== f;
+    if (o.roof) o.roof.visible = !hide && cutFloor !== f;
+  });
+  const vis = n => n != null && unitInfo.get(n) && unitInfo.get(n).mesh.visible;
+  outline.visible = vis(hoverN); if (outline.visible) outline.geometry = edgesFor(hoverN);
+  selOutline.visible = vis(selN) && selN !== hoverN; if (selOutline.visible) selOutline.geometry = edgesFor(selN);
+  flush();
+}
+
+/* ---------------- camera ---------------- */
+const DEF = { th: -2.72, ph: 1.08, d: 215, t: [0, 15, 6] };
+const cam = { th: DEF.th, ph: DEF.ph, d: DEF.d, t: DEF.t.slice() };
+const goal = { th: DEF.th, ph: DEF.ph, d: DEF.d, t: DEF.t.slice() };
+function updateCamera() {
+  const sp = Math.sin(cam.ph);
+  camera.position.set(cam.t[0] + cam.d * sp * Math.sin(cam.th), cam.t[1] + cam.d * Math.cos(cam.ph), cam.t[2] + cam.d * sp * Math.cos(cam.th));
+  camera.lookAt(cam.t[0], cam.t[1], cam.t[2]);
+}
+function resize() {
+  if (!built) return;
+  const w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+  renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = w / h < 0.9 ? 46 : 32; camera.updateProjectionMatrix(); dirty = true; kick();
+}
+function tick() {
+  raf = 0; if (!active || !built) return;
+  let moving = false; const k = 0.16;
+  const ease = (a, b) => { const d = b - a; if (Math.abs(d) > 1e-4) { moving = true; return a + d * k; } return b; };
+  cam.th = ease(cam.th, goal.th); cam.ph = ease(cam.ph, goal.ph); cam.d = ease(cam.d, goal.d);
+  for (let i = 0; i < 3; i++) cam.t[i] = ease(cam.t[i], goal.t[i]);
+  if (moving || dirty) { updateCamera(); renderer.render(scene, camera); placeLabels(); APP.compass(); dirty = false; }
+  if (moving) raf = requestAnimationFrame(tick);          // idle = no frames at all
+}
+const kick = () => { if (active && built && !raf) raf = requestAnimationFrame(tick); };
+const zoomBy = f => { goal.d = Math.min(420, Math.max(55, goal.d * f)); kick(); };
+
+/* ---------------- pointer ---------------- */
+let ray, ndc;
+function pick(x, y) {
+  const r = canvas.getBoundingClientRect(); ndc.set((x - r.left) / r.width * 2 - 1, -(y - r.top) / r.height * 2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObjects(pickMeshes.filter(m => m.visible), false)[0];
+  return hit ? hit.object.userData.tri[hit.faceIndex] : null;
+}
+function setHover(n) {
+  if (n === hoverN) return; const prev = hoverN; hoverN = n;
+  if (prev != null) paint(prev); if (n != null) paint(n);
+  outline.visible = n != null && unitInfo.get(n).mesh.visible; if (outline.visible) outline.geometry = edgesFor(n);
+  selOutline.visible = selN != null && selN !== hoverN && unitInfo.get(selN).mesh.visible;
+  flush(); kick();
+}
+const wheelHint = document.getElementById('wheelHint');
+let lastTouchCanvas = 0, hintT;
+function bindPointer() {
+  ray = new THREE.Raycaster(); ndc = new THREE.Vector2();
+  const ptrs = new Map(); let dragDist = 0, pinch0 = 0, lastPick = 0, pending = null;
+  canvas.addEventListener('pointerdown', e => { lastTouchCanvas = performance.now(); if (e.pointerType !== 'touch') canvas.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY }); dragDist = 0; if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); } });
+  canvas.addEventListener('pointermove', e => {
+    const p = ptrs.get(e.pointerId);
+    if (p) {
+      const dx = e.clientX - p.x, dy = e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; dragDist += Math.abs(dx) + Math.abs(dy);
+      if (ptrs.size === 1) {
+        goal.th -= dx * 0.0062;
+        if (e.pointerType !== 'touch') goal.ph = Math.min(1.42, Math.max(0.28, goal.ph - dy * 0.0045));
+        if (dragDist > 4) { canvas.classList.add('drag'); if (hoverN != null) { setHover(null); APP.hover(null); } }
+      } else if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); if (pinch0) zoomBy(pinch0 / d); pinch0 = d; }
+      kick(); return;
+    }
+    if (e.pointerType === 'touch') return;
+    pending = e;
+    const now = performance.now(); if (now - lastPick < 40) return; lastPick = now;
+    requestAnimationFrame(() => { if (!pending) return; const ev = pending; pending = null; const n = pick(ev.clientX, ev.clientY); canvas.classList.toggle('hover', n != null); setHover(n); APP.hover(n, ev.clientX, ev.clientY); });
+  });
+  const end = e => {
+    if (!ptrs.has(e.pointerId)) return;
+    ptrs.delete(e.pointerId); canvas.classList.remove('drag');
+    if (e.type === 'pointerup' && dragDist < 8 && ptrs.size === 0) { const n = pick(e.clientX, e.clientY); if (n != null) APP.open(n); }
+    if (ptrs.size < 2) pinch0 = 0;
+  };
+  canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
+  canvas.addEventListener('pointerleave', () => { pending = null; if (hoverN != null) setHover(null); APP.hover(null); });
+  // wheel: zoom only with Ctrl/⌘ (also trackpad pinch) or right after interacting with the model – otherwise let the page scroll
+  canvas.addEventListener('wheel', e => {
+    if (e.ctrlKey || e.metaKey || performance.now() - lastTouchCanvas < 2500) {
+      e.preventDefault(); lastTouchCanvas = performance.now();
+      zoomBy(1 + Math.sign(e.deltaY) * Math.min(Math.abs(e.deltaY), 100) * (e.ctrlKey ? 0.006 : 0.0012));
+    } else if (wheelHint) { wheelHint.classList.add('on'); clearTimeout(hintT); hintT = setTimeout(() => wheelHint.classList.remove('on'), 1400); }
+  }, { passive: false });
+}
+
+/* ---------------- public API ---------------- */
+function setFloor(f) {
+  cutFloor = f; buildUnitLabels(f); apply(true);
+  if (f != null) { goal.t = [0, base(f) + UH, 6]; goal.ph = Math.min(goal.ph, 0.82); goal.d = Math.min(goal.d, 190); }
+  else { goal.t = DEF.t.slice(); goal.ph = DEF.ph; }
+  kick();
+}
+window.APP3D = {
+  activate(on) { active = on; if (on) { build(); resize(); dirty = true; kick(); } },
+  refresh() { if (!built) return; apply(true); if (cutFloor != null) buildUnitLabels(cutFloor); kick(); },
+  highlight(n) { if (!built) return; setHover(n); },
+  select(n) { const prev = selN; selN = n; if (!built) return; if (prev != null) paint(prev); if (n != null) paint(n); apply(false); kick(); },
+  setFloor(f) { cutFloor = f; if (!built) return; setFloor(f); },
+  rotate(dir) { goal.th += dir * Math.PI / 4; kick(); },
+  zoom(dir) { zoomBy(dir > 0 ? 0.8 : 1.25); },
+  reset() { goal.th = DEF.th; goal.ph = DEF.ph; goal.d = DEF.d; goal.t = DEF.t.slice(); cutFloor = null; buildUnitLabels(null); apply(true); kick(); },
+  focusUnit(n) {
+    const u = APP.byN.get(n); if (!u) return; const c = cen(u); const x = wx(c[0]), z = wz(c[1]);
+    goal.t = [x * 0.5, base(u.f) + UH / 2, z * 0.5]; goal.th = Math.atan2(x, z); goal.ph = 0.95; goal.d = 150; kick();
+  },
+  northDeg() { return 29 + cam.th * 180 / Math.PI; },
+  resize() { resize(); },
+  build,
+  info() { return built ? { calls: renderer.info.render.calls, tris: renderer.info.render.triangles } : null; }
+};
+APP.onChange(() => window.APP3D.refresh());
+// pre-build in idle time so the 3D tab opens instantly
+const idle = window.requestIdleCallback || (fn => setTimeout(fn, 1200));
+if (window.__want3d || APP.state.view === '3d') window.APP3D.activate(true);
+else idle(() => { if (!built) { build(); } }, { timeout: 3000 });
+if (window.__after3d) { window.__after3d(); window.__after3d = null; }
+
+</script>
+</body>
+</html>
