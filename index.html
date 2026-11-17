@@ -81,9 +81,9 @@ h1 em{font-style:italic;color:var(--brand)}
 
 /* ---------- Viewer ---------- */
 .viewer-wrap{padding:6px 0 10px}
-.viewer{position:relative;height:min(80vh,780px);min-height:520px;border-radius:var(--radius);overflow:hidden;background:#dfe7ee;box-shadow:var(--shadow);isolation:isolate;user-select:none;-webkit-user-select:none}
+.viewer{position:relative;height:min(80vh,780px);min-height:520px;border-radius:var(--radius);overflow:hidden;overflow:clip;background:#dfe7ee;box-shadow:var(--shadow);isolation:isolate;user-select:none;-webkit-user-select:none}
 .viewer:fullscreen{border-radius:0;height:100vh}
-.stage{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.stage{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s ease;overflow:hidden;overflow:clip}
 .stage.on{opacity:1;pointer-events:auto}
 
 /* estate (aerial) */
@@ -486,7 +486,9 @@ table.hist th{color:var(--muted);font-weight:700;font-size:12px}
   .hint{display:none}
   .plan-title{left:auto;right:12px;top:66px;bottom:auto;padding:8px 12px;font-size:12px}
   .plan-title b{font-size:15px}
-  .toolbar{left:12px;transform:none}
+  .toolbar{left:12px;transform:none;gap:4px;padding:4px}
+  #zoomIn,#zoomOut,#fsBtn{display:none !important}
+  .toolbar .rot{height:42px}
   .tip{min-width:0;grid-template-columns:86px 1fr;left:12px !important;right:12px;bottom:12px;top:auto !important;position:fixed}
   .tip .tp-img{width:86px;height:74px}
   table.units thead{display:none}
@@ -1024,6 +1026,7 @@ function showTip(u, x, y){
 function hideTip(){ tip.classList.remove('on'); tipN = null; }
 
 /* ---------- views ---------- */
+$('#viewer').addEventListener('scroll', e => { e.currentTarget.scrollLeft = 0; e.currentTarget.scrollTop = 0; });
 function setView(v){
   state.view = v;
   const V = $('#viewer');

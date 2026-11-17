@@ -473,7 +473,9 @@ table.hist th{color:var(--muted);font-weight:700;font-size:12px}
   .hint{display:none}
   .plan-title{left:auto;right:12px;top:66px;bottom:auto;padding:8px 12px;font-size:12px}
   .plan-title b{font-size:15px}
-  .toolbar{left:12px;transform:none}
+  .toolbar{left:12px;transform:none;gap:4px;padding:4px}
+  #zoomIn,#zoomOut,#fsBtn{display:none !important}
+  .toolbar .rot{height:42px}
   .tip{min-width:0;grid-template-columns:86px 1fr;left:12px !important;right:12px;bottom:12px;top:auto !important;position:fixed}
   .tip .tp-img{width:86px;height:74px}
   table.units thead{display:none}
