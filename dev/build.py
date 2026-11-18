@@ -6,6 +6,7 @@ rd = lambda p: open(os.path.join(HERE, p), encoding='utf-8').read()
 test = '--test' in sys.argv
 site = '--site' in sys.argv
 IMG = 'http://localhost:8765' if test else 'https://www.jaz-bud.pl'
+R360 = 'http://localhost:8765/r360/' if test else './r360/' if site else 'https://norbnauka.github.io/jazbud-kaczorowskiego/r360/'
 
 three = rd('node_modules/three/build/three.module.min.js')
 assert '</script' not in three
@@ -20,6 +21,7 @@ html = f'''<!DOCTYPE html>
 <meta name="description" content="Mieszkania 1–4 pokojowe przy ul. Kaczorowskiego 1 w centrum Białegostoku. Interaktywna wizualizacja 3D, rzuty pięter, ceny i dostępność lokali.">
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="noindex">
+<link rel="preload" as="image" href="{R360}f00.webp">
 <link rel="icon" href="{IMG}/images/2023/logo-jazbud-lift-2.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,7 +31,7 @@ html = f'''<!DOCTYPE html>
 </head>
 <body>
 {body}
-<script>window.IMG_BASE={IMG!r};</script>
+<script>window.IMG_BASE={IMG!r};window.R360_BASE={R360!r};</script>
 <script>
 {rd('src/data.js')}
 </script>

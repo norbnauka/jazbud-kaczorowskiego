@@ -75,9 +75,14 @@
 
   <!-- ===================== VIEWER ===================== -->
   <section class="wrap viewer-wrap" id="wizualizacja">
-    <div class="viewer m-estate" id="viewer">
+    <div class="viewer m-360" id="viewer">
       <!-- estate -->
-      <div class="stage estate on" id="stEstate" data-view="estate">
+      <div class="stage s360 on" id="st360" data-view="360">
+        <img id="r360img" alt="Wizualizacja osiedla – widok 360°" draggable="false">
+        <svg id="r360svg" preserveAspectRatio="xMidYMid slice"></svg>
+        <div class="r360-load" id="r360load">Wczytywanie widoku 360°…</div>
+      </div>
+      <div class="stage estate" id="stEstate" data-view="estate">
         <svg class="aer" id="aer" viewBox="0 0 1920 1129" preserveAspectRatio="xMidYMid slice">
           <image href="{{IMG}}/images/kaczorowskiego-1/galeria/2026-ga/kaczorowskiego-galeria-8.jpg" width="1920" height="1129" preserveAspectRatio="xMidYMid slice"/>
           <polygon class="bpoly b2" points="348,282 694,302 817,350 1064,413 1085,420 1088,975 870,1069 109,620 80,456 276,402 297,337"/>
@@ -100,16 +105,19 @@
       </div>
 
       <nav class="v-tabs" id="vtabs">
-        <button data-v="estate" class="on"><svg><use href="#i-estate"/></svg><span>Osiedle</span></button>
-        <button data-v="3d"><svg><use href="#i-cube"/></svg><span class="t-long">Budynek 1 · 3D</span><span class="t-short">3D</span></button>
+        <button data-v="360" class="on"><svg><use href="#i-reset"/></svg><span class="t-long">Osiedle 360°</span><span class="t-short">360°</span></button>
+        <button data-v="3d"><svg><use href="#i-cube"/></svg><span class="t-long">Model 3D</span><span class="t-short">3D</span></button>
         <button data-v="plan"><svg><use href="#i-plan"/></svg><span class="t-long">Rzuty pięter</span><span class="t-short">Rzuty</span></button>
+        <button data-v="estate"><svg><use href="#i-camera"/></svg><span class="t-long">Z lotu ptaka</span><span class="t-short">Foto</span></button>
       </nav>
       <button class="compass" id="compass" title="Północ"><span class="needle" id="needle"></span><b>N</b></button>
       <div class="floors" id="floors" hidden></div>
       <div class="legend" id="legend"></div>
       <div class="toolbar" id="toolbar">
-        <span class="only3d">
+        <span class="rotg">
           <span class="rot"><button id="rotL" title="Obróć w lewo"><svg><use href="#i-rotl"/></svg></button><span>360°</span><button id="rotR" title="Obróć w prawo"><svg><use href="#i-rotr"/></svg></button></span>
+        </span>
+        <span class="only3d">
           <button id="zoomIn" title="Przybliż"><svg><use href="#i-plus"/></svg></button><button id="zoomOut" title="Oddal"><svg><use href="#i-minus"/></svg></button>
           <button id="resetView" title="Widok domyślny"><svg><use href="#i-reset"/></svg></button>
         </span>

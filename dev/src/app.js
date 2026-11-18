@@ -34,7 +34,7 @@ function updateFavUI(){ $('#favCount').textContent = favs.size; $('#favBtn').cla
 
 /* ---------- state & filters ---------- */
 const state = {
-  view: 'estate', overlay: true, floor: null, planFloor: 2,
+  view: '360', overlay: true, floor: null, planFloor: 2, floor360: null,
   f: { rooms: new Set(), status: new Set(['D','R','S']), fmin: 1, fmax: 11, amin: '', amax: '', pmax: '', kl: '', fav: false },
   sort: { key: 'n', dir: 1 }, shown: 30
 };
@@ -51,7 +51,7 @@ function match(u){
   return true;
 }
 const listeners = [];
-function changed(){ state.shown = 30; syncFilterUI(); renderTable(); renderPanel(); renderLegend(); renderPlan(); listeners.forEach(fn => fn()); }
+function changed(){ state.shown = 30; syncFilterUI(); renderTable(); renderPanel(); renderLegend(); renderPlan(); render360(); listeners.forEach(fn => fn()); }
 
 function filterMarkup(){
   const floorsOpt = sel => Array.from({length:11}, (_, i) => `<option value="${i+1}" ${sel===i+1?'selected':''}>${i+1}</option>`).join('');
@@ -185,6 +185,8 @@ function hl(n){
   if (n === hlN) return; hlN = n;
   $$('.upoly.hl').forEach(p => p.classList.remove('hl'));
   if (n != null) { const p = $(`#planSvg .upoly[data-n="${n}"]`); if (p) p.classList.add('hl'); }
+  $$('.rp.hl').forEach(p => p.classList.remove('hl'));
+  if (n != null) { const p = $(`#r360svg .rp[data-n="${n}"]`); if (p) p.classList.add('hl'); }
   $$('.pitem.hl').forEach(p => p.classList.remove('hl'));
   if (n != null) { const it = $(`.pitem[data-n="${n}"]`); if (it) it.classList.add('hl'); }
   if (window.APP3D) window.APP3D.highlight(n);
@@ -221,7 +223,7 @@ $('#viewer').addEventListener('scroll', e => { e.currentTarget.scrollLeft = 0; e
 function setView(v){
   state.view = v;
   const V = $('#viewer');
-  V.classList.remove('m-estate','m-3d','m-plan'); V.classList.add('m-' + v);
+  V.classList.remove('m-estate','m-3d','m-plan','m-360'); V.classList.add('m-' + v);
   $$('.stage').forEach(s => s.classList.toggle('on', s.dataset.view === v));
   $$('#vtabs button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
   $('#floors').hidden = v === 'estate';
@@ -230,6 +232,8 @@ function setView(v){
   else { if (window.APP3D) window.APP3D.activate(false); $('#hint').classList.add('hide'); }
   if (v === 'plan') renderPlan();
   if (v === 'estate') layoutEstate();
+  if (v === '360') { init360(); $('#hint').textContent = 'Przeciągnij w bok, aby obrócić osiedle · kliknij mieszkanie'; $('#hint').classList.remove('hide'); setTimeout(() => $('#hint').classList.add('hide'), 3800); }
+  else if (v === '3d') $('#hint').textContent = 'Przeciągnij, aby obrócić · Ctrl + kółko przybliża · kliknij mieszkanie';
   renderFloors();
   updateCompass();
 }
@@ -237,10 +241,10 @@ $('#vtabs').addEventListener('click', e => { const b = e.target.closest('button[
 
 /* ---------- floors rail ---------- */
 function renderFloors(){
-  const cur = state.view === 'plan' ? state.planFloor : state.floor;
+  const cur = state.view === 'plan' ? state.planFloor : state.view === '360' ? state.floor360 : state.floor;
   const counts = {}; U.forEach(u => { if (u.s === 'D' && match(u)) counts[u.f] = (counts[u.f] || 0) + 1; });
   let h = `<div class="fl-title">PIĘTRO</div>`;
-  if (state.view === '3d') h += `<button class="all ${cur == null ? 'on' : ''}" data-fl="">Całość</button>`;
+  if (state.view === '3d' || state.view === '360') h += `<button class="all ${cur == null ? 'on' : ''}" data-fl="">Całość</button>`;
   for (let f = 11; f >= 1; f--) h += `<button class="${cur === f ? 'on' : ''}" data-fl="${f}" title="Piętro ${f}: ${counts[f] || 0} dostępnych">${f}<i class="${counts[f] ? '' : 'none'}"></i></button>`;
   $('#floors').innerHTML = h;
 }
@@ -248,6 +252,7 @@ $('#floors').addEventListener('click', e => {
   const b = e.target.closest('[data-fl]'); if (!b) return;
   const f = b.dataset.fl === '' ? null : +b.dataset.fl;
   if (state.view === 'plan') { if (f) { state.planFloor = f; renderPlan(); } }
+  else if (state.view === '360') { state.floor360 = f; render360(); }
   else { state.floor = f; if (window.APP3D) window.APP3D.setFloor(f); }
   renderFloors();
 });
@@ -277,6 +282,57 @@ const planSvg = $('#planSvg');
 planSvg.addEventListener('pointermove', e => { const p = e.target.closest('.upoly'); if (p) { const n = +p.dataset.n; hl(n); if (e.pointerType !== 'touch') showTip(byN.get(n), e.clientX, e.clientY); } else { hl(null); hideTip(); } });
 planSvg.addEventListener('pointerleave', () => { hl(null); hideTip(); });
 planSvg.addEventListener('click', e => { const p = e.target.closest('.upoly'); if (p) openUnit(+p.dataset.n); });
+
+/* ---------- 360° realistic view (pre-rendered frames + per-unit polygons) ---------- */
+const R360 = { base: window.R360_BASE || './r360/', data: null, i: 0, cache: [], loading: false };
+const f360 = i => `${R360.base}f${String(i).padStart(2, '0')}.webp`;
+async function init360(){
+  if (R360.data || R360.loading) return; R360.loading = true;
+  try { R360.data = await fetch(R360.base + 'r360.json').then(r => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $('#r360load').textContent = 'Nie udało się wczytać widoku 360°.'; R360.loading = false; return; }
+  const n = R360.data.n;
+  $('#r360svg').setAttribute('viewBox', `0 0 ${R360.data.w} ${R360.data.h}`);
+  const img = $('#r360img');
+  img.onload = () => $('#r360load').classList.add('done');
+  show360(0);
+  // preload the rest, nearest first
+  const order = []; for (let k = 1; k <= n / 2; k++) { order.push(k % n, (n - k) % n); }
+  let q = [...new Set(order)];
+  const next = () => { const i = q.shift(); if (i == null) return; const im = new Image(); im.decoding = 'async'; im.onload = im.onerror = next; im.src = f360(i); R360.cache[i] = im; };
+  next(); next();
+}
+function show360(i){ if (!R360.data) return; const n = R360.data.n; R360.i = ((i % n) + n) % n; $('#r360img').src = f360(R360.i); render360(); updateCompass(); }
+function step360(d){ show360(R360.i + d); }
+function render360(){
+  if (!R360.data) return;
+  const fr = R360.data.frames[R360.i], fl = state.floor360;
+  $('#r360svg').innerHTML = Object.entries(fr).map(([n, d]) => { const u = byN.get(+n); if (!u) return ''; const cls = !match(u) ? 'dim' : (fl != null && u.f !== fl ? 'off' : ''); return `<path class="rp ${u.s} ${cls} ${+n === hlN ? 'hl' : ''}" data-n="${n}" d="${d}"/>`; }).join('');
+}
+function north360(i){
+  const a = (R360.data.start + i * R360.data.step) * Math.PI / 180, fx = -Math.cos(a), fy = -Math.sin(a), rx = fy, ry = -fx;
+  const nx = Math.sin(29 * Math.PI / 180), ny = Math.cos(29 * Math.PI / 180);
+  return Math.atan2(nx * rx + ny * ry, nx * fx + ny * fy) * 180 / Math.PI;
+}
+{
+  const st = $('#st360'), svg = $('#r360svg'); let down = null, acc = 0, moved = 0;
+  st.addEventListener('pointerdown', e => { down = e.clientX; acc = 0; moved = 0; if (e.pointerType !== 'touch') st.setPointerCapture(e.pointerId); });
+  st.addEventListener('pointermove', e => {
+    if (down != null) {
+      const dx = e.clientX - down; down = e.clientX; acc += dx; moved += Math.abs(dx);
+      if (moved > 6) { st.classList.add('drag'); hideTip(); }
+      const stepPx = Math.max(40, st.clientWidth / 22);
+      while (acc > stepPx) { acc -= stepPx; step360(-1); }
+      while (acc < -stepPx) { acc += stepPx; step360(1); }
+      return;
+    }
+    const p = e.target.closest && e.target.closest('.rp');
+    if (p) { const n = +p.dataset.n; hl(n); if (e.pointerType !== 'touch') showTip(byN.get(n), e.clientX, e.clientY); } else { hl(null); hideTip(); }
+  });
+  const up = e => { if (down == null) return; down = null; st.classList.remove('drag'); if (moved < 6) { const p = document.elementFromPoint(e.clientX, e.clientY); const rp = p && p.closest && p.closest('.rp'); if (rp) openUnit(+rp.dataset.n); } };
+  st.addEventListener('pointerup', up); st.addEventListener('pointercancel', () => { down = null; st.classList.remove('drag'); });
+  st.addEventListener('pointerleave', () => { if (down == null) { hl(null); hideTip(); } });
+  addEventListener('keydown', e => { if (state.view !== '360' || $('#modal').classList.contains('on')) return; const r = $('#viewer').getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; if (e.key === 'ArrowLeft') step360(-1); if (e.key === 'ArrowRight') step360(1); });
+}
 
 /* ---------- estate (aerial) view ---------- */
 const AER = { w: 1920, h: 1129 };
@@ -323,12 +379,13 @@ $('#ovBtn').addEventListener('click', () => {
   $('#ovBtn use').setAttribute('href', state.overlay ? '#i-eye' : '#i-eyeoff');
   $('#stEstate').classList.toggle('overlay-off', !state.overlay);
   $('#stPlan').classList.toggle('overlay-off', !state.overlay);
+  $('#st360').classList.toggle('overlay-off', !state.overlay);
   if (window.APP3D) window.APP3D.refresh();
 });
 $('#fsBtn').addEventListener('click', () => { const v = $('#viewer'); if (document.fullscreenElement) document.exitFullscreen(); else if (v.requestFullscreen) v.requestFullscreen(); else if (v.webkitRequestFullscreen) v.webkitRequestFullscreen(); });
 document.addEventListener('fullscreenchange', () => setTimeout(() => { layoutEstate(); if (window.APP3D) window.APP3D.resize(); }, 60));
-$('#rotL').addEventListener('click', () => window.APP3D && window.APP3D.rotate(-1));
-$('#rotR').addEventListener('click', () => window.APP3D && window.APP3D.rotate(1));
+$('#rotL').addEventListener('click', () => state.view === '360' ? step360(-1) : window.APP3D && window.APP3D.rotate(-1));
+$('#rotR').addEventListener('click', () => state.view === '360' ? step360(1) : window.APP3D && window.APP3D.rotate(1));
 $('#zoomIn').addEventListener('click', () => window.APP3D && window.APP3D.zoom(1));
 $('#zoomOut').addEventListener('click', () => window.APP3D && window.APP3D.zoom(-1));
 $('#resetView').addEventListener('click', () => { state.floor = null; renderFloors(); window.APP3D && window.APP3D.reset(); });
@@ -336,6 +393,7 @@ function updateCompass(){
   let deg = 29; // plan north is ~29° clockwise from drawing "up"
   if (state.view === '3d' && window.APP3D) deg = window.APP3D.northDeg();
   if (state.view === 'estate') deg = 50;
+  if (state.view === '360' && R360.data) deg = north360(R360.i);
   $('#needle').style.transform = `rotate(${deg}deg)`;
 }
 
@@ -506,5 +564,6 @@ $$('[data-filters]').forEach(bindFilters);
 renderKpis(); buildEstate(); buildGallery(); buildContact();
 changed(); updateFavUI(); renderFloors();
 requestAnimationFrame(layoutEstate);
+setView('360');
 if (/^#M\d+$/.test(location.hash)) setTimeout(() => openUnit(+location.hash.slice(2)), 200);
 })();
